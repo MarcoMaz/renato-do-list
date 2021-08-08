@@ -1,5 +1,9 @@
-export const View = () => {
-	return(
-		<div>View</div>
-	)
+import { FunctionComponent } from 'react';
+
+interface ViewProps {
+  label: string;
 }
+
+export const View: FunctionComponent<ViewProps> = ({ label }) => {
+  return <div>{label}</div>;
+};
