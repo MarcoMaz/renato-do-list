@@ -1,7 +1,7 @@
 {
-  "name": "renato-do-list",
+  "name": "project-react-template",
   "author": "Marco Mazzai",
-  "homepage": "https://marcomaz.github.io/renato-do-list",
+  "homepage": "https://marcomaz.github.io/project-react-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
