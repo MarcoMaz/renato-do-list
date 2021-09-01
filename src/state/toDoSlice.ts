@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from './store';
 
 // Define a type for the slice state
-interface CounterState {
+interface ToDo {
   id: number;
   label: string;
   isCompleted: boolean;
@@ -12,10 +12,11 @@ interface CounterState {
   urgency: number;
   fun: number;
   total: number;
+  dueDate: string;
 }
 
 // Define the initial state using that type
-const initialState: CounterState[] = [
+const initialState: ToDo[] = [
   {
     id: 0,
     label: 'batman',
@@ -24,6 +25,7 @@ const initialState: CounterState[] = [
     urgency: 100,
     fun: 3,
     total: 106,
+    dueDate: '1984-07-08',
   },
   {
     id: 1,
@@ -33,11 +35,12 @@ const initialState: CounterState[] = [
     urgency: 1,
     fun: 1,
     total: 4,
+    dueDate: '1984-07-08',
   },
 ];
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const toDoSlice = createSlice({
+  name: 'toDo',
   initialState,
   reducers: {
     addTodo: (state, action) => {
@@ -50,25 +53,26 @@ export const counterSlice = createSlice({
         fun: action.payload.fun,
         total:
           action.payload.speed + action.payload.urgency + action.payload.fun,
+        dueDate: action.payload.dueDate,
       };
       state.push(newTodo);
     },
     toggleTodo: (state, action) => {
-      const todoss = state.find((todo) => todo.id === action.payload);
-      if (todoss) {
-        todoss.isCompleted = !todoss.isCompleted;
+      const todos = state.find((todo) => todo.id === action.payload);
+      if (todos) {
+        todos.isCompleted = !todos.isCompleted;
       }
     },
     removeTodo: (state, action) => {
-      const yeah = state.filter((todo) => todo.id !== action.payload);
-      return yeah;
+      const todos = state.filter((todo) => todo.id !== action.payload);
+      return todos;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTodo, toggleTodo, removeTodo } = counterSlice.actions;
+export const { addTodo, toggleTodo, removeTodo } = toDoSlice.actions;
 
-export const selectCount = (state: RootState) => state.counter;
+export const selectCount = (state: RootState) => state.toDo;
 
-export default counterSlice.reducer;
+export default toDoSlice.reducer;
