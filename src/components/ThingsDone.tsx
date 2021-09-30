@@ -1,33 +1,36 @@
 import { FunctionComponent } from 'react';
-import { ToDo } from '../state/toDoSlice';
+import { taskProps } from '../state/taskSlice';
 
 import Task from './Task';
 
 interface ThingsDoneProps {
   numberOfThingsDone: number;
   numberOfThingsTotal: number;
-  todos: ToDo[];
+  tasks: taskProps[];
 }
 
 const ThingsDone: FunctionComponent<ThingsDoneProps> = ({
   numberOfThingsDone,
   numberOfThingsTotal,
-  todos,
+  tasks,
 }) => {
+  const counter = `${numberOfThingsDone}/${numberOfThingsTotal}`;
+
+  const taskCounter = numberOfThingsTotal === 0 ? '(vuota)' : `(${counter})`;
+
   return (
     <>
-      <h2>
-        Things done{' '}
-        <span>{`(${numberOfThingsDone}/${numberOfThingsTotal})`}</span>
-      </h2>
+      <h2>Things done</h2>
+      <h3>{taskCounter}</h3>
       <ul>
-        {todos
-          .filter((todo) => todo.isCompleted)
-          .map((todo, index) => (
+        {tasks
+          .filter((task) => task.isCompleted)
+          .map((task, index) => (
             <Task
-              isCompleted={todo.isCompleted}
+              key={index}
+              isCompleted={task.isCompleted}
               id={index}
-              label={todo.label}
+              label={task.label}
             />
           ))}
       </ul>

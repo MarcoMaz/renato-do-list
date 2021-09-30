@@ -3,15 +3,15 @@ import { FunctionComponent } from 'react';
 interface CheckboxProps {
   id: number;
   isCompleted: boolean;
-  onChange: () => void;
   label: string;
+  onChange: () => void;
 }
 
 const Checkbox: FunctionComponent<CheckboxProps> = ({
   id,
   isCompleted,
-  onChange,
   label,
+  onChange,
 }) => {
   return (
     <>
@@ -21,7 +21,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
         type="checkbox"
         checked={isCompleted}
       />
-      {label}
+      <span aria-hidden="true">{label}</span>
     </>
   );
 };

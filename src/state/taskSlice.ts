@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from './store';
 
 // Define a type for the slice state
-export interface ToDo {
+export interface taskProps {
   id: number;
   label: string;
   isCompleted: boolean;
@@ -12,39 +12,39 @@ export interface ToDo {
   urgency: number;
   fun: number;
   total: number;
-  dueDate: string;
+  isClicked: boolean;
 }
 
 // Define the initial state using that type
-const initialState: ToDo[] = [
+const initialState: taskProps[] = [
   {
     id: 0,
     label: 'batman',
-    isCompleted: false,
-    speed: 3,
-    urgency: 100,
-    fun: 3,
-    total: 106,
-    dueDate: '1984-07-08',
-  },
-  {
-    id: 1,
-    label: 'robin',
     isCompleted: false,
     speed: 2,
     urgency: 1,
     fun: 1,
     total: 4,
-    dueDate: '1984-07-08',
+    isClicked: false,
+  },
+  {
+    id: 1,
+    label: 'robin',
+    isCompleted: false,
+    speed: 1,
+    urgency: 1,
+    fun: 1,
+    total: 3,
+    isClicked: false,
   },
 ];
 
-export const toDoSlice = createSlice({
-  name: 'toDo',
+export const taskSlice = createSlice({
+  name: 'task',
   initialState,
   reducers: {
-    addTodo: (state, action) => {
-      const newTodo = {
+    addTask: (state, action) => {
+      const newTask = {
         id: Date.now(),
         label: action.payload.label,
         isCompleted: false,
@@ -53,17 +53,17 @@ export const toDoSlice = createSlice({
         fun: action.payload.fun,
         total:
           action.payload.speed + action.payload.urgency + action.payload.fun,
-        dueDate: action.payload.dueDate,
+        isClicked: false,
       };
-      state.push(newTodo);
+      state.push(newTask);
     },
-    toggleTodo: (state, action) => {
+    toggleTask: (state, action) => {
       const todos = state.find((todo) => todo.id === action.payload);
       if (todos) {
         todos.isCompleted = !todos.isCompleted;
       }
     },
-    removeTodo: (state, action) => {
+    removeTask: (state, action) => {
       const todos = state.filter((todo) => todo.id !== action.payload);
       return todos;
     },
@@ -71,8 +71,8 @@ export const toDoSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addTodo, toggleTodo, removeTodo } = toDoSlice.actions;
+export const { addTask, toggleTask, removeTask } = taskSlice.actions;
 
-export const selectCount = (state: RootState) => state.toDo;
+export const selectCount = (state: RootState) => state.task;
 
-export default toDoSlice.reducer;
+export default taskSlice.reducer;

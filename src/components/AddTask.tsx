@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useAppDispatch } from '../state/hooks';
 
-import { addTodo } from '../state/toDoSlice';
+import { addTask } from '../state/taskSlice';
 
 import Button from './core/Button';
 import InputText from './core/InputText';
@@ -39,7 +39,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   const onSubmit = (event: any) => {
     event.preventDefault();
     dispatch(
-      addTodo({
+      addTask({
         label: itemText,
         speed,
         urgency,
@@ -51,21 +51,22 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="AddTask" onSubmit={onSubmit}>
+      <Button
+        type="button"
+        label="<--- lista"
+        onClick={() => setShowCreateNew(false)}
+      />
+      <Button type="submit" label="fatto" isDisabled={!itemText} />
+      <h2>Aggiungi un&apos; attivita&apos;</h2>
       <InputText
         itemText={itemText}
         setItemText={setItemText}
-        placeholder="Add Todo"
+        placeholder="Cosa devi fare? Scrivilo qui"
       />
-      <Button type="submit" label="Submit" />
       <Speed speed={speed} setSpeed={setSpeed} />
       <Urgency urgency={urgency} setUrgency={setUrgency} />
       <Fun fun={fun} setFun={setFun} />
-      <Button
-        type="button"
-        label="Click me if you change your mind"
-        onClick={() => setShowCreateNew(false)}
-      />
     </form>
   );
 };

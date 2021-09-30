@@ -2,14 +2,14 @@ import { FunctionComponent } from 'react';
 
 interface InputTextProps {
   itemText: string;
-  setItemText: (event: string) => void;
   placeholder: string;
+  setItemText: (event: string) => void;
 }
 
 const InputText: FunctionComponent<InputTextProps> = ({
   itemText,
-  setItemText,
   placeholder,
+  setItemText,
 }) => {
   return (
     <input

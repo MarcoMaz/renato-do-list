@@ -21,21 +21,21 @@ import AddTask from './components/AddTask';
 const persistor = persistStore(store);
 
 function App() {
-  const todos = useAppSelector((state) => state.toDo);
+  const tasks = useAppSelector((state) => state.task);
   const completedTodos = useAppSelector((state) =>
-    state.toDo.map((todo) => todo.isCompleted),
+    state.task.map((task) => task.isCompleted),
   );
 
-  const numberOfThingsTotal = todos.length;
+  const numberOfThingsTotal = tasks.length;
   const numberOfThingsDone = completedTodos.filter(Boolean).length;
   const numberOfThingsTodo = numberOfThingsTotal - numberOfThingsDone;
 
-  const [itemText, setItemText] = useState<string>('');
+  const [itemText, setItemText] = useState('');
   const [speed, setSpeed] = useState(0);
   const [urgency, setUrgency] = useState(0);
   const [fun, setFun] = useState(0);
 
-  const [showCreateNew, setShowCreateNew] = useState(false);
+  const [showAddTask, setShowAddTask] = useState(false);
 
   return (
     <Provider store={store}>
@@ -44,28 +44,30 @@ function App() {
           <ThingsTodo
             numberOfThingsTodo={numberOfThingsTodo}
             numberOfThingsTotal={numberOfThingsTotal}
-            todos={todos}
+            tasks={tasks}
             urgency={urgency}
             fun={fun}
           />
           <ThingsDone
             numberOfThingsDone={numberOfThingsDone}
             numberOfThingsTotal={numberOfThingsTotal}
-            todos={todos}
+            tasks={tasks}
           />
-          <Button
-            type="button"
-            label="ADD TODO"
-            onClick={() => setShowCreateNew(true)}
-          />
-          {showCreateNew && (
+          {!showAddTask && (
+            <Button
+              type="button"
+              label="+"
+              onClick={() => setShowAddTask(true)}
+            />
+          )}
+          {showAddTask && (
             <AddTask
               itemText={itemText}
               speed={speed}
               urgency={urgency}
               fun={fun}
               setItemText={setItemText}
-              setShowCreateNew={setShowCreateNew}
+              setShowCreateNew={setShowAddTask}
               setSpeed={setSpeed}
               setUrgency={setUrgency}
               setFun={setFun}

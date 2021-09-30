@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useAppDispatch } from '../state/hooks';
 
-import { toggleTodo } from '../state/toDoSlice';
+import { toggleTask } from '../state/taskSlice';
 
 import Checkbox from './core/Checkbox';
 
@@ -20,7 +20,7 @@ const Task: FunctionComponent<TaskProps> = ({ isCompleted, id, label }) => {
         id={id}
         isCompleted={isCompleted}
         label={label}
-        onChange={() => dispatch(toggleTodo(id))}
+        onChange={() => dispatch(toggleTask(id))}
       />
     </li>
   );

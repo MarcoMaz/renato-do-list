@@ -3,10 +3,10 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
-import counterReducer from './toDoSlice';
+import taskReducer from './taskSlice';
 
 const reducers = combineReducers({
-  toDo: counterReducer,
+  task: taskReducer,
 });
 
 const persistConfig = {
