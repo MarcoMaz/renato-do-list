@@ -16,12 +16,14 @@ const Task: FunctionComponent<TaskProps> = ({ isCompleted, id, label }) => {
 
   return (
     <li>
-      <Checkbox
-        id={id}
-        isCompleted={isCompleted}
-        label={label}
-        onChange={() => dispatch(toggleTask(id))}
-      />
+      <button type="button">
+        <Checkbox
+          id={id}
+          isCompleted={isCompleted}
+          label={label}
+          onChange={() => dispatch(toggleTask(id))}
+        />
+      </button>
     </li>
   );
 };

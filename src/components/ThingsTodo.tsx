@@ -8,8 +8,6 @@ interface ThingsTodoProps {
   numberOfThingsTodo: number;
   numberOfThingsTotal: number;
   tasks: taskProps[];
-  urgency: number;
-  fun: number;
 }
 
 const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({

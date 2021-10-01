@@ -30,10 +30,10 @@ function App() {
   const numberOfThingsDone = completedTodos.filter(Boolean).length;
   const numberOfThingsTodo = numberOfThingsTotal - numberOfThingsDone;
 
-  const [itemText, setItemText] = useState('');
-  const [speed, setSpeed] = useState(0);
-  const [urgency, setUrgency] = useState(0);
-  const [fun, setFun] = useState(0);
+  const [newItemText, setItemText] = useState('');
+  const [newSpeed, setSpeed] = useState(0);
+  const [newUrgency, setUrgency] = useState(0);
+  const [newFun, setFun] = useState(0);
 
   const [showAddTask, setShowAddTask] = useState(false);
 
@@ -45,8 +45,6 @@ function App() {
             numberOfThingsTodo={numberOfThingsTodo}
             numberOfThingsTotal={numberOfThingsTotal}
             tasks={tasks}
-            urgency={urgency}
-            fun={fun}
           />
           <ThingsDone
             numberOfThingsDone={numberOfThingsDone}
@@ -62,10 +60,10 @@ function App() {
           )}
           {showAddTask && (
             <AddTask
-              itemText={itemText}
-              speed={speed}
-              urgency={urgency}
-              fun={fun}
+              itemText={newItemText}
+              speed={newSpeed}
+              urgency={newUrgency}
+              fun={newFun}
               setItemText={setItemText}
               setShowCreateNew={setShowAddTask}
               setSpeed={setSpeed}
@@ -73,6 +71,7 @@ function App() {
               setFun={setFun}
             />
           )}
+          <h3>you selected</h3>
         </div>
       </PersistGate>
     </Provider>
