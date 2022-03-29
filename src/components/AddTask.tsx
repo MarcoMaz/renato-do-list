@@ -11,10 +11,12 @@ import Urgency from './Urgency';
 import Fun from './Fun';
 
 interface AddTaskProps {
+  editingText: string;
   itemText: string;
   speed: number;
   urgency: number;
   fun: number;
+  setEditingText: (event: string) => void;
   setItemText: (event: string) => void;
   setShowCreateNew: (event: boolean) => void;
   setSpeed: (event: number) => void;
@@ -23,6 +25,7 @@ interface AddTaskProps {
 }
 
 const AddTask: FunctionComponent<AddTaskProps> = ({
+  editingText,
   itemText,
   speed,
   urgency,
@@ -32,6 +35,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   setSpeed,
   setUrgency,
   setFun,
+  setEditingText,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -59,6 +63,11 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
       />
       <Button type="submit" label="fatto" isDisabled={!itemText} />
       <h1>YOU SELECTED...</h1>
+      <input
+        type="text"
+        onChange={(e) => setEditingText(e.target.value)}
+        value={editingText}
+      />
       <h2>Aggiungi un&apos; attivita&apos;</h2>
       <InputText
         itemText={itemText}

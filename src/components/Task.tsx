@@ -10,6 +10,7 @@ interface TaskProps {
   id: number;
   label: string;
   setShowAddTask?: (event: boolean) => void;
+  setEditingText?: (event: string) => void;
 }
 
 const Task: FunctionComponent<TaskProps> = ({
@@ -17,15 +18,22 @@ const Task: FunctionComponent<TaskProps> = ({
   id,
   label,
   setShowAddTask,
+  setEditingText,
 }) => {
   const dispatch = useAppDispatch();
 
+  const handleClick = () => {
+    if (setShowAddTask) {
+      setShowAddTask(true);
+    }
+    if (setEditingText) {
+      setEditingText(label);
+    }
+  };
+
   return (
     <li>
-      <button
-        type="button"
-        onClick={() => (setShowAddTask ? setShowAddTask(true) : null)}
-      >
+      <button type="button" onClick={handleClick}>
         <Checkbox
           id={id}
           isCompleted={isCompleted}

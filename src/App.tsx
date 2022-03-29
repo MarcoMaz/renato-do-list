@@ -35,6 +35,9 @@ function App() {
   const [newUrgency, setUrgency] = useState(0);
   const [newFun, setFun] = useState(0);
 
+  // const [todoEditing, setTodoEditing] = useState(null);
+  const [editingText, setEditingText] = useState('');
+
   const [showAddTask, setShowAddTask] = useState(false);
 
   return (
@@ -46,6 +49,7 @@ function App() {
             numberOfThingsTotal={numberOfThingsTotal}
             tasks={tasks}
             setShowAddTask={setShowAddTask}
+            setEditingText={setEditingText}
           />
           <ThingsDone
             numberOfThingsDone={numberOfThingsDone}
@@ -61,6 +65,8 @@ function App() {
           )}
           {showAddTask && (
             <AddTask
+              setEditingText={setEditingText}
+              editingText={editingText}
               itemText={newItemText}
               speed={newSpeed}
               urgency={newUrgency}
