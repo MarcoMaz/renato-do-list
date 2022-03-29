@@ -8,12 +8,14 @@ interface ThingsTodoProps {
   numberOfThingsTodo: number;
   numberOfThingsTotal: number;
   tasks: taskProps[];
+  setShowAddTask: (event: boolean) => void;
 }
 
 const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   numberOfThingsTodo,
   numberOfThingsTotal,
   tasks,
+  setShowAddTask,
 }) => {
   const counter = `${numberOfThingsTodo}/${numberOfThingsTotal}`;
 
@@ -29,7 +31,13 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
           .sort((a, b) => b.total - a.total)
           .map(({ id, isCompleted, label }) => {
             return (
-              <Task key={id} id={id} isCompleted={isCompleted} label={label} />
+              <Task
+                key={id}
+                id={id}
+                isCompleted={isCompleted}
+                label={label}
+                setShowAddTask={setShowAddTask}
+              />
             );
           })}
       </ul>

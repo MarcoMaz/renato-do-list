@@ -45,6 +45,7 @@ function App() {
             numberOfThingsTodo={numberOfThingsTodo}
             numberOfThingsTotal={numberOfThingsTotal}
             tasks={tasks}
+            setShowAddTask={setShowAddTask}
           />
           <ThingsDone
             numberOfThingsDone={numberOfThingsDone}
@@ -71,7 +72,6 @@ function App() {
               setFun={setFun}
             />
           )}
-          <h3>you selected</h3>
         </div>
       </PersistGate>
     </Provider>

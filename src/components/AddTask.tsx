@@ -58,6 +58,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
         onClick={() => setShowCreateNew(false)}
       />
       <Button type="submit" label="fatto" isDisabled={!itemText} />
+      <h1>YOU SELECTED...</h1>
       <h2>Aggiungi un&apos; attivita&apos;</h2>
       <InputText
         itemText={itemText}
