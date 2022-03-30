@@ -49,6 +49,7 @@ function App() {
             tasks={tasks}
             setSpeed={setSpeed}
             setUrgency={setUrgency}
+            setFun={setFun}
             setEditIndex={setEditIndex}
             setShowAddTask={setShowAddTask}
             setItemText={setItemText}

@@ -8,7 +8,7 @@ import InputText from './core/InputText';
 
 import Speed from './Speed';
 import Urgency from './Urgency';
-// import Fun from './Fun';
+import Fun from './Fun';
 
 interface AddTaskProps {
   editIndex: number;
@@ -33,7 +33,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   setShowCreateNew,
   setSpeed,
   setUrgency,
-  // setFun,
+  setFun,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -53,7 +53,9 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   };
 
   const handleClick = () => {
-    dispatch(editTask({ index: editIndex, label: itemText, speed, urgency }));
+    dispatch(
+      editTask({ index: editIndex, label: itemText, speed, urgency, fun }),
+    );
     setItemText('');
     setShowCreateNew(false);
   };
@@ -65,6 +67,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   const goBack = () => {
     setSpeed(30);
     setUrgency(50);
+    setFun(11);
     setItemText('');
     setShowCreateNew(false);
   };
@@ -75,6 +78,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
       <Button type="submit" label="fatto" isDisabled={!itemText} />
       <h1>SPEED...{speed}</h1>
       <h1>URGENCY...{urgency}</h1>
+      <h1>FUN...{fun}</h1>
       <input type="text" onChange={handleChange} value={itemText} />
       <button type="button" onClick={handleClick}>
         Edit an entry
@@ -87,7 +91,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
       />
       <Speed speed={speed} setSpeed={setSpeed} />
       <Urgency urgency={urgency} setUrgency={setUrgency} />
-      {/* <Fun fun={fun} setFun={setFun} /> */}
+      <Fun fun={fun} setFun={setFun} />
     </form>
   );
 };
