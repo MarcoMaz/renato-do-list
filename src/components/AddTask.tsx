@@ -53,7 +53,8 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   };
 
   const handleClick = () => {
-    dispatch(editTask({ index: editIndex, label: itemText }));
+    dispatch(editTask({ index: editIndex, label: itemText, speed }));
+    setItemText('');
     setShowCreateNew(false);
   };
 
@@ -61,13 +62,15 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setItemText(e.target.value);
   };
 
+  const goBack = () => {
+    setSpeed(30);
+    setItemText('');
+    setShowCreateNew(false);
+  };
+
   return (
     <form className="AddTask" onSubmit={onSubmit}>
-      <Button
-        type="button"
-        label="<--- lista"
-        onClick={() => setShowCreateNew(false)}
-      />
+      <Button type="button" label="<--- lista" onClick={goBack} />
       <Button type="submit" label="fatto" isDisabled={!itemText} />
       <h1>SPEED...{speed}</h1>
       <input type="text" onChange={handleChange} value={itemText} />

@@ -5,6 +5,7 @@ import { taskProps } from '../state/taskSlice';
 import Task from './Task';
 
 interface ThingsTodoProps {
+  setSpeed: (event: number) => void;
   numberOfThingsTodo: number;
   numberOfThingsTotal: number;
   setEditIndex: (event: number) => void;
@@ -14,6 +15,7 @@ interface ThingsTodoProps {
 }
 
 const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
+  setSpeed,
   numberOfThingsTodo,
   numberOfThingsTotal,
   tasks,
@@ -33,9 +35,11 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
         {tasks
           .filter((task) => !task.isCompleted)
           .sort((a, b) => b.total - a.total)
-          .map(({ id, isCompleted, label }) => {
+          .map(({ id, isCompleted, label, speed }) => {
             return (
               <Task
+                speed={speed}
+                setSpeed={setSpeed}
                 key={id}
                 setEditIndex={setEditIndex}
                 id={id}

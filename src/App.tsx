@@ -31,7 +31,7 @@ function App() {
   const numberOfThingsTodo = numberOfThingsTotal - numberOfThingsDone;
 
   const [newItemText, setItemText] = useState('');
-  const [newSpeed, setSpeed] = useState(666);
+  const [newSpeed, setSpeed] = useState(30);
   const [newUrgency, setUrgency] = useState(0);
   const [newFun, setFun] = useState(0);
 
@@ -47,6 +47,7 @@ function App() {
             numberOfThingsTodo={numberOfThingsTodo}
             numberOfThingsTotal={numberOfThingsTotal}
             tasks={tasks}
+            setSpeed={setSpeed}
             setEditIndex={setEditIndex}
             setShowAddTask={setShowAddTask}
             setItemText={setItemText}

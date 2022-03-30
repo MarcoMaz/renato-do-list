@@ -53,6 +53,7 @@ const Task: FunctionComponent<TaskProps> = ({
           onChange={() => dispatch(toggleTask(id))}
         />
       </button>
+      <strong>speed is {speed}</strong>
     </li>
   );
 };

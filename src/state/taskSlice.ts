@@ -31,7 +31,7 @@ const initialState: taskProps[] = [
     id: 1,
     label: 'robin',
     isCompleted: false,
-    speed: 1,
+    speed: 2433,
     urgency: 1,
     fun: 1,
     total: 3,
@@ -61,6 +61,7 @@ export const taskSlice = createSlice({
       const todos = state.find((todo) => todo.id === action.payload.index);
       if (todos) {
         todos.label = action.payload.label;
+        todos.speed = action.payload.speed;
       }
     },
     toggleTask: (state, action) => {
