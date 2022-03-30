@@ -32,7 +32,7 @@ function App() {
 
   const [newItemText, setItemText] = useState('');
   const [newSpeed, setSpeed] = useState(30);
-  const [newUrgency, setUrgency] = useState(0);
+  const [newUrgency, setUrgency] = useState(50);
   const [newFun, setFun] = useState(0);
 
   const [editIndex, setEditIndex] = useState(0);
@@ -48,6 +48,7 @@ function App() {
             numberOfThingsTotal={numberOfThingsTotal}
             tasks={tasks}
             setSpeed={setSpeed}
+            setUrgency={setUrgency}
             setEditIndex={setEditIndex}
             setShowAddTask={setShowAddTask}
             setItemText={setItemText}

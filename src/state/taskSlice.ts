@@ -22,7 +22,7 @@ const initialState: taskProps[] = [
     label: 'batman',
     isCompleted: false,
     speed: 666,
-    urgency: 1,
+    urgency: 50,
     fun: 1,
     total: 4,
     isClicked: false,
@@ -32,7 +32,7 @@ const initialState: taskProps[] = [
     label: 'robin',
     isCompleted: false,
     speed: 2433,
-    urgency: 1,
+    urgency: 1800,
     fun: 1,
     total: 3,
     isClicked: false,
@@ -62,6 +62,7 @@ export const taskSlice = createSlice({
       if (todos) {
         todos.label = action.payload.label;
         todos.speed = action.payload.speed;
+        todos.urgency = action.payload.urgency;
       }
     },
     toggleTask: (state, action) => {

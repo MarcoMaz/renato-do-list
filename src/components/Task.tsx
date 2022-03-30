@@ -11,6 +11,8 @@ interface TaskProps {
   label: string;
   speed?: number;
   setSpeed?: (event: number) => void;
+  urgency?: number;
+  setUrgency?: (event: number) => void;
   setEditIndex?: (event: number) => void;
   setShowAddTask?: (event: boolean) => void;
   setItemText?: (event: string) => void;
@@ -22,6 +24,8 @@ const Task: FunctionComponent<TaskProps> = ({
   label,
   speed,
   setSpeed,
+  urgency,
+  setUrgency,
   setEditIndex,
   setShowAddTask,
   setItemText,
@@ -40,6 +44,9 @@ const Task: FunctionComponent<TaskProps> = ({
     }
     if (speed && setSpeed) {
       setSpeed(speed);
+    }
+    if (urgency && setUrgency) {
+      setUrgency(urgency);
     }
   };
 
@@ -60,7 +67,8 @@ const Task: FunctionComponent<TaskProps> = ({
           onChange={handleCheckbox}
         />
       </button>
-      <strong>speed is {speed}</strong>
+      <strong>speed is {speed}</strong> ||
+      <strong> urgency is {urgency}</strong>
     </li>
   );
 };

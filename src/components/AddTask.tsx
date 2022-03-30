@@ -7,7 +7,7 @@ import Button from './core/Button';
 import InputText from './core/InputText';
 
 import Speed from './Speed';
-// import Urgency from './Urgency';
+import Urgency from './Urgency';
 // import Fun from './Fun';
 
 interface AddTaskProps {
@@ -32,7 +32,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   setItemText,
   setShowCreateNew,
   setSpeed,
-  // setUrgency,
+  setUrgency,
   // setFun,
 }) => {
   const dispatch = useAppDispatch();
@@ -53,7 +53,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   };
 
   const handleClick = () => {
-    dispatch(editTask({ index: editIndex, label: itemText, speed }));
+    dispatch(editTask({ index: editIndex, label: itemText, speed, urgency }));
     setItemText('');
     setShowCreateNew(false);
   };
@@ -64,6 +64,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
 
   const goBack = () => {
     setSpeed(30);
+    setUrgency(50);
     setItemText('');
     setShowCreateNew(false);
   };
@@ -73,6 +74,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
       <Button type="button" label="<--- lista" onClick={goBack} />
       <Button type="submit" label="fatto" isDisabled={!itemText} />
       <h1>SPEED...{speed}</h1>
+      <h1>URGENCY...{urgency}</h1>
       <input type="text" onChange={handleChange} value={itemText} />
       <button type="button" onClick={handleClick}>
         Edit an entry
@@ -84,8 +86,8 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
         placeholder="Cosa devi fare? Scrivilo qui"
       />
       <Speed speed={speed} setSpeed={setSpeed} />
-      {/* <Urgency urgency={urgency} setUrgency={setUrgency} />
-      <Fun fun={fun} setFun={setFun} /> */}
+      <Urgency urgency={urgency} setUrgency={setUrgency} />
+      {/* <Fun fun={fun} setFun={setFun} /> */}
     </form>
   );
 };

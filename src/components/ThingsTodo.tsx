@@ -6,6 +6,7 @@ import Task from './Task';
 
 interface ThingsTodoProps {
   setSpeed: (event: number) => void;
+  setUrgency: (event: number) => void;
   numberOfThingsTodo: number;
   numberOfThingsTotal: number;
   setEditIndex: (event: number) => void;
@@ -16,6 +17,7 @@ interface ThingsTodoProps {
 
 const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   setSpeed,
+  setUrgency,
   numberOfThingsTodo,
   numberOfThingsTotal,
   tasks,
@@ -35,11 +37,13 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
         {tasks
           .filter((task) => !task.isCompleted)
           .sort((a, b) => b.total - a.total)
-          .map(({ id, isCompleted, label, speed }) => {
+          .map(({ id, isCompleted, label, speed, urgency }) => {
             return (
               <Task
                 speed={speed}
                 setSpeed={setSpeed}
+                urgency={urgency}
+                setUrgency={setUrgency}
                 key={id}
                 setEditIndex={setEditIndex}
                 id={id}
