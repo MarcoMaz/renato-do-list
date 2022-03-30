@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 import LabelIcon from './core/LabelIcon';
-// import RadioButton from './core/RadioButton';
+import RadioButton from './core/RadioButton';
 
 interface SpeedProps {
   speed: number;
@@ -9,7 +9,6 @@ interface SpeedProps {
 }
 
 const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
-  // const speedOptions = ['poco', 'medio', 'molto'];
   const speedOptions = [
     {
       id: 30,
@@ -39,17 +38,14 @@ const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
           }
         };
         return (
-          <label key={index} htmlFor={x.label}>
-            <input
-              checked={x.id === speed}
-              onChange={handleInput}
-              type="radio"
-              id={x.label}
-              name="drone"
-              value={x.label}
-            />
-            {x.label}
-          </label>
+          <RadioButton
+            key={index}
+            label={x.label}
+            isChecked={x.id === speed}
+            handleChange={handleInput}
+            name="drone"
+            value={x.label}
+          />
         );
       })}
     </div>

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 import LabelIcon from './core/LabelIcon';
-// import RadioButton from './core/RadioButton';
+import RadioButton from './core/RadioButton';
 
 interface UrgencyProps {
   urgency: number;
@@ -32,17 +32,14 @@ const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
           }
         };
         return (
-          <label key={index} htmlFor={x.label}>
-            <input
-              checked={x.id === urgency}
-              onChange={handleInput}
-              type="radio"
-              id={x.label}
-              name="drone"
-              value={x.label}
-            />
-            {x.label}
-          </label>
+          <RadioButton
+            key={index}
+            label={x.label}
+            isChecked={x.id === urgency}
+            handleChange={handleInput}
+            name="mazzinga"
+            value={x.label}
+          />
         );
       })}
     </div>

@@ -1,32 +1,31 @@
-import { FunctionComponent } from 'react';
+// eslint-disable-next-line no-use-before-define
+import React, { FunctionComponent } from 'react';
 
 interface RadioButtonProps {
   label: string;
-  type: string;
-  value: number;
-  speed: number;
   isChecked: boolean;
-  setValue: (event: number) => void;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
 }
 
 const RadioButton: FunctionComponent<RadioButtonProps> = ({
   label,
-  type,
-  value,
   isChecked,
-  setValue,
+  handleChange,
+  name,
 }) => {
   return (
     <label htmlFor={label}>
-      {label}
       <input
         checked={isChecked}
         type="radio"
         id={label}
-        name={type}
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
+        name={name}
+        value={label}
+        onChange={handleChange}
       />
+      {label}
     </label>
   );
 };
