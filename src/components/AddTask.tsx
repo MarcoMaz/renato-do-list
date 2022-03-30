@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useAppDispatch } from '../state/hooks';
 
-import { addTask } from '../state/taskSlice';
+import { addTask, editTask } from '../state/taskSlice';
 
 import Button from './core/Button';
 import InputText from './core/InputText';
@@ -11,6 +11,7 @@ import Urgency from './Urgency';
 import Fun from './Fun';
 
 interface AddTaskProps {
+  editIndex: number;
   editingText: string;
   itemText: string;
   speed: number;
@@ -26,6 +27,7 @@ interface AddTaskProps {
 
 const AddTask: FunctionComponent<AddTaskProps> = ({
   editingText,
+  editIndex,
   itemText,
   speed,
   urgency,
@@ -54,6 +56,11 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setShowCreateNew(false);
   };
 
+  const handleClick = () => {
+    dispatch(editTask({ index: editIndex, label: editingText }));
+    setShowCreateNew(false);
+  };
+
   return (
     <form className="AddTask" onSubmit={onSubmit}>
       <Button
@@ -68,6 +75,9 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
         onChange={(e) => setEditingText(e.target.value)}
         value={editingText}
       />
+      <button type="button" onClick={handleClick}>
+        Edit an entry
+      </button>
       <h2>Aggiungi un&apos; attivita&apos;</h2>
       <InputText
         itemText={itemText}

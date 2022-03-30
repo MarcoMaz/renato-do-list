@@ -35,7 +35,7 @@ function App() {
   const [newUrgency, setUrgency] = useState(0);
   const [newFun, setFun] = useState(0);
 
-  // const [todoEditing, setTodoEditing] = useState(null);
+  const [editIndex, setEditIndex] = useState(0);
   const [editingText, setEditingText] = useState('');
 
   const [showAddTask, setShowAddTask] = useState(false);
@@ -48,6 +48,7 @@ function App() {
             numberOfThingsTodo={numberOfThingsTodo}
             numberOfThingsTotal={numberOfThingsTotal}
             tasks={tasks}
+            setEditIndex={setEditIndex}
             setShowAddTask={setShowAddTask}
             setEditingText={setEditingText}
           />
@@ -66,6 +67,7 @@ function App() {
           {showAddTask && (
             <AddTask
               setEditingText={setEditingText}
+              editIndex={editIndex}
               editingText={editingText}
               itemText={newItemText}
               speed={newSpeed}

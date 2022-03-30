@@ -57,6 +57,12 @@ export const taskSlice = createSlice({
       };
       state.push(newTask);
     },
+    editTask: (state, action) => {
+      const todos = state.find((todo) => todo.id === action.payload.index);
+      if (todos) {
+        todos.label = action.payload.label;
+      }
+    },
     toggleTask: (state, action) => {
       const todos = state.find((todo) => todo.id === action.payload);
       if (todos) {
@@ -71,7 +77,7 @@ export const taskSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addTask, toggleTask, removeTask } = taskSlice.actions;
+export const { addTask, editTask, toggleTask, removeTask } = taskSlice.actions;
 
 export const selectCount = (state: RootState) => state.task;
 

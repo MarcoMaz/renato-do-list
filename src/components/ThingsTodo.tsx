@@ -7,6 +7,7 @@ import Task from './Task';
 interface ThingsTodoProps {
   numberOfThingsTodo: number;
   numberOfThingsTotal: number;
+  setEditIndex: (event: number) => void;
   tasks: taskProps[];
   setShowAddTask: (event: boolean) => void;
   setEditingText: (event: string) => void;
@@ -16,6 +17,7 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   numberOfThingsTodo,
   numberOfThingsTotal,
   tasks,
+  setEditIndex,
   setShowAddTask,
   setEditingText,
 }) => {
@@ -35,6 +37,7 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
             return (
               <Task
                 key={id}
+                setEditIndex={setEditIndex}
                 id={id}
                 isCompleted={isCompleted}
                 label={label}
