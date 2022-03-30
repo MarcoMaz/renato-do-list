@@ -12,12 +12,10 @@ import Fun from './Fun';
 
 interface AddTaskProps {
   editIndex: number;
-  editingText: string;
   itemText: string;
   speed: number;
   urgency: number;
   fun: number;
-  setEditingText: (event: string) => void;
   setItemText: (event: string) => void;
   setShowCreateNew: (event: boolean) => void;
   setSpeed: (event: number) => void;
@@ -26,7 +24,6 @@ interface AddTaskProps {
 }
 
 const AddTask: FunctionComponent<AddTaskProps> = ({
-  editingText,
   editIndex,
   itemText,
   speed,
@@ -37,7 +34,6 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   setSpeed,
   setUrgency,
   setFun,
-  setEditingText,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -57,8 +53,12 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   };
 
   const handleClick = () => {
-    dispatch(editTask({ index: editIndex, label: editingText }));
+    dispatch(editTask({ index: editIndex, label: itemText }));
     setShowCreateNew(false);
+  };
+
+  const handleChange = (e: { target: { value: string } }) => {
+    setItemText(e.target.value);
   };
 
   return (
@@ -69,12 +69,8 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
         onClick={() => setShowCreateNew(false)}
       />
       <Button type="submit" label="fatto" isDisabled={!itemText} />
-      <h1>YOU SELECTED...</h1>
-      <input
-        type="text"
-        onChange={(e) => setEditingText(e.target.value)}
-        value={editingText}
-      />
+      <h1>SPEED...</h1>
+      <input type="text" onChange={handleChange} value={itemText} />
       <button type="button" onClick={handleClick}>
         Edit an entry
       </button>
