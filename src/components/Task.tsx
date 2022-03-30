@@ -43,6 +43,13 @@ const Task: FunctionComponent<TaskProps> = ({
     }
   };
 
+  const handleCheckbox = () => {
+    dispatch(toggleTask(id));
+    if (setShowAddTask) {
+      setShowAddTask(false);
+    }
+  };
+
   return (
     <li>
       <button type="button" onClick={handleClick}>
@@ -50,7 +57,7 @@ const Task: FunctionComponent<TaskProps> = ({
           id={id}
           isCompleted={isCompleted}
           label={label}
-          onChange={() => dispatch(toggleTask(id))}
+          onChange={handleCheckbox}
         />
       </button>
       <strong>speed is {speed}</strong>
