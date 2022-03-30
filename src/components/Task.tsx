@@ -9,6 +9,8 @@ interface TaskProps {
   isCompleted: boolean;
   id: number;
   label: string;
+  speed?: number;
+  setSpeed?: (event: number) => void;
   setEditIndex?: (event: number) => void;
   setShowAddTask?: (event: boolean) => void;
   setItemText?: (event: string) => void;
@@ -18,6 +20,8 @@ const Task: FunctionComponent<TaskProps> = ({
   isCompleted,
   id,
   label,
+  speed,
+  setSpeed,
   setEditIndex,
   setShowAddTask,
   setItemText,
@@ -33,6 +37,9 @@ const Task: FunctionComponent<TaskProps> = ({
     }
     if (setEditIndex) {
       setEditIndex(id);
+    }
+    if (speed && setSpeed) {
+      setSpeed(speed);
     }
   };
 

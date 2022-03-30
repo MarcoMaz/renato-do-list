@@ -21,7 +21,7 @@ const initialState: taskProps[] = [
     id: 0,
     label: 'batman',
     isCompleted: false,
-    speed: 2,
+    speed: 666,
     urgency: 1,
     fun: 1,
     total: 4,
