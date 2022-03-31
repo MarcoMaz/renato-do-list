@@ -33,11 +33,13 @@ function App() {
   const [newItemText, setItemText] = useState('');
   const [newSpeed, setSpeed] = useState(30);
   const [newUrgency, setUrgency] = useState(50);
-  const [newFun, setFun] = useState(0);
+  const [newFun, setFun] = useState(11);
 
   const [editIndex, setEditIndex] = useState(0);
 
   const [showAddTask, setShowAddTask] = useState(false);
+
+  const [modifyTask, setModifyTask] = useState(false);
 
   return (
     <Provider store={store}>
@@ -53,6 +55,7 @@ function App() {
             setEditIndex={setEditIndex}
             setShowAddTask={setShowAddTask}
             setItemText={setItemText}
+            setModifyTask={setModifyTask}
           />
           <ThingsDone
             numberOfThingsDone={numberOfThingsDone}
@@ -78,6 +81,8 @@ function App() {
               setSpeed={setSpeed}
               setUrgency={setUrgency}
               setFun={setFun}
+              modifyTask={modifyTask}
+              setModifyTask={setModifyTask}
             />
           )}
         </div>

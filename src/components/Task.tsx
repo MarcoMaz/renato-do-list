@@ -18,6 +18,7 @@ interface TaskProps {
   setEditIndex?: (event: number) => void;
   setShowAddTask?: (event: boolean) => void;
   setItemText?: (event: string) => void;
+  setModifyTask?: (event: boolean) => void;
 }
 
 const Task: FunctionComponent<TaskProps> = ({
@@ -33,6 +34,7 @@ const Task: FunctionComponent<TaskProps> = ({
   setEditIndex,
   setShowAddTask,
   setItemText,
+  setModifyTask,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -54,6 +56,9 @@ const Task: FunctionComponent<TaskProps> = ({
     }
     if (fun && setFun) {
       setFun(fun);
+    }
+    if (setModifyTask) {
+      setModifyTask(true);
     }
   };
 

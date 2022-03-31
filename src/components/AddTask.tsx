@@ -16,11 +16,13 @@ interface AddTaskProps {
   speed: number;
   urgency: number;
   fun: number;
+  modifyTask: boolean;
   setItemText: (event: string) => void;
   setShowCreateNew: (event: boolean) => void;
   setSpeed: (event: number) => void;
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
+  setModifyTask: (event: boolean) => void;
 }
 
 const AddTask: FunctionComponent<AddTaskProps> = ({
@@ -29,11 +31,13 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   speed,
   urgency,
   fun,
+  modifyTask,
   setItemText,
   setShowCreateNew,
   setSpeed,
   setUrgency,
   setFun,
+  setModifyTask,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -49,7 +53,11 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
       }),
     );
     setItemText('');
+    setSpeed(30);
+    setUrgency(50);
+    setFun(11);
     setShowCreateNew(false);
+    setModifyTask(false);
   };
 
   const handleClick = () => {
@@ -58,6 +66,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     );
     setItemText('');
     setShowCreateNew(false);
+    setModifyTask(false);
   };
 
   const handleChange = (e: { target: { value: string } }) => {
@@ -70,25 +79,33 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setFun(11);
     setItemText('');
     setShowCreateNew(false);
+    setModifyTask(false);
   };
 
   return (
     <form className="AddTask" onSubmit={onSubmit}>
+      {/* Both */}
       <Button type="button" label="<--- lista" onClick={goBack} />
-      <Button type="submit" label="fatto" isDisabled={!itemText} />
-      <h1>SPEED...{speed}</h1>
-      <h1>URGENCY...{urgency}</h1>
-      <h1>FUN...{fun}</h1>
-      <input type="text" onChange={handleChange} value={itemText} />
-      <button type="button" onClick={handleClick}>
-        Edit an entry
-      </button>
-      <h2>Aggiungi un&apos; attivita&apos;</h2>
-      <InputText
-        itemText={itemText}
-        setItemText={setItemText}
-        placeholder="Cosa devi fare? Scrivilo qui"
-      />
+      {!modifyTask ? (
+        <Button type="submit" label="fatto" isDisabled={!itemText} />
+      ) : (
+        <button type="button" onClick={handleClick}>
+          Edit an entry
+        </button>
+      )}
+      {!modifyTask ? (
+        <>
+          <h2>Aggiungi un&apos; attivita&apos;</h2>
+          <InputText
+            itemText={itemText}
+            setItemText={setItemText}
+            placeholder="Cosa devi fare? Scrivilo qui"
+          />
+        </>
+      ) : (
+        <input type="text" onChange={handleChange} value={itemText} />
+      )}
+      {/* Both */}
       <Speed speed={speed} setSpeed={setSpeed} />
       <Urgency urgency={urgency} setUrgency={setUrgency} />
       <Fun fun={fun} setFun={setFun} />

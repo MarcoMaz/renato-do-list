@@ -24,7 +24,7 @@ const initialState: taskProps[] = [
     speed: 666,
     urgency: 50,
     fun: 121,
-    total: 4,
+    total: 837,
     isClicked: false,
   },
   {
@@ -34,7 +34,7 @@ const initialState: taskProps[] = [
     speed: 2433,
     urgency: 1800,
     fun: 11,
-    total: 3,
+    total: 4244,
     isClicked: false,
   },
 ];
