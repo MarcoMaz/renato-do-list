@@ -23,6 +23,18 @@ const copyText = {
       label: 'Ho capito',
     },
   },
+  mainView: {
+    buttonAdd: '+',
+    toastLabel: 'Hai rimosso una task',
+  },
+  modal: {
+    label: 'Ma siamo sicuri?',
+    deleteButton: 'Rimuovi',
+    goBackButton: 'Annulla',
+  },
+  toast: {
+    label: 'Hai rimosso una task',
+  },
 };
 
 export default copyText;

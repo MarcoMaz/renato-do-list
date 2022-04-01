@@ -7,15 +7,16 @@ import { highlightTask, removeTask, taskProps } from '../state/taskSlice';
 // Components
 import Button from './core/Button';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 interface ModalProps {
-  label: string;
   tasks: taskProps[];
   setShowModal: (event: boolean) => void;
   setShowToast: (event: boolean) => void;
 }
 
 const Modal: FunctionComponent<ModalProps> = ({
-  label,
   tasks,
   setShowModal,
   setShowToast,
@@ -25,6 +26,8 @@ const Modal: FunctionComponent<ModalProps> = ({
   const TOAST_SECONDS_TO_HIDE = 5000;
 
   const selectedItem = tasks.filter((task) => task.isHighlighted)[0];
+
+  const { label, deleteButton, goBackButton } = copyText.modal;
 
   const handleDelete = () => {
     if (selectedItem) {
@@ -45,8 +48,8 @@ const Modal: FunctionComponent<ModalProps> = ({
   return (
     <div>
       {label}
-      <Button label="delete" type="button" onClick={handleDelete} />
-      <Button label="annulla" type="button" onClick={handleGoBack} />
+      <Button label={deleteButton} type="button" onClick={handleDelete} />
+      <Button label={goBackButton} type="button" onClick={handleGoBack} />
     </div>
   );
 };

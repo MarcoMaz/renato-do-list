@@ -11,6 +11,9 @@ import TasksTodo from '../components/TasksTodo';
 import TasksDone from '../components/TasksDone';
 import AddEditTask from '../components/AddEditTask';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 export const MainView: FunctionComponent = () => {
   const tasks = useAppSelector((state) => state.task);
   const tasksCompleted = useAppSelector((state) =>
@@ -31,6 +34,8 @@ export const MainView: FunctionComponent = () => {
   const [showModal, setShowModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
+  const { buttonAdd } = copyText.mainView;
+
   return (
     <div>
       <TasksTodo
@@ -50,7 +55,7 @@ export const MainView: FunctionComponent = () => {
       {!showAddEditTask && (
         <Button
           type="button"
-          label="+"
+          label={buttonAdd}
           onClick={() => setShowAddEditTask(true)}
         />
       )}
@@ -72,13 +77,12 @@ export const MainView: FunctionComponent = () => {
       )}
       {showModal && (
         <Modal
-          label="Are you sure?"
           tasks={tasks}
           setShowModal={setShowModal}
           setShowToast={setShowToast}
         />
       )}
-      {showToast && <Toast label="an item was removed" />}
+      {showToast && <Toast />}
     </div>
   );
 };

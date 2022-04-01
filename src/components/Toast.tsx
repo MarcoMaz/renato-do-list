@@ -1,10 +1,11 @@
 import { FunctionComponent } from 'react';
 
-interface ToastProps {
-  label: string;
-}
+// CopyText
+import copyText from '../assets/copyText';
 
-const Toast: FunctionComponent<ToastProps> = ({ label }) => {
+const Toast: FunctionComponent = () => {
+  const { label } = copyText.toast;
+
   return <div className="toast">{label}</div>;
 };
 
