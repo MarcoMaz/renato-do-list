@@ -87,6 +87,12 @@ const copyText = {
       },
     ],
   },
+  tasksTodo: {
+    headline: 'Ancora da fare',
+  },
+  tasksDone: {
+    headline: 'Taaaaaaaaaaac! Finito!',
+  },
 };
 
 export default copyText;

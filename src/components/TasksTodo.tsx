@@ -7,6 +7,9 @@ import { taskProps } from '../state/taskSlice';
 import Headline from './core/Headline';
 import Task from './Task';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 interface TasksTodoProps {
   tasks: taskProps[];
   tasksTotal: number;
@@ -34,13 +37,15 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
   setModifyTask,
   setShowModal,
 }) => {
+  const { headline } = copyText.tasksTodo;
+
   const counter = `${tasksTodo}/${tasksTotal}`;
 
-  const taskCounter = tasksTotal === 0 ? '(vuota)' : `(${counter})`;
+  const taskCounter = tasksTotal === 0 ? '(vuoto)' : `(${counter})`;
 
   return (
     <>
-      <Headline label={`Things to do ${taskCounter}`} />
+      <Headline label={`${headline} ${taskCounter}`} />
       <ul>
         {tasks
           .filter((task) => !task.isCompleted)
