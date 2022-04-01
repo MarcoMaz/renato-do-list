@@ -1,7 +1,11 @@
 import { FunctionComponent } from 'react';
 
-const Toast: FunctionComponent = () => {
-  return <div className="toast">You removed an item</div>;
+interface ToastProps {
+  label: string;
+}
+
+const Toast: FunctionComponent<ToastProps> = ({ label }) => {
+  return <div className="toast">{label}</div>;
 };
 
 export default Toast;

@@ -1,22 +1,23 @@
-import { FunctionComponent } from 'react';
+// eslint-disable-next-line no-use-before-define
+import React, { FunctionComponent } from 'react';
 
 interface InputTextProps {
-  itemText: string;
+  value: string;
   placeholder: string;
-  setItemText: (event: string) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputText: FunctionComponent<InputTextProps> = ({
-  itemText,
+  value,
   placeholder,
-  setItemText,
+  onChange,
 }) => {
   return (
     <input
       type="text"
+      value={value}
       placeholder={placeholder}
-      value={itemText}
-      onChange={(event) => setItemText(event.target.value)}
+      onChange={onChange}
     />
   );
 };

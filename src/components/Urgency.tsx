@@ -36,7 +36,7 @@ const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
             key={index}
             label={x.label}
             isChecked={x.id === urgency}
-            handleChange={handleInput}
+            onChange={handleInput}
             name="mazzinga"
             value={x.label}
           />

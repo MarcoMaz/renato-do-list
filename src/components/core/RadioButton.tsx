@@ -3,17 +3,17 @@ import React, { FunctionComponent } from 'react';
 
 interface RadioButtonProps {
   label: string;
-  isChecked: boolean;
-  value: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   name: string;
+  value: string;
+  isChecked: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const RadioButton: FunctionComponent<RadioButtonProps> = ({
   label,
-  isChecked,
-  handleChange,
   name,
+  isChecked,
+  onChange,
 }) => {
   return (
     <label htmlFor={label}>
@@ -23,7 +23,7 @@ const RadioButton: FunctionComponent<RadioButtonProps> = ({
         id={label}
         name={name}
         value={label}
-        onChange={handleChange}
+        onChange={onChange}
       />
       {label}
     </label>

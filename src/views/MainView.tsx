@@ -2,11 +2,11 @@ import { FunctionComponent, useState } from 'react';
 
 // Components
 import Button from '../components/core/Button';
+import Modal from '../components/Modal';
+import Toast from '../components/Toast';
 import ThingsTodo from '../components/ThingsTodo';
 import ThingsDone from '../components/ThingsDone';
 import AddTask from '../components/AddTask';
-import Modal from '../components/Modal';
-import Toast from '../components/Toast';
 
 import { useAppSelector } from '../state/hooks';
 
@@ -24,15 +24,10 @@ export const MainView: FunctionComponent = () => {
   const [newSpeed, setSpeed] = useState(30);
   const [newUrgency, setUrgency] = useState(50);
   const [newFun, setFun] = useState(11);
-
   const [editIndex, setEditIndex] = useState(0);
-
   const [showAddTask, setShowAddTask] = useState(false);
-
   const [modifyTask, setModifyTask] = useState(false);
-
   const [showModal, setShowModal] = useState(false);
-
   const [showToast, setShowToast] = useState(false);
 
   return (
@@ -81,7 +76,7 @@ export const MainView: FunctionComponent = () => {
           setShowToast={setShowToast}
         />
       )}
-      {showToast && <Toast />}
+      {showToast && <Toast label="an item was removed" />}
     </div>
   );
 };

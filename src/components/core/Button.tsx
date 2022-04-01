@@ -4,20 +4,20 @@ import { FunctionComponent } from 'react';
 type AllowedButtonType = 'button' | 'submit' | 'reset';
 
 interface ButtonProps {
-  type: AllowedButtonType;
   label: string;
+  type: AllowedButtonType;
   isDisabled?: boolean;
   onClick?: () => void;
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
-  type = 'button',
   label,
+  type = 'button',
   isDisabled,
   onClick,
 }) => {
   return (
-    <button type={type} onClick={onClick} disabled={isDisabled}>
+    <button type={type} disabled={isDisabled} onClick={onClick}>
       {label}
     </button>
   );

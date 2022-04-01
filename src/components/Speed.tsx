@@ -42,7 +42,7 @@ const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
             key={index}
             label={x.label}
             isChecked={x.id === speed}
-            handleChange={handleInput}
+            onChange={handleInput}
             name="drone"
             value={x.label}
           />

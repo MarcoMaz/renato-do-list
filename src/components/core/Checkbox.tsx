@@ -1,25 +1,25 @@
 import { FunctionComponent } from 'react';
 
 interface CheckboxProps {
-  id: number;
-  isCompleted: boolean;
   label: string;
+  value: number;
+  isChecked: boolean;
   onChange: () => void;
 }
 
 const Checkbox: FunctionComponent<CheckboxProps> = ({
-  id,
-  isCompleted,
   label,
+  value,
+  isChecked,
   onChange,
 }) => {
   return (
     <>
       <input
-        value={id}
+        value={value}
+        checked={isChecked}
         onChange={onChange}
         type="checkbox"
-        checked={isCompleted}
       />
       <span aria-hidden="true">{label}</span>
     </>

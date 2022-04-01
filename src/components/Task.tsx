@@ -82,8 +82,8 @@ const Task: FunctionComponent<TaskProps> = ({
     <li>
       <button type="button" onClick={handleClick}>
         <Checkbox
-          id={id}
-          isCompleted={isCompleted}
+          value={id}
+          isChecked={isCompleted}
           label={label}
           onChange={handleCheckbox}
         />

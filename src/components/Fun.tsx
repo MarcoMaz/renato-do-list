@@ -36,7 +36,7 @@ const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
             key={index}
             label={x.label}
             isChecked={x.id === fun}
-            handleChange={handleInput}
+            onChange={handleInput}
             name="maronno"
             value={x.label}
           />

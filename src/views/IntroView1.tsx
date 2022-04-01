@@ -1,10 +1,24 @@
 import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
+// Import Components
+import Headline from '../components/core/Headline';
+import Image from '../components/core/Image';
+import SectionParagraphs from '../components/core/SectionParagraphs';
+
 export const IntroView1: FunctionComponent = () => {
+  const arrayOfParagraphs = ['paragraph #1', 'paragraph #2', 'paragraph #3'];
+
   return (
     <div>
-      This is the fist Splash page
+      <Headline
+        label="This is the headline"
+        spanLabel="This is its span"
+        isFirstElement
+      />
+      <Headline label="this is the subheadline" />
+      <Image alt="this is introview" srcUrl="#" />
+      <SectionParagraphs arrayOfParagraphs={arrayOfParagraphs} />
       <Link to="/main">
         <button type="button">Go on</button>
       </Link>

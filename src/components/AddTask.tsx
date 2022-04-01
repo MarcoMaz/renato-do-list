@@ -82,6 +82,10 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setModifyTask(false);
   };
 
+  const handleInputChange = (event: { target: { value: string } }) => {
+    setItemText(event.target.value);
+  };
+
   return (
     <form className="AddTask" onSubmit={onSubmit}>
       {/* Both */}
@@ -97,9 +101,9 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
         <>
           <h2>Aggiungi un&apos; attivita&apos;</h2>
           <InputText
-            itemText={itemText}
-            setItemText={setItemText}
+            value={itemText}
             placeholder="Cosa devi fare? Scrivilo qui"
+            onChange={handleInputChange}
           />
         </>
       ) : (
