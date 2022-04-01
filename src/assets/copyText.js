@@ -31,9 +31,7 @@ const copyText = {
     deleteButton: 'Rimuovi',
     goBackButton: 'Annulla',
   },
-  toast: {
-    label: 'Hai rimosso una task',
-  },
+  toastLabel: 'Hai rimosso una task',
   speed: {
     headline: {
       headlineLabel: 'Quanto dura?',
@@ -86,11 +84,9 @@ const copyText = {
       },
     ],
   },
-  tasksTodo: {
-    headline: 'Ancora da fare',
-  },
-  tasksDone: {
-    headline: 'Taaaaaaaaaaac! Finito!',
+  tasks: {
+    tasksTodoHeadline: 'Ancora da fare',
+    tasksDoneHeadline: 'Taaaaaaaaaaac! Finito!',
   },
   addEditTask: {
     buttonGoBack: '<--- Lista',

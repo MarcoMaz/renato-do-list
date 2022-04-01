@@ -4,9 +4,7 @@ import { FunctionComponent } from 'react';
 import copyText from '../assets/copyText';
 
 const Toast: FunctionComponent = () => {
-  const { label } = copyText.toast;
-
-  return <div className="toast">{label}</div>;
+  return <div className="toast">{copyText.toastLabel}</div>;
 };
 
 export default Toast;

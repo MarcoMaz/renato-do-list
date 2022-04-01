@@ -21,7 +21,7 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
   tasksTotal,
   tasks,
 }) => {
-  const { headline } = copyText.tasksDone;
+  const { tasksDoneHeadline } = copyText.tasks;
 
   const counter = `${tasksDone}/${tasksTotal}`;
 
@@ -29,7 +29,7 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
 
   return (
     <>
-      <Headline label={`${headline} ${taskCounter}`} />
+      <Headline label={`${tasksDoneHeadline} ${taskCounter}`} />
       <ul>
         {tasks
           .filter((task) => task.isCompleted)
