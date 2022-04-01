@@ -4,25 +4,28 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
+import Button from '../components/core/Button';
 import Headline from '../components/core/Headline';
 import Image from '../components/core/Image';
 import SectionParagraphs from '../components/core/SectionParagraphs';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 export const IntroView1: FunctionComponent = () => {
-  const arrayOfParagraphs = ['paragraph #1', 'paragraph #2', 'paragraph #3'];
+  const { headline, headlineSpan } = copyText.general;
+  const { subheadline, arrayOfParagraphs } = copyText.introView1;
+  const { alt, srcUrl } = copyText.introView1.image;
+  const { label } = copyText.introView1.cta;
 
   return (
     <div>
-      <Headline
-        label="This is the headline"
-        spanLabel="This is its span"
-        isFirstElement
-      />
-      <Headline label="this is the subheadline" />
-      <Image alt="this is introview" srcUrl="#" />
+      <Headline label={headline} spanLabel={headlineSpan} isFirstElement />
+      <Headline label={subheadline} />
+      <Image alt={alt} srcUrl={srcUrl} />
       <SectionParagraphs arrayOfParagraphs={arrayOfParagraphs} />
       <Link to="/main">
-        <button type="button">Go on</button>
+        <Button type="button" label={label} />
       </Link>
     </div>
   );

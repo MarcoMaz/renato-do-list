@@ -4,20 +4,24 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
+import Button from '../components/core/Button';
 import Headline from '../components/core/Headline';
 import Image from '../components/core/Image';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 export const LandingView: FunctionComponent = () => {
+  const { headline, headlineSpan } = copyText.general;
+  const { alt, srcUrl } = copyText.landingView.image;
+  const { label } = copyText.landingView.cta;
+
   return (
     <div>
-      <Headline
-        isFirstElement
-        label="This is the Landing Page"
-        spanLabel="this its span"
-      />
-      <Image alt="landing view" srcUrl="#" />
+      <Headline isFirstElement label={headline} spanLabel={headlineSpan} />
+      <Image alt={alt} srcUrl={srcUrl} />
       <Link to="/intro-1">
-        <button type="button">Go on</button>
+        <Button type="button" label={label} />
       </Link>
     </div>
   );
