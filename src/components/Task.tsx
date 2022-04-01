@@ -19,6 +19,7 @@ interface TaskProps {
   setShowAddTask?: (event: boolean) => void;
   setItemText?: (event: string) => void;
   setModifyTask?: (event: boolean) => void;
+  setShowModal?: (event: boolean) => void;
 }
 
 const Task: FunctionComponent<TaskProps> = ({
@@ -35,6 +36,7 @@ const Task: FunctionComponent<TaskProps> = ({
   setShowAddTask,
   setItemText,
   setModifyTask,
+  setShowModal,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -69,6 +71,12 @@ const Task: FunctionComponent<TaskProps> = ({
     }
   };
 
+  const handleRemoveDialog = () => {
+    if (setShowModal) {
+      setShowModal(true);
+    }
+  };
+
   return (
     <li>
       <button type="button" onClick={handleClick}>
@@ -79,9 +87,9 @@ const Task: FunctionComponent<TaskProps> = ({
           onChange={handleCheckbox}
         />
       </button>
-      <strong>speed is {speed}</strong> ||
-      <strong> urgency is {urgency}</strong> ||
-      <strong> fun is {fun}</strong>
+      <button type="button" onClick={handleRemoveDialog}>
+        X
+      </button>
     </li>
   );
 };

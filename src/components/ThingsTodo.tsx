@@ -15,6 +15,7 @@ interface ThingsTodoProps {
   setShowAddTask: (event: boolean) => void;
   setItemText: (event: string) => void;
   setModifyTask: (event: boolean) => void;
+  setShowModal: (event: boolean) => void;
 }
 
 const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
@@ -28,6 +29,7 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   setShowAddTask,
   setItemText,
   setModifyTask,
+  setShowModal,
 }) => {
   const counter = `${numberOfThingsTodo}/${numberOfThingsTotal}`;
 
@@ -58,6 +60,7 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
                 setShowAddTask={setShowAddTask}
                 setItemText={setItemText}
                 setModifyTask={setModifyTask}
+                setShowModal={setShowModal}
               />
             );
           })}
