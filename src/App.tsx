@@ -25,7 +25,7 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <div className="App">
           <Router>
-            <Route exact path="/" component={LandingView} />
+            <Route exact path="/renato-do-list" component={LandingView} />
             <Route path="/intro-1" component={IntroView1} />
             <Route path="/main" component={MainView} />
           </Router>
