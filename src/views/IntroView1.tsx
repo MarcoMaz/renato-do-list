@@ -25,7 +25,7 @@ export const IntroView1: FunctionComponent = () => {
       <Image alt={alt} srcUrl={srcUrl} />
       <SectionParagraphs arrayOfParagraphs={arrayOfParagraphs} />
       <Link to="/main">
-        <Button type="button" label={label} />
+        <Button type="button" label={label} arrowRight />
       </Link>
     </div>
   );

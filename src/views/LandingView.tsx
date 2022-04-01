@@ -21,7 +21,7 @@ export const LandingView: FunctionComponent = () => {
       <Headline isFirstElement label={headline} spanLabel={headlineSpan} />
       <Image alt={alt} srcUrl={srcUrl} />
       <Link to="/intro-1">
-        <Button type="button" label={label} />
+        <Button type="button" label={label} arrowRight />
       </Link>
     </div>
   );

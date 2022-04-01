@@ -99,7 +99,12 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
 
   return (
     <form className="AddTask" onSubmit={submitNewTask}>
-      <Button type="button" label={buttonGoBack} onClick={handleGoBack} />
+      <Button
+        arrowLeft
+        type="button"
+        label={buttonGoBack}
+        onClick={handleGoBack}
+      />
       {!modifyTask ? (
         <Button type="submit" label={buttonDone} isDisabled={!itemText} />
       ) : (

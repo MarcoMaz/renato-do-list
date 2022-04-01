@@ -23,9 +23,6 @@ const copyText = {
       label: 'Ho capito',
     },
   },
-  mainView: {
-    buttonAdd: '+',
-  },
   modal: {
     label: 'Ma siamo sicuri?',
     deleteButton: 'Rimuovi',
@@ -89,7 +86,7 @@ const copyText = {
     tasksDoneHeadline: 'Taaaaaaaaaaac! Finito!',
   },
   addEditTask: {
-    buttonGoBack: '<--- Lista',
+    buttonGoBack: 'Lista',
     buttonDone: 'fatto',
     headline: "Aggiungi un'attivita'",
     placeHolder: 'Cosa devi fare? Scrivilo qui.',

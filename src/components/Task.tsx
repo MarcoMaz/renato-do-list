@@ -1,5 +1,8 @@
 import { FunctionComponent } from 'react';
 
+// Icons
+import { FiChevronUp } from 'react-icons/fi';
+
 // State
 import { useAppDispatch } from '../state/hooks';
 import { highlightTask, toggleTask } from '../state/taskSlice';
@@ -73,7 +76,8 @@ const Task: FunctionComponent<TaskProps> = ({
           onChange={handleCompleteTask}
         />
       </button>
-      <Button label="X" type="button" onClick={handleRemoveDialog} />
+      <Button closeSign type="button" onClick={handleRemoveDialog} />
+      <FiChevronUp />
     </li>
   );
 };

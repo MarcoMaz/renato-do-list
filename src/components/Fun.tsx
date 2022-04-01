@@ -18,7 +18,7 @@ const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
   const { headlineLabel } = copyText.fun.headline;
   return (
     <div>
-      <LabelIcon label={headlineLabel} />
+      <LabelIcon funIcon label={headlineLabel} />
       {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
           e.target.value === options[0].label
