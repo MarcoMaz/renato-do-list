@@ -25,7 +25,6 @@ const copyText = {
   },
   mainView: {
     buttonAdd: '+',
-    toastLabel: 'Hai rimosso una task',
   },
   modal: {
     label: 'Ma siamo sicuri?',
@@ -92,6 +91,12 @@ const copyText = {
   },
   tasksDone: {
     headline: 'Taaaaaaaaaaac! Finito!',
+  },
+  addEditTask: {
+    buttonGoBack: '<--- Lista',
+    buttonDone: 'fatto',
+    headline: "Aggiungi un'attivita'",
+    placeHolder: 'Cosa devi fare? Scrivilo qui.',
   },
 };
 

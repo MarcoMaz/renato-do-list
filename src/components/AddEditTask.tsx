@@ -13,6 +13,9 @@ import Speed from './Speed';
 import Urgency from './Urgency';
 import Fun from './Fun';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 interface AddEditTaskProps {
   itemText: string;
   speed: number;
@@ -42,6 +45,9 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
   setShowAddEditTask,
   setModifyTask,
 }) => {
+  const { buttonGoBack, buttonDone, headline, placeHolder } =
+    copyText.addEditTask;
+
   const dispatch = useAppDispatch();
 
   // New Task
@@ -93,22 +99,18 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
 
   return (
     <form className="AddTask" onSubmit={submitNewTask}>
-      <Button type="button" label="<--- lista" onClick={handleGoBack} />
+      <Button type="button" label={buttonGoBack} onClick={handleGoBack} />
       {!modifyTask ? (
-        <Button type="submit" label="fatto" isDisabled={!itemText} />
+        <Button type="submit" label={buttonDone} isDisabled={!itemText} />
       ) : (
-        <Button
-          type="button"
-          label="Edit an entry"
-          onClick={submitModfiyTask}
-        />
+        <Button type="button" label={buttonDone} onClick={submitModfiyTask} />
       )}
       {!modifyTask ? (
         <>
-          <Headline label="Aggiungi un' attivita'" />
+          <Headline label={headline} />
           <InputText
             value={itemText}
-            placeholder="Cosa devi fare? Scrivilo qui"
+            placeholder={placeHolder}
             onChange={handleAddNewTask}
           />
         </>
