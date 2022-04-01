@@ -19,7 +19,7 @@ interface TaskProps {
   fun?: number;
   setFun?: (event: number) => void;
   setEditIndex?: (event: number) => void;
-  setShowAddTask?: (event: boolean) => void;
+  setShowAddEditTask?: (event: boolean) => void;
   setItemText?: (event: string) => void;
   setModifyTask?: (event: boolean) => void;
   setShowModal?: (event: boolean) => void;
@@ -36,7 +36,7 @@ const Task: FunctionComponent<TaskProps> = ({
   fun,
   setFun,
   setEditIndex,
-  setShowAddTask,
+  setShowAddEditTask,
   setItemText,
   setModifyTask,
   setShowModal,
@@ -44,8 +44,8 @@ const Task: FunctionComponent<TaskProps> = ({
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
-    if (setShowAddTask) {
-      setShowAddTask(true);
+    if (setShowAddEditTask) {
+      setShowAddEditTask(true);
     }
     if (setItemText) {
       setItemText(label);
@@ -69,8 +69,8 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const handleCheckbox = () => {
     dispatch(toggleTask(id));
-    if (setShowAddTask) {
-      setShowAddTask(false);
+    if (setShowAddEditTask) {
+      setShowAddEditTask(false);
     }
   };
 

@@ -20,7 +20,7 @@ interface AddTaskProps {
   fun: number;
   modifyTask: boolean;
   setItemText: (event: string) => void;
-  setShowCreateNew: (event: boolean) => void;
+  setShowAddEditTask: (event: boolean) => void;
   setSpeed: (event: number) => void;
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
@@ -35,7 +35,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   fun,
   modifyTask,
   setItemText,
-  setShowCreateNew,
+  setShowAddEditTask,
   setSpeed,
   setUrgency,
   setFun,
@@ -58,7 +58,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setSpeed(30);
     setUrgency(50);
     setFun(11);
-    setShowCreateNew(false);
+    setShowAddEditTask(false);
     setModifyTask(false);
   };
 
@@ -67,7 +67,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
       editTask({ index: editIndex, label: itemText, speed, urgency, fun }),
     );
     setItemText('');
-    setShowCreateNew(false);
+    setShowAddEditTask(false);
     setModifyTask(false);
   };
 
@@ -80,7 +80,7 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setUrgency(50);
     setFun(11);
     setItemText('');
-    setShowCreateNew(false);
+    setShowAddEditTask(false);
     setModifyTask(false);
   };
 

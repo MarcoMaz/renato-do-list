@@ -21,12 +21,12 @@ export const MainView: FunctionComponent = () => {
   const tasksDone = tasksCompleted.filter(Boolean).length;
   const tasksTodo = tasksTotal - tasksDone;
 
-  const [newItemText, setItemText] = useState('');
-  const [newSpeed, setSpeed] = useState(30);
-  const [newUrgency, setUrgency] = useState(50);
-  const [newFun, setFun] = useState(11);
-  const [editIndex, setEditIndex] = useState(0);
-  const [showAddTask, setShowAddTask] = useState(false);
+  const [itemText, setItemText] = useState('');
+  const [speed, setSpeed] = useState(30);
+  const [urgency, setUrgency] = useState(50);
+  const [fun, setFun] = useState(11);
+  const [editIndex, setEditIndex] = useState(0); // CAN GO?
+  const [showAddEditTask, setShowAddEditTask] = useState(false);
   const [modifyTask, setModifyTask] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -37,32 +37,36 @@ export const MainView: FunctionComponent = () => {
         tasks={tasks}
         tasksTodo={tasksTodo}
         tasksTotal={tasksTotal}
+        setItemText={setItemText}
         setSpeed={setSpeed}
         setUrgency={setUrgency}
         setFun={setFun}
         setEditIndex={setEditIndex}
-        setShowAddTask={setShowAddTask}
-        setItemText={setItemText}
+        setShowAddEditTask={setShowAddEditTask}
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
       />
       <ThingsDone tasks={tasks} tasksDone={tasksDone} tasksTotal={tasksTotal} />
-      {!showAddTask && (
-        <Button type="button" label="+" onClick={() => setShowAddTask(true)} />
+      {!showAddEditTask && (
+        <Button
+          type="button"
+          label="+"
+          onClick={() => setShowAddEditTask(true)}
+        />
       )}
-      {showAddTask && (
+      {showAddEditTask && (
         <AddTask
+          itemText={itemText}
+          speed={speed}
+          urgency={urgency}
+          fun={fun}
           editIndex={editIndex}
-          itemText={newItemText}
-          speed={newSpeed}
-          urgency={newUrgency}
-          fun={newFun}
+          modifyTask={modifyTask}
           setItemText={setItemText}
-          setShowCreateNew={setShowAddTask}
           setSpeed={setSpeed}
           setUrgency={setUrgency}
           setFun={setFun}
-          modifyTask={modifyTask}
+          setShowAddEditTask={setShowAddEditTask}
           setModifyTask={setModifyTask}
         />
       )}
