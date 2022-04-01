@@ -5,15 +5,31 @@ import { taskProps } from '../state/taskSlice';
 import Task from './Task';
 
 interface ThingsTodoProps {
+  setSpeed: (event: number) => void;
+  setUrgency: (event: number) => void;
+  setFun: (event: number) => void;
   numberOfThingsTodo: number;
   numberOfThingsTotal: number;
+  setEditIndex: (event: number) => void;
   tasks: taskProps[];
+  setShowAddTask: (event: boolean) => void;
+  setItemText: (event: string) => void;
+  setModifyTask: (event: boolean) => void;
+  setShowModal: (event: boolean) => void;
 }
 
 const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
+  setSpeed,
+  setUrgency,
+  setFun,
   numberOfThingsTodo,
   numberOfThingsTotal,
   tasks,
+  setEditIndex,
+  setShowAddTask,
+  setItemText,
+  setModifyTask,
+  setShowModal,
 }) => {
   const counter = `${numberOfThingsTodo}/${numberOfThingsTotal}`;
 
@@ -27,9 +43,25 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
         {tasks
           .filter((task) => !task.isCompleted)
           .sort((a, b) => b.total - a.total)
-          .map(({ id, isCompleted, label }) => {
+          .map(({ id, isCompleted, label, speed, urgency, fun }) => {
             return (
-              <Task key={id} id={id} isCompleted={isCompleted} label={label} />
+              <Task
+                speed={speed}
+                setSpeed={setSpeed}
+                urgency={urgency}
+                setUrgency={setUrgency}
+                fun={fun}
+                setFun={setFun}
+                key={id}
+                setEditIndex={setEditIndex}
+                id={id}
+                isCompleted={isCompleted}
+                label={label}
+                setShowAddTask={setShowAddTask}
+                setItemText={setItemText}
+                setModifyTask={setModifyTask}
+                setShowModal={setShowModal}
+              />
             );
           })}
       </ul>

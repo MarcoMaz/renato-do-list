@@ -9,29 +9,36 @@ interface FunProps {
 }
 
 const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
-  const funOptions = ['divertente', 'noioso'];
+  const funOptions = [
+    {
+      id: 11,
+      label: 'divertente',
+    },
+    {
+      id: 121,
+      label: 'noioso',
+    },
+  ];
 
   return (
     <div>
-      <LabelIcon label="Quanto e' divertente?" />
-      {funOptions.map((funOption, index) => {
-        let funValue;
-
-        if (index === 0) {
-          funValue = 1;
-        } else {
-          funValue = 3;
-        }
-
+      <LabelIcon label="quanto e urgente?" />
+      {funOptions.map((x, index) => {
+        const handleInput = (e: { target: { value: string } }) => {
+          if (e.target.value === 'divertente') {
+            setFun(11);
+          } else {
+            setFun(121);
+          }
+        };
         return (
           <RadioButton
-            isChecked={fun === index}
             key={index}
-            label={funOption}
-            type="fun"
-            value={index}
-            speed={funValue}
-            setValue={setFun}
+            label={x.label}
+            isChecked={x.id === fun}
+            handleChange={handleInput}
+            name="maronno"
+            value={x.label}
           />
         );
       })}

@@ -13,6 +13,7 @@ export interface taskProps {
   fun: number;
   total: number;
   isClicked: boolean;
+  isHighlighted: boolean;
 }
 
 // Define the initial state using that type
@@ -21,21 +22,23 @@ const initialState: taskProps[] = [
     id: 0,
     label: 'batman',
     isCompleted: false,
-    speed: 2,
-    urgency: 1,
-    fun: 1,
-    total: 4,
+    speed: 666,
+    urgency: 50,
+    fun: 121,
+    total: 837,
     isClicked: false,
+    isHighlighted: false,
   },
   {
     id: 1,
     label: 'robin',
     isCompleted: false,
-    speed: 1,
-    urgency: 1,
-    fun: 1,
-    total: 3,
+    speed: 2433,
+    urgency: 1800,
+    fun: 11,
+    total: 4244,
     isClicked: false,
+    isHighlighted: false,
   },
 ];
 
@@ -54,13 +57,29 @@ export const taskSlice = createSlice({
         total:
           action.payload.speed + action.payload.urgency + action.payload.fun,
         isClicked: false,
+        isHighlighted: false,
       };
       state.push(newTask);
+    },
+    editTask: (state, action) => {
+      const todos = state.find((todo) => todo.id === action.payload.index);
+      if (todos) {
+        todos.label = action.payload.label;
+        todos.speed = action.payload.speed;
+        todos.urgency = action.payload.urgency;
+        todos.fun = action.payload.fun;
+      }
     },
     toggleTask: (state, action) => {
       const todos = state.find((todo) => todo.id === action.payload);
       if (todos) {
         todos.isCompleted = !todos.isCompleted;
+      }
+    },
+    highlightTask: (state, action) => {
+      const todos = state.find((todo) => todo.id === action.payload);
+      if (todos) {
+        todos.isHighlighted = !todos.isHighlighted;
       }
     },
     removeTask: (state, action) => {
@@ -71,7 +90,8 @@ export const taskSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addTask, toggleTask, removeTask } = taskSlice.actions;
+export const { addTask, editTask, highlightTask, toggleTask, removeTask } =
+  taskSlice.actions;
 
 export const selectCount = (state: RootState) => state.task;
 
