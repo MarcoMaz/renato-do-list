@@ -28,8 +28,8 @@ const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
   return (
     <div>
       <LabelIcon label="Quanto dura?" />
-      {speedOptions.map((x, index) => {
-        const handleInput = (e: { target: { value: string } }) => {
+      {speedOptions.map(({ label, id }, index) => {
+        const handleChange = (e: { target: { value: string } }) => {
           if (e.target.value === 'poco') {
             setSpeed(30);
           } else if (e.target.value === 'medio') {
@@ -41,11 +41,11 @@ const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
         return (
           <RadioButton
             key={index}
-            label={x.label}
-            isChecked={x.id === speed}
-            onChange={handleInput}
-            name="drone"
-            value={x.label}
+            label={label}
+            isChecked={id === speed}
+            onChange={handleChange}
+            name="speed option"
+            value={label}
           />
         );
       })}

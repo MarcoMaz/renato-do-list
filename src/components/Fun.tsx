@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { FunctionComponent } from 'react';
 
 // Components
@@ -23,23 +24,19 @@ const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
 
   return (
     <div>
-      <LabelIcon label="quanto e urgente?" />
-      {funOptions.map((x, index) => {
-        const handleInput = (e: { target: { value: string } }) => {
-          if (e.target.value === 'divertente') {
-            setFun(11);
-          } else {
-            setFun(121);
-          }
+      <LabelIcon label="quanto e' urgente?" />
+      {funOptions.map(({ label, id }, index) => {
+        const handleChange = (e: { target: { value: string } }) => {
+          e.target.value === 'divertente' ? setFun(11) : setFun(121);
         };
         return (
           <RadioButton
             key={index}
-            label={x.label}
-            isChecked={x.id === fun}
-            onChange={handleInput}
-            name="maronno"
-            value={x.label}
+            label={label}
+            isChecked={id === fun}
+            onChange={handleChange}
+            name="fun option"
+            value={label}
           />
         );
       })}

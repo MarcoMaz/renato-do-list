@@ -25,7 +25,7 @@ export const MainView: FunctionComponent = () => {
   const [speed, setSpeed] = useState(30);
   const [urgency, setUrgency] = useState(50);
   const [fun, setFun] = useState(11);
-  const [editIndex, setEditIndex] = useState(0); // CAN GO?
+  const [editIndex, setEditIndex] = useState(0);
   const [showAddEditTask, setShowAddEditTask] = useState(false);
   const [modifyTask, setModifyTask] = useState(false);
   const [showModal, setShowModal] = useState(false);

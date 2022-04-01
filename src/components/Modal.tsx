@@ -22,16 +22,18 @@ const Modal: FunctionComponent<ModalProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const selectedItem = tasks.filter((x) => x.isHighlighted)[0];
+  const TOAST_SECONDS_TO_HIDE = 5000;
 
-  const handleRemoval = () => {
+  const selectedItem = tasks.filter((task) => task.isHighlighted)[0];
+
+  const handleDelete = () => {
     if (selectedItem) {
       dispatch(removeTask(selectedItem.id));
       setShowModal(false);
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
-      }, 5000);
+      }, TOAST_SECONDS_TO_HIDE);
     }
   };
 
@@ -43,7 +45,7 @@ const Modal: FunctionComponent<ModalProps> = ({
   return (
     <div>
       {label}
-      <Button label="delete" type="button" onClick={handleRemoval} />
+      <Button label="delete" type="button" onClick={handleDelete} />
       <Button label="annulla" type="button" onClick={handleGoBack} />
     </div>
   );

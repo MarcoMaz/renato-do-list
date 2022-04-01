@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { FunctionComponent } from 'react';
 
 // Component
@@ -24,22 +25,18 @@ const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
   return (
     <div>
       <LabelIcon label="Quanto e' urgente?" />
-      {urgencyOptions.map((x, index) => {
-        const handleInput = (e: { target: { value: string } }) => {
-          if (e.target.value === 'non urgente') {
-            setUrgency(50);
-          } else {
-            setUrgency(1800);
-          }
+      {urgencyOptions.map(({ label, id }, index) => {
+        const handleChange = (e: { target: { value: string } }) => {
+          e.target.value === 'non urgente' ? setUrgency(50) : setUrgency(1800);
         };
         return (
           <RadioButton
             key={index}
-            label={x.label}
-            isChecked={x.id === urgency}
-            onChange={handleInput}
+            label={label}
+            isChecked={id === urgency}
+            onChange={handleChange}
             name="mazzinga"
-            value={x.label}
+            value={label}
           />
         );
       })}
