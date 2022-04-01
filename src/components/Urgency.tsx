@@ -5,29 +5,25 @@ import { FunctionComponent } from 'react';
 import LabelIcon from './core/LabelIcon';
 import RadioButton from './core/RadioButton';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 interface UrgencyProps {
   urgency: number;
   setUrgency: (event: number) => void;
 }
 
 const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
-  const urgencyOptions = [
-    {
-      id: 1,
-      label: 'non urgente',
-    },
-    {
-      id: 3,
-      label: 'urgente',
-    },
-  ];
-
+  const { name, options } = copyText.urgency;
+  const { headlineLabel } = copyText.urgency.headline;
   return (
     <div>
-      <LabelIcon label="Quanto e' urgente?" />
-      {urgencyOptions.map(({ label, id }, index) => {
+      <LabelIcon label={headlineLabel} />
+      {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
-          e.target.value === 'non urgente' ? setUrgency(1) : setUrgency(3);
+          e.target.value === options[0].label
+            ? setUrgency(options[0].id)
+            : setUrgency(options[1].id);
         };
         return (
           <RadioButton
@@ -35,7 +31,7 @@ const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
             label={label}
             isChecked={id === urgency}
             onChange={handleChange}
-            name="mazzinga"
+            name={name}
             value={label}
           />
         );

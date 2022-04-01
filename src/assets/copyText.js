@@ -35,6 +35,58 @@ const copyText = {
   toast: {
     label: 'Hai rimosso una task',
   },
+  speed: {
+    headline: {
+      headlineLabel: 'Quanto dura?',
+    },
+    name: 'speed option',
+    options: [
+      {
+        id: 1,
+        label: 'poco',
+      },
+      {
+        id: 2,
+        label: 'medio',
+      },
+      {
+        id: 3,
+        label: 'tanto',
+      },
+    ],
+  },
+  urgency: {
+    headline: {
+      headlineLabel: "Quanto e' importante?",
+    },
+    name: 'urgency option',
+    options: [
+      {
+        id: 1,
+        label: 'non urgente',
+      },
+      {
+        id: 3,
+        label: 'urgente',
+      },
+    ],
+  },
+  fun: {
+    headline: {
+      headlineLabel: "Quanto e' divertente?",
+    },
+    name: 'fun option',
+    options: [
+      {
+        id: 1,
+        label: 'divertente',
+      },
+      {
+        id: 3,
+        label: 'noioso',
+      },
+    ],
+  },
 };
 
 export default copyText;

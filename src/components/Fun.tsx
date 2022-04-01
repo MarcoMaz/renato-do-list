@@ -5,29 +5,25 @@ import { FunctionComponent } from 'react';
 import LabelIcon from './core/LabelIcon';
 import RadioButton from './core/RadioButton';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 interface FunProps {
   fun: number;
   setFun: (event: number) => void;
 }
 
 const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
-  const funOptions = [
-    {
-      id: 1,
-      label: 'divertente',
-    },
-    {
-      id: 3,
-      label: 'noioso',
-    },
-  ];
-
+  const { name, options } = copyText.fun;
+  const { headlineLabel } = copyText.fun.headline;
   return (
     <div>
-      <LabelIcon label="quanto e' urgente?" />
-      {funOptions.map(({ label, id }, index) => {
+      <LabelIcon label={headlineLabel} />
+      {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
-          e.target.value === 'divertente' ? setFun(1) : setFun(3);
+          e.target.value === options[0].label
+            ? setFun(options[0].id)
+            : setFun(options[1].id);
         };
         return (
           <RadioButton
@@ -35,7 +31,7 @@ const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
             label={label}
             isChecked={id === fun}
             onChange={handleChange}
-            name="fun option"
+            name={name}
             value={label}
           />
         );

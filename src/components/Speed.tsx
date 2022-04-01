@@ -4,38 +4,28 @@ import { FunctionComponent } from 'react';
 import LabelIcon from './core/LabelIcon';
 import RadioButton from './core/RadioButton';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 interface SpeedProps {
   speed: number;
   setSpeed: (event: number) => void;
 }
 
 const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
-  const speedOptions = [
-    {
-      id: 1,
-      label: 'poco',
-    },
-    {
-      id: 2,
-      label: 'medio',
-    },
-    {
-      id: 3,
-      label: 'tanto',
-    },
-  ];
-
+  const { name, options } = copyText.speed;
+  const { headlineLabel } = copyText.speed.headline;
   return (
     <div>
-      <LabelIcon label="Quanto dura?" />
-      {speedOptions.map(({ label, id }, index) => {
+      <LabelIcon label={headlineLabel} />
+      {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
-          if (e.target.value === 'poco') {
-            setSpeed(1);
-          } else if (e.target.value === 'medio') {
-            setSpeed(2);
+          if (e.target.value === options[0].label) {
+            setSpeed(options[0].id);
+          } else if (e.target.value === options[1].label) {
+            setSpeed(options[1].id);
           } else {
-            setSpeed(3);
+            setSpeed(options[2].id);
           }
         };
         return (
@@ -44,7 +34,7 @@ const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
             label={label}
             isChecked={id === speed}
             onChange={handleChange}
-            name="speed option"
+            name={name}
             value={label}
           />
         );
