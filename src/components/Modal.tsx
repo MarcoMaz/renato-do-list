@@ -46,7 +46,7 @@ const Modal: FunctionComponent<ModalProps> = ({
   };
 
   return (
-    <div>
+    <div data-testid="modal">
       {label}
       <Button label={deleteButton} type="button" onClick={handleDelete} />
       <Button label={goBackButton} type="button" onClick={handleGoBack} />
