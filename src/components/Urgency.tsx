@@ -13,11 +13,11 @@ interface UrgencyProps {
 const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
   const urgencyOptions = [
     {
-      id: 50,
+      id: 1,
       label: 'non urgente',
     },
     {
-      id: 1800,
+      id: 3,
       label: 'urgente',
     },
   ];
@@ -27,7 +27,7 @@ const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
       <LabelIcon label="Quanto e' urgente?" />
       {urgencyOptions.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
-          e.target.value === 'non urgente' ? setUrgency(50) : setUrgency(1800);
+          e.target.value === 'non urgente' ? setUrgency(1) : setUrgency(3);
         };
         return (
           <RadioButton

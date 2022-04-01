@@ -22,9 +22,9 @@ export const MainView: FunctionComponent = () => {
   const tasksTodo = tasksTotal - tasksDone;
 
   const [itemText, setItemText] = useState('');
-  const [speed, setSpeed] = useState(30);
-  const [urgency, setUrgency] = useState(50);
-  const [fun, setFun] = useState(11);
+  const [speed, setSpeed] = useState(1);
+  const [urgency, setUrgency] = useState(1);
+  const [fun, setFun] = useState(1);
   const [editIndex, setEditIndex] = useState(0);
   const [showAddEditTask, setShowAddEditTask] = useState(false);
   const [modifyTask, setModifyTask] = useState(false);

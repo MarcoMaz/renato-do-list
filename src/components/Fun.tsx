@@ -13,11 +13,11 @@ interface FunProps {
 const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
   const funOptions = [
     {
-      id: 11,
+      id: 1,
       label: 'divertente',
     },
     {
-      id: 121,
+      id: 3,
       label: 'noioso',
     },
   ];
@@ -27,7 +27,7 @@ const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
       <LabelIcon label="quanto e' urgente?" />
       {funOptions.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
-          e.target.value === 'divertente' ? setFun(11) : setFun(121);
+          e.target.value === 'divertente' ? setFun(1) : setFun(3);
         };
         return (
           <RadioButton

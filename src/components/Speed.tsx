@@ -12,15 +12,15 @@ interface SpeedProps {
 const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
   const speedOptions = [
     {
-      id: 30,
+      id: 1,
       label: 'poco',
     },
     {
-      id: 2433,
+      id: 2,
       label: 'medio',
     },
     {
-      id: 666,
+      id: 3,
       label: 'tanto',
     },
   ];
@@ -31,11 +31,11 @@ const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
       {speedOptions.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
           if (e.target.value === 'poco') {
-            setSpeed(30);
+            setSpeed(1);
           } else if (e.target.value === 'medio') {
-            setSpeed(2433);
+            setSpeed(2);
           } else {
-            setSpeed(666);
+            setSpeed(3);
           }
         };
         return (

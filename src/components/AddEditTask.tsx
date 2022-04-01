@@ -60,9 +60,9 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
       }),
     );
     setItemText('');
-    setSpeed(30);
-    setUrgency(50);
-    setFun(11);
+    setSpeed(1);
+    setUrgency(1);
+    setFun(1);
     setShowAddEditTask(false);
     setModifyTask(false);
   };
@@ -83,9 +83,9 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
 
   // Go Back
   const handleGoBack = () => {
-    setSpeed(30);
-    setUrgency(50);
-    setFun(11);
+    setSpeed(1);
+    setUrgency(1);
+    setFun(1);
     setItemText('');
     setShowAddEditTask(false);
     setModifyTask(false);
