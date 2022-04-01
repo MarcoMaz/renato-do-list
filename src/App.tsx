@@ -18,6 +18,7 @@ import ThingsTodo from './components/ThingsTodo';
 import ThingsDone from './components/ThingsDone';
 import AddTask from './components/AddTask';
 import Modal from './components/Modal';
+import Toast from './components/Toast';
 
 const persistor = persistStore(store);
 
@@ -43,6 +44,8 @@ function App() {
   const [modifyTask, setModifyTask] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
+
+  const [showToast, setShowToast] = useState(false);
 
   return (
     <Provider store={store}>
@@ -89,7 +92,14 @@ function App() {
               setModifyTask={setModifyTask}
             />
           )}
-          {showModal && <Modal tasks={tasks} setShowModal={setShowModal} />}
+          {showModal && (
+            <Modal
+              tasks={tasks}
+              setShowModal={setShowModal}
+              setShowToast={setShowToast}
+            />
+          )}
+          {showToast && <Toast />}
         </div>
       </PersistGate>
     </Provider>

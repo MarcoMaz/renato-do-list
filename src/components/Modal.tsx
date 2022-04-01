@@ -5,10 +5,15 @@ import { highlightTask, removeTask, taskProps } from '../state/taskSlice';
 
 interface ModalProps {
   setShowModal: (event: boolean) => void;
+  setShowToast: (event: boolean) => void;
   tasks: taskProps[];
 }
 
-const Modal: FunctionComponent<ModalProps> = ({ setShowModal, tasks }) => {
+const Modal: FunctionComponent<ModalProps> = ({
+  setShowModal,
+  setShowToast,
+  tasks,
+}) => {
   const dispatch = useAppDispatch();
 
   const selectedItem = tasks.filter((x) => x.isHighlighted)[0];
@@ -17,6 +22,10 @@ const Modal: FunctionComponent<ModalProps> = ({ setShowModal, tasks }) => {
     if (selectedItem) {
       dispatch(removeTask(selectedItem.id));
       setShowModal(false);
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
     }
   };
 
