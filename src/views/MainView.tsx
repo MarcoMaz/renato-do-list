@@ -5,13 +5,19 @@ import { useAppSelector } from '../state/hooks';
 
 // Components
 import Button from '../components/core/Button';
+import Headline from '../components/core/Headline';
 import Modal from '../components/Modal';
 import Toast from '../components/Toast';
 import TasksTodo from '../components/TasksTodo';
 import TasksDone from '../components/TasksDone';
 import AddEditTask from '../components/AddEditTask';
 
+// CopyText
+import copyText from '../assets/copyText';
+
 export const MainView: FunctionComponent = () => {
+  const { headline, headlineSpan } = copyText.general;
+
   const tasks = useAppSelector((state) => state.task);
   const tasksCompleted = useAppSelector((state) =>
     state.task.map((task) => task.isCompleted),
@@ -32,7 +38,8 @@ export const MainView: FunctionComponent = () => {
   const [showToast, setShowToast] = useState(false);
 
   return (
-    <div>
+    <>
+      <Headline isFirstElement label={headline} spanLabel={headlineSpan} />
       <TasksTodo
         tasks={tasks}
         tasksTodo={tasksTodo}
@@ -78,7 +85,7 @@ export const MainView: FunctionComponent = () => {
         />
       )}
       {showToast && <Toast />}
-    </div>
+    </>
   );
 };
 

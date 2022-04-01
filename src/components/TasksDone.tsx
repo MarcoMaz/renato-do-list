@@ -31,16 +31,17 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
     <>
       <Headline label={`${tasksDoneHeadline} ${taskCounter}`} />
       <ul>
-        {tasks
-          .filter((task) => task.isCompleted)
-          .map(({ label, isCompleted }, index) => (
-            <Task
-              key={index}
-              isCompleted={isCompleted}
-              id={index}
-              label={label}
-            />
-          ))}
+        {tasks &&
+          tasks
+            .filter((task) => task.isCompleted)
+            .map(({ label, isCompleted }, index) => (
+              <Task
+                key={index}
+                isCompleted={isCompleted}
+                id={index}
+                label={label}
+              />
+            ))}
       </ul>
     </>
   );

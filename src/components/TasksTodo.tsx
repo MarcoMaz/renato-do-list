@@ -47,30 +47,31 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
     <>
       <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
       <ul>
-        {tasks
-          .filter((task) => !task.isCompleted)
-          .sort((a, b) => b.total - a.total)
-          .map(({ id, label, isCompleted, speed, urgency, fun }) => {
-            return (
-              <Task
-                key={id}
-                id={id}
-                label={label}
-                isCompleted={isCompleted}
-                speed={speed}
-                urgency={urgency}
-                fun={fun}
-                setItemText={setItemText}
-                setSpeed={setSpeed}
-                setUrgency={setUrgency}
-                setFun={setFun}
-                setEditIndex={setEditIndex}
-                setShowAddEditTask={setShowAddEditTask}
-                setModifyTask={setModifyTask}
-                setShowModal={setShowModal}
-              />
-            );
-          })}
+        {tasks &&
+          tasks
+            .filter((task) => !task.isCompleted)
+            .sort((a, b) => b.total - a.total)
+            .map(({ id, label, isCompleted, speed, urgency, fun }) => {
+              return (
+                <Task
+                  key={id}
+                  id={id}
+                  label={label}
+                  isCompleted={isCompleted}
+                  speed={speed}
+                  urgency={urgency}
+                  fun={fun}
+                  setItemText={setItemText}
+                  setSpeed={setSpeed}
+                  setUrgency={setUrgency}
+                  setFun={setFun}
+                  setEditIndex={setEditIndex}
+                  setShowAddEditTask={setShowAddEditTask}
+                  setModifyTask={setModifyTask}
+                  setShowModal={setShowModal}
+                />
+              );
+            })}
       </ul>
     </>
   );
