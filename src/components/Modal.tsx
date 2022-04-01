@@ -1,18 +1,24 @@
-/* eslint-disable no-console */
 import { FunctionComponent } from 'react';
+
+// State
 import { useAppDispatch } from '../state/hooks';
 import { highlightTask, removeTask, taskProps } from '../state/taskSlice';
 
+// Components
+import Button from './core/Button';
+
 interface ModalProps {
+  label: string;
+  tasks: taskProps[];
   setShowModal: (event: boolean) => void;
   setShowToast: (event: boolean) => void;
-  tasks: taskProps[];
 }
 
 const Modal: FunctionComponent<ModalProps> = ({
+  label,
+  tasks,
   setShowModal,
   setShowToast,
-  tasks,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -36,13 +42,9 @@ const Modal: FunctionComponent<ModalProps> = ({
 
   return (
     <div>
-      Are you sure?
-      <button type="button" onClick={handleRemoval}>
-        Delete
-      </button>
-      <button type="button" onClick={handleGoBack}>
-        Annulla
-      </button>
+      {label}
+      <Button label="delete" type="button" onClick={handleRemoval} />
+      <Button label="annulla" type="button" onClick={handleGoBack} />
     </div>
   );
 };

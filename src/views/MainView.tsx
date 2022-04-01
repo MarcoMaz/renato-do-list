@@ -1,5 +1,8 @@
 import { FunctionComponent, useState } from 'react';
 
+// State
+import { useAppSelector } from '../state/hooks';
+
 // Components
 import Button from '../components/core/Button';
 import Modal from '../components/Modal';
@@ -7,8 +10,6 @@ import Toast from '../components/Toast';
 import ThingsTodo from '../components/ThingsTodo';
 import ThingsDone from '../components/ThingsDone';
 import AddTask from '../components/AddTask';
-
-import { useAppSelector } from '../state/hooks';
 
 export const MainView: FunctionComponent = () => {
   const tasks = useAppSelector((state) => state.task);
@@ -71,6 +72,7 @@ export const MainView: FunctionComponent = () => {
       )}
       {showModal && (
         <Modal
+          label="Are you sure?"
           tasks={tasks}
           setShowModal={setShowModal}
           setShowToast={setShowToast}

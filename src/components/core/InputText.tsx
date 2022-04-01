@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 
 interface InputTextProps {
   value: string;
-  placeholder: string;
+  placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

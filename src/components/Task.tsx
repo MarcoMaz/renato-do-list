@@ -1,8 +1,11 @@
 import { FunctionComponent } from 'react';
-import { useAppDispatch } from '../state/hooks';
 
+// State
+import { useAppDispatch } from '../state/hooks';
 import { highlightTask, toggleTask } from '../state/taskSlice';
 
+// Components
+import Button from './core/Button';
 import Checkbox from './core/Checkbox';
 
 interface TaskProps {
@@ -88,9 +91,7 @@ const Task: FunctionComponent<TaskProps> = ({
           onChange={handleCheckbox}
         />
       </button>
-      <button type="button" onClick={handleRemoveDialog}>
-        X
-      </button>
+      <Button label="X" type="button" onClick={handleRemoveDialog} />
     </li>
   );
 };

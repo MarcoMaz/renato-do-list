@@ -1,6 +1,10 @@
 import { FunctionComponent } from 'react';
+
+// State
 import { taskProps } from '../state/taskSlice';
 
+// Components
+import Headline from './core/Headline';
 import Task from './Task';
 
 interface ThingsDoneProps {
@@ -20,8 +24,7 @@ const ThingsDone: FunctionComponent<ThingsDoneProps> = ({
 
   return (
     <>
-      <h2>Things done</h2>
-      <h3>{taskCounter}</h3>
+      <Headline label={`Things done ${taskCounter}`} />
       <ul>
         {tasks
           .filter((task) => task.isCompleted)

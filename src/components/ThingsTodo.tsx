@@ -1,7 +1,10 @@
 import { FunctionComponent } from 'react';
 
+// State
 import { taskProps } from '../state/taskSlice';
 
+// Components
+import Headline from './core/Headline';
 import Task from './Task';
 
 interface ThingsTodoProps {
@@ -37,8 +40,7 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
 
   return (
     <>
-      <h2>Things to do </h2>
-      <h3>{taskCounter}</h3>
+      <Headline label={`Things to do ${taskCounter}`} />
       <ul>
         {tasks
           .filter((task) => !task.isCompleted)

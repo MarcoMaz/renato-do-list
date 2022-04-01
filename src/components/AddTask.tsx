@@ -1,11 +1,13 @@
 import { FunctionComponent } from 'react';
-import { useAppDispatch } from '../state/hooks';
 
+// State
+import { useAppDispatch } from '../state/hooks';
 import { addTask, editTask } from '../state/taskSlice';
 
+// Components
 import Button from './core/Button';
+import Headline from './core/Headline';
 import InputText from './core/InputText';
-
 import Speed from './Speed';
 import Urgency from './Urgency';
 import Fun from './Fun';
@@ -88,18 +90,15 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
 
   return (
     <form className="AddTask" onSubmit={onSubmit}>
-      {/* Both */}
       <Button type="button" label="<--- lista" onClick={goBack} />
       {!modifyTask ? (
         <Button type="submit" label="fatto" isDisabled={!itemText} />
       ) : (
-        <button type="button" onClick={handleClick}>
-          Edit an entry
-        </button>
+        <Button type="button" label="Edit an entry" onClick={handleClick} />
       )}
       {!modifyTask ? (
         <>
-          <h2>Aggiungi un&apos; attivita&apos;</h2>
+          <Headline label="Aggiungi un' attivita'" />
           <InputText
             value={itemText}
             placeholder="Cosa devi fare? Scrivilo qui"
@@ -107,9 +106,8 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
           />
         </>
       ) : (
-        <input type="text" onChange={handleChange} value={itemText} />
+        <InputText value={itemText} onChange={handleChange} />
       )}
-      {/* Both */}
       <Speed speed={speed} setSpeed={setSpeed} />
       <Urgency urgency={urgency} setUrgency={setUrgency} />
       <Fun fun={fun} setFun={setFun} />

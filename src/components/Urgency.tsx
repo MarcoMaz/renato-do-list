@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 
+// Component
 import LabelIcon from './core/LabelIcon';
 import RadioButton from './core/RadioButton';
 

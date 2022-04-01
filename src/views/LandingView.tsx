@@ -1,7 +1,9 @@
 import { FunctionComponent } from 'react';
+
+// Router
 import { Link } from 'react-router-dom';
 
-// Import Components
+// Components
 import Headline from '../components/core/Headline';
 import Image from '../components/core/Image';
 
