@@ -29,7 +29,7 @@ const Button: FunctionComponent<ButtonProps> = ({
 }) => {
   return (
     <button type={type} disabled={isDisabled} onClick={onClick}>
-      {arrowLeft && <FiChevronLeft />}
+      {arrowLeft && <FiChevronLeft data-testid="fi-chevron-left" />}
       {plusSign && <FiPlus />}
       {closeSign && <FiX />}
       {label}

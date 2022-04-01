@@ -8,10 +8,9 @@ const SectionParagraphs: FunctionComponent<SectionParagraphs> = ({
   arrayOfParagraphs,
 }) => {
   return (
-    <section>
-      {arrayOfParagraphs.map((paragraph) => (
-        <p>{paragraph}</p>
-      ))}
+    <section data-testid="section-paragraphs">
+      {arrayOfParagraphs &&
+        arrayOfParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </section>
   );
 };

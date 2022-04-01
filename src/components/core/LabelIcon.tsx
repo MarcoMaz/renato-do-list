@@ -17,7 +17,7 @@ const LabelIcon: FunctionComponent<LabelIconProps> = ({
   funIcon,
 }) => {
   return (
-    <div>
+    <div data-testid="label-icon">
       {speedIcon && <FiClock />}
       {urgencyIcon && <FiAlertTriangle />}
       {funIcon && <FiSmile />}
