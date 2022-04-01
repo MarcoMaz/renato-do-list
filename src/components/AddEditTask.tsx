@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FunctionComponent } from 'react';
 
 // State
@@ -12,39 +13,43 @@ import Speed from './Speed';
 import Urgency from './Urgency';
 import Fun from './Fun';
 
-interface AddTaskProps {
-  editIndex: number;
+interface AddEditTaskProps {
   itemText: string;
   speed: number;
   urgency: number;
   fun: number;
+  editIndex: number;
   modifyTask: boolean;
   setItemText: (event: string) => void;
-  setShowAddEditTask: (event: boolean) => void;
   setSpeed: (event: number) => void;
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
+  setShowAddEditTask: (event: boolean) => void;
   setModifyTask: (event: boolean) => void;
 }
 
-const AddTask: FunctionComponent<AddTaskProps> = ({
-  editIndex,
+const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
   itemText,
   speed,
   urgency,
   fun,
+  editIndex,
   modifyTask,
   setItemText,
-  setShowAddEditTask,
   setSpeed,
   setUrgency,
   setFun,
+  setShowAddEditTask,
   setModifyTask,
 }) => {
   const dispatch = useAppDispatch();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = (event: any) => {
+  // New Task
+  const handleAddNewTask = (event: { target: { value: string } }) => {
+    setItemText(event.target.value);
+  };
+
+  const submitNewTask = (event: any) => {
     event.preventDefault();
     dispatch(
       addTask({
@@ -62,7 +67,12 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setModifyTask(false);
   };
 
-  const handleClick = () => {
+  // Modify Task
+  const handleModifyTask = (e: { target: { value: string } }) => {
+    setItemText(e.target.value);
+  };
+
+  const submitModfiyTask = () => {
     dispatch(
       editTask({ index: editIndex, label: itemText, speed, urgency, fun }),
     );
@@ -71,11 +81,8 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setModifyTask(false);
   };
 
-  const handleChange = (e: { target: { value: string } }) => {
-    setItemText(e.target.value);
-  };
-
-  const goBack = () => {
+  // Go Back
+  const handleGoBack = () => {
     setSpeed(30);
     setUrgency(50);
     setFun(11);
@@ -84,17 +91,17 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
     setModifyTask(false);
   };
 
-  const handleInputChange = (event: { target: { value: string } }) => {
-    setItemText(event.target.value);
-  };
-
   return (
-    <form className="AddTask" onSubmit={onSubmit}>
-      <Button type="button" label="<--- lista" onClick={goBack} />
+    <form className="AddTask" onSubmit={submitNewTask}>
+      <Button type="button" label="<--- lista" onClick={handleGoBack} />
       {!modifyTask ? (
         <Button type="submit" label="fatto" isDisabled={!itemText} />
       ) : (
-        <Button type="button" label="Edit an entry" onClick={handleClick} />
+        <Button
+          type="button"
+          label="Edit an entry"
+          onClick={submitModfiyTask}
+        />
       )}
       {!modifyTask ? (
         <>
@@ -102,11 +109,11 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
           <InputText
             value={itemText}
             placeholder="Cosa devi fare? Scrivilo qui"
-            onChange={handleInputChange}
+            onChange={handleAddNewTask}
           />
         </>
       ) : (
-        <InputText value={itemText} onChange={handleChange} />
+        <InputText value={itemText} onChange={handleModifyTask} />
       )}
       <Speed speed={speed} setSpeed={setSpeed} />
       <Urgency urgency={urgency} setUrgency={setUrgency} />
@@ -115,4 +122,4 @@ const AddTask: FunctionComponent<AddTaskProps> = ({
   );
 };
 
-export default AddTask;
+export default AddEditTask;

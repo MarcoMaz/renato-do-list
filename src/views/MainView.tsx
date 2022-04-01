@@ -7,9 +7,9 @@ import { useAppSelector } from '../state/hooks';
 import Button from '../components/core/Button';
 import Modal from '../components/Modal';
 import Toast from '../components/Toast';
-import ThingsTodo from '../components/ThingsTodo';
-import ThingsDone from '../components/ThingsDone';
-import AddTask from '../components/AddTask';
+import TasksTodo from '../components/TasksTodo';
+import TasksDone from '../components/TasksDone';
+import AddEditTask from '../components/AddEditTask';
 
 export const MainView: FunctionComponent = () => {
   const tasks = useAppSelector((state) => state.task);
@@ -33,7 +33,7 @@ export const MainView: FunctionComponent = () => {
 
   return (
     <div>
-      <ThingsTodo
+      <TasksTodo
         tasks={tasks}
         tasksTodo={tasksTodo}
         tasksTotal={tasksTotal}
@@ -46,7 +46,7 @@ export const MainView: FunctionComponent = () => {
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
       />
-      <ThingsDone tasks={tasks} tasksDone={tasksDone} tasksTotal={tasksTotal} />
+      <TasksDone tasks={tasks} tasksDone={tasksDone} tasksTotal={tasksTotal} />
       {!showAddEditTask && (
         <Button
           type="button"
@@ -55,7 +55,7 @@ export const MainView: FunctionComponent = () => {
         />
       )}
       {showAddEditTask && (
-        <AddTask
+        <AddEditTask
           itemText={itemText}
           speed={speed}
           urgency={urgency}

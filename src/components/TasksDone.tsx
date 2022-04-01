@@ -7,13 +7,13 @@ import { taskProps } from '../state/taskSlice';
 import Headline from './core/Headline';
 import Task from './Task';
 
-interface ThingsDoneProps {
+interface TasksDoneProps {
   tasksDone: number;
   tasksTotal: number;
   tasks: taskProps[];
 }
 
-const ThingsDone: FunctionComponent<ThingsDoneProps> = ({
+const TasksDone: FunctionComponent<TasksDoneProps> = ({
   tasksDone,
   tasksTotal,
   tasks,
@@ -28,12 +28,12 @@ const ThingsDone: FunctionComponent<ThingsDoneProps> = ({
       <ul>
         {tasks
           .filter((task) => task.isCompleted)
-          .map((task, index) => (
+          .map(({ label, isCompleted }, index) => (
             <Task
               key={index}
-              isCompleted={task.isCompleted}
+              isCompleted={isCompleted}
               id={index}
-              label={task.label}
+              label={label}
             />
           ))}
       </ul>
@@ -41,4 +41,4 @@ const ThingsDone: FunctionComponent<ThingsDoneProps> = ({
   );
 };
 
-export default ThingsDone;
+export default TasksDone;

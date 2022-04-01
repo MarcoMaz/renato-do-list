@@ -9,14 +9,14 @@ import Button from './core/Button';
 import Checkbox from './core/Checkbox';
 
 interface TaskProps {
-  isCompleted: boolean;
   id: number;
   label: string;
   speed?: number;
-  setSpeed?: (event: number) => void;
   urgency?: number;
-  setUrgency?: (event: number) => void;
   fun?: number;
+  isCompleted: boolean;
+  setSpeed?: (event: number) => void;
+  setUrgency?: (event: number) => void;
   setFun?: (event: number) => void;
   setEditIndex?: (event: number) => void;
   setShowAddEditTask?: (event: boolean) => void;
@@ -26,14 +26,14 @@ interface TaskProps {
 }
 
 const Task: FunctionComponent<TaskProps> = ({
-  isCompleted,
   id,
   label,
   speed,
-  setSpeed,
   urgency,
-  setUrgency,
   fun,
+  isCompleted,
+  setSpeed,
+  setUrgency,
   setFun,
   setEditIndex,
   setShowAddEditTask,
@@ -43,52 +43,34 @@ const Task: FunctionComponent<TaskProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const handleClick = () => {
-    if (setShowAddEditTask) {
-      setShowAddEditTask(true);
-    }
-    if (setItemText) {
-      setItemText(label);
-    }
-    if (setEditIndex) {
-      setEditIndex(id);
-    }
-    if (speed && setSpeed) {
-      setSpeed(speed);
-    }
-    if (urgency && setUrgency) {
-      setUrgency(urgency);
-    }
-    if (fun && setFun) {
-      setFun(fun);
-    }
-    if (setModifyTask) {
-      setModifyTask(true);
-    }
+  const handleModifyTask = () => {
+    if (speed && setSpeed) setSpeed(speed);
+    if (urgency && setUrgency) setUrgency(urgency);
+    if (fun && setFun) setFun(fun);
+    if (setShowAddEditTask) setShowAddEditTask(true);
+    if (setItemText) setItemText(label);
+    if (setEditIndex) setEditIndex(id);
+    if (setModifyTask) setModifyTask(true);
   };
 
-  const handleCheckbox = () => {
+  const handleCompleteTask = () => {
     dispatch(toggleTask(id));
-    if (setShowAddEditTask) {
-      setShowAddEditTask(false);
-    }
+    if (setShowAddEditTask) setShowAddEditTask(false);
   };
 
   const handleRemoveDialog = () => {
-    if (setShowModal) {
-      setShowModal(true);
-    }
     dispatch(highlightTask(id));
+    if (setShowModal) setShowModal(true);
   };
 
   return (
     <li>
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={handleModifyTask}>
         <Checkbox
           value={id}
           isChecked={isCompleted}
           label={label}
-          onChange={handleCheckbox}
+          onChange={handleCompleteTask}
         />
       </button>
       <Button label="X" type="button" onClick={handleRemoveDialog} />

@@ -7,27 +7,27 @@ import { taskProps } from '../state/taskSlice';
 import Headline from './core/Headline';
 import Task from './Task';
 
-interface ThingsTodoProps {
+interface TasksTodoProps {
+  tasks: taskProps[];
+  tasksTotal: number;
+  tasksTodo: number;
   setSpeed: (event: number) => void;
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
-  tasksTodo: number;
-  tasksTotal: number;
   setEditIndex: (event: number) => void;
-  tasks: taskProps[];
   setShowAddEditTask: (event: boolean) => void;
   setItemText: (event: string) => void;
   setModifyTask: (event: boolean) => void;
   setShowModal: (event: boolean) => void;
 }
 
-const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
+const TasksTodo: FunctionComponent<TasksTodoProps> = ({
+  tasks,
+  tasksTotal,
+  tasksTodo,
   setSpeed,
   setUrgency,
   setFun,
-  tasksTodo,
-  tasksTotal,
-  tasks,
   setEditIndex,
   setShowAddEditTask,
   setItemText,
@@ -45,22 +45,22 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
         {tasks
           .filter((task) => !task.isCompleted)
           .sort((a, b) => b.total - a.total)
-          .map(({ id, isCompleted, label, speed, urgency, fun }) => {
+          .map(({ id, label, isCompleted, speed, urgency, fun }) => {
             return (
               <Task
-                speed={speed}
-                setSpeed={setSpeed}
-                urgency={urgency}
-                setUrgency={setUrgency}
-                fun={fun}
-                setFun={setFun}
                 key={id}
-                setEditIndex={setEditIndex}
                 id={id}
-                isCompleted={isCompleted}
                 label={label}
-                setShowAddEditTask={setShowAddEditTask}
+                isCompleted={isCompleted}
+                speed={speed}
+                urgency={urgency}
+                fun={fun}
                 setItemText={setItemText}
+                setSpeed={setSpeed}
+                setUrgency={setUrgency}
+                setFun={setFun}
+                setEditIndex={setEditIndex}
+                setShowAddEditTask={setShowAddEditTask}
                 setModifyTask={setModifyTask}
                 setShowModal={setShowModal}
               />
@@ -71,4 +71,4 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   );
 };
 
-export default ThingsTodo;
+export default TasksTodo;
