@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useAppDispatch } from '../state/hooks';
 
-import { toggleTask } from '../state/taskSlice';
+import { highlightTask, toggleTask } from '../state/taskSlice';
 
 import Checkbox from './core/Checkbox';
 
@@ -75,6 +75,7 @@ const Task: FunctionComponent<TaskProps> = ({
     if (setShowModal) {
       setShowModal(true);
     }
+    dispatch(highlightTask(id));
   };
 
   return (

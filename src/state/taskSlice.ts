@@ -13,6 +13,7 @@ export interface taskProps {
   fun: number;
   total: number;
   isClicked: boolean;
+  isHighlighted: boolean;
 }
 
 // Define the initial state using that type
@@ -26,6 +27,7 @@ const initialState: taskProps[] = [
     fun: 121,
     total: 837,
     isClicked: false,
+    isHighlighted: false,
   },
   {
     id: 1,
@@ -36,6 +38,7 @@ const initialState: taskProps[] = [
     fun: 11,
     total: 4244,
     isClicked: false,
+    isHighlighted: false,
   },
 ];
 
@@ -54,6 +57,7 @@ export const taskSlice = createSlice({
         total:
           action.payload.speed + action.payload.urgency + action.payload.fun,
         isClicked: false,
+        isHighlighted: false,
       };
       state.push(newTask);
     },
@@ -72,6 +76,12 @@ export const taskSlice = createSlice({
         todos.isCompleted = !todos.isCompleted;
       }
     },
+    highlightTask: (state, action) => {
+      const todos = state.find((todo) => todo.id === action.payload);
+      if (todos) {
+        todos.isHighlighted = !todos.isHighlighted;
+      }
+    },
     removeTask: (state, action) => {
       const todos = state.filter((todo) => todo.id !== action.payload);
       return todos;
@@ -80,7 +90,8 @@ export const taskSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addTask, editTask, toggleTask, removeTask } = taskSlice.actions;
+export const { addTask, editTask, highlightTask, toggleTask, removeTask } =
+  taskSlice.actions;
 
 export const selectCount = (state: RootState) => state.task;
 

@@ -89,7 +89,7 @@ function App() {
               setModifyTask={setModifyTask}
             />
           )}
-          {showModal && <Modal />}
+          {showModal && <Modal tasks={tasks} setShowModal={setShowModal} />}
         </div>
       </PersistGate>
     </Provider>
