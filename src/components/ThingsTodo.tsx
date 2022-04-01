@@ -11,8 +11,8 @@ interface ThingsTodoProps {
   setSpeed: (event: number) => void;
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
-  numberOfThingsTodo: number;
-  numberOfThingsTotal: number;
+  tasksTodo: number;
+  tasksTotal: number;
   setEditIndex: (event: number) => void;
   tasks: taskProps[];
   setShowAddTask: (event: boolean) => void;
@@ -25,8 +25,8 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   setSpeed,
   setUrgency,
   setFun,
-  numberOfThingsTodo,
-  numberOfThingsTotal,
+  tasksTodo,
+  tasksTotal,
   tasks,
   setEditIndex,
   setShowAddTask,
@@ -34,9 +34,9 @@ const ThingsTodo: FunctionComponent<ThingsTodoProps> = ({
   setModifyTask,
   setShowModal,
 }) => {
-  const counter = `${numberOfThingsTodo}/${numberOfThingsTotal}`;
+  const counter = `${tasksTodo}/${tasksTotal}`;
 
-  const taskCounter = numberOfThingsTotal === 0 ? '(vuota)' : `(${counter})`;
+  const taskCounter = tasksTotal === 0 ? '(vuota)' : `(${counter})`;
 
   return (
     <>

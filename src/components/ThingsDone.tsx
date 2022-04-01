@@ -8,19 +8,19 @@ import Headline from './core/Headline';
 import Task from './Task';
 
 interface ThingsDoneProps {
-  numberOfThingsDone: number;
-  numberOfThingsTotal: number;
+  tasksDone: number;
+  tasksTotal: number;
   tasks: taskProps[];
 }
 
 const ThingsDone: FunctionComponent<ThingsDoneProps> = ({
-  numberOfThingsDone,
-  numberOfThingsTotal,
+  tasksDone,
+  tasksTotal,
   tasks,
 }) => {
-  const counter = `${numberOfThingsDone}/${numberOfThingsTotal}`;
+  const counter = `${tasksDone}/${tasksTotal}`;
 
-  const taskCounter = numberOfThingsTotal === 0 ? '(vuota)' : `(${counter})`;
+  const taskCounter = tasksTotal === 0 ? '(vuota)' : `(${counter})`;
 
   return (
     <>

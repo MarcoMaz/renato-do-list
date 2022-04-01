@@ -13,13 +13,13 @@ import AddTask from '../components/AddTask';
 
 export const MainView: FunctionComponent = () => {
   const tasks = useAppSelector((state) => state.task);
-  const completedTodos = useAppSelector((state) =>
+  const tasksCompleted = useAppSelector((state) =>
     state.task.map((task) => task.isCompleted),
   );
 
-  const numberOfThingsTotal = tasks.length;
-  const numberOfThingsDone = completedTodos.filter(Boolean).length;
-  const numberOfThingsTodo = numberOfThingsTotal - numberOfThingsDone;
+  const tasksTotal = tasks.length;
+  const tasksDone = tasksCompleted.filter(Boolean).length;
+  const tasksTodo = tasksTotal - tasksDone;
 
   const [newItemText, setItemText] = useState('');
   const [newSpeed, setSpeed] = useState(30);
@@ -34,9 +34,9 @@ export const MainView: FunctionComponent = () => {
   return (
     <div>
       <ThingsTodo
-        numberOfThingsTodo={numberOfThingsTodo}
-        numberOfThingsTotal={numberOfThingsTotal}
         tasks={tasks}
+        tasksTodo={tasksTodo}
+        tasksTotal={tasksTotal}
         setSpeed={setSpeed}
         setUrgency={setUrgency}
         setFun={setFun}
@@ -46,11 +46,7 @@ export const MainView: FunctionComponent = () => {
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
       />
-      <ThingsDone
-        numberOfThingsDone={numberOfThingsDone}
-        numberOfThingsTotal={numberOfThingsTotal}
-        tasks={tasks}
-      />
+      <ThingsDone tasks={tasks} tasksDone={tasksDone} tasksTotal={tasksTotal} />
       {!showAddTask && (
         <Button type="button" label="+" onClick={() => setShowAddTask(true)} />
       )}
