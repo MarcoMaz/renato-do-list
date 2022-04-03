@@ -54,9 +54,14 @@ export const MainView: FunctionComponent<MainViewProps> = ({
   const tasksTodo = tasksTotal - tasksDone;
 
   return (
-    <>
-      <Headline isFirstElement label={headline} />
+    <div className="MainView">
+      <Headline
+        className="MainView__headline"
+        isFirstElement
+        label={headline}
+      />
       <TasksTodo
+        className="MainView__tasksTodo"
         tasks={tasks}
         tasksTodo={tasksTodo}
         tasksTotal={tasksTotal}
@@ -68,8 +73,13 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
       />
-      <TasksDone tasks={tasks} tasksDone={tasksDone} tasksTotal={tasksTotal} />
-      <Link to="add-edit">
+      <TasksDone
+        className="MainView__tasksDone"
+        tasks={tasks}
+        tasksDone={tasksDone}
+        tasksTotal={tasksTotal}
+      />
+      <Link to="add-edit" className="MainView__addButton">
         <Button plusSign type="button" />
       </Link>
       {showModal && (
@@ -80,7 +90,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         />
       )}
       {showToast && <Toast />}
-    </>
+    </div>
   );
 };
 

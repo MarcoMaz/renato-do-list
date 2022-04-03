@@ -100,3 +100,47 @@ figure {
     }
   }
 }
+
+.MainView {
+  display: flex;
+  flex-direction: column;
+
+  &__headline {
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+    max-width: 12rem;
+  }
+
+  &__tasksTodo {
+    border-bottom: 2px solid $ebony;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  &__tasksDone {
+    border-bottom: 2px solid $ebony;
+    padding-bottom: 1rem;
+  }
+
+  &__addButton {
+    background: $heliotrope;
+    border: 2px solid $ebony;
+    border-radius: 50%;
+    bottom: 2rem;
+    display: flex;
+    height: 3.5rem;
+    justify-content: center;
+    position: absolute;
+    right: 1rem;
+    width: 3.5rem;
+
+    button {
+      align-items: center;
+      border-radius: 50%;
+      color: $white;
+      display: flex;
+      font-size: 2rem;
+      justify-content: center;
+    }
+  }
+}

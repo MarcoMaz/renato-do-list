@@ -11,6 +11,7 @@ import Task from './Task';
 import copyText from '../assets/copyText';
 
 interface TasksTodoProps {
+  className: string;
   tasks: taskProps[];
   tasksTotal: number;
   tasksTodo: number;
@@ -24,6 +25,7 @@ interface TasksTodoProps {
 }
 
 const TasksTodo: FunctionComponent<TasksTodoProps> = ({
+  className,
   tasks,
   tasksTotal,
   tasksTodo,
@@ -42,7 +44,7 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
   const taskCounter = tasksTotal === 0 ? '(vuoto)' : `(${counter})`;
 
   return (
-    <>
+    <div className={className}>
       <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
       <ul>
         {tasks &&
@@ -70,7 +72,7 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
               );
             })}
       </ul>
-    </>
+    </div>
   );
 };
 

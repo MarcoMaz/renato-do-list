@@ -11,12 +11,14 @@ import Task from './Task';
 import copyText from '../assets/copyText';
 
 interface TasksDoneProps {
+  className: string;
   tasksDone: number;
   tasksTotal: number;
   tasks: taskProps[];
 }
 
 const TasksDone: FunctionComponent<TasksDoneProps> = ({
+  className,
   tasksDone,
   tasksTotal,
   tasks,
@@ -28,7 +30,7 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
   const taskCounter = tasksTotal === 0 ? '(vuoto)' : `(${counter})`;
 
   return (
-    <>
+    <div className={className}>
       <Headline label={`${tasksDoneHeadline} ${taskCounter}`} />
       <ul>
         {tasks &&
@@ -43,7 +45,7 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
               />
             ))}
       </ul>
-    </>
+    </div>
   );
 };
 
