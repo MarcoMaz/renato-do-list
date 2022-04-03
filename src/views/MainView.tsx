@@ -42,7 +42,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
   setShowModal,
   setShowToast,
 }) => {
-  const { headline, headlineSpan } = copyText.general;
+  const { headline } = copyText.general;
 
   const tasks = useAppSelector((state) => state.task);
   const tasksCompleted = useAppSelector((state) =>
@@ -55,7 +55,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
 
   return (
     <>
-      <Headline isFirstElement label={headline} spanLabel={headlineSpan} />
+      <Headline isFirstElement label={headline} />
       <TasksTodo
         tasks={tasks}
         tasksTodo={tasksTodo}

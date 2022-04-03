@@ -1,7 +1,6 @@
 const copyText = {
   general: {
-    headline: 'Renato-do',
-    headlineSpan: 'list',
+    headline: 'Renato-do list',
   },
   landingView: {
     image: {

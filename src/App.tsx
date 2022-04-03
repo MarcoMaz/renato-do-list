@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // Styling
-import './App.scss';
+import './styles/main.scss';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 

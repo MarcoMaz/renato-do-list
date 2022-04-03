@@ -13,14 +13,14 @@ import SectionParagraphs from '../components/core/SectionParagraphs';
 import copyText from '../assets/copyText';
 
 export const IntroView1: FunctionComponent = () => {
-  const { headline, headlineSpan } = copyText.general;
+  const { headline } = copyText.general;
   const { subheadline, arrayOfParagraphs } = copyText.introView1;
   const { alt, srcUrl } = copyText.introView1.image;
   const { label } = copyText.introView1.cta;
 
   return (
     <div>
-      <Headline label={headline} spanLabel={headlineSpan} isFirstElement />
+      <Headline label={headline} isFirstElement />
       <Headline label={subheadline} />
       <Image alt={alt} srcUrl={srcUrl} />
       <SectionParagraphs arrayOfParagraphs={arrayOfParagraphs} />

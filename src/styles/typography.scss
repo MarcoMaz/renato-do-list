@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;600;700&display=swap');
+
+$textFont: 'Poppins', sans-serif;
+$brandFont: 'Work Sans', sans-serif;
+
+html {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+body {
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+// reset
+h1, h2, h3, h4, h5, h6, p, button, ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1 {
+  color: $ebony;
+  font-family: $brandFont;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 300px;
+}
+
+h2, p, button {
+  font-family: $textFont;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+a {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: 0;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+li {
+  display: flex;
+}

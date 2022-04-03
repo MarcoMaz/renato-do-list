@@ -1,0 +1,7 @@
+@mixin findPostion($sizeX, $sizeY){
+  height: $sizeX;
+  left: calc((100vw - #{$sizeY}) / 2);
+  position: absolute;
+  top: calc((100vh - #{$sizeX}) / 2);
+  width: $sizeY;
+}

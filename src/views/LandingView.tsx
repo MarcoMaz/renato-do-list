@@ -12,13 +12,13 @@ import Image from '../components/core/Image';
 import copyText from '../assets/copyText';
 
 export const LandingView: FunctionComponent = () => {
-  const { headline, headlineSpan } = copyText.general;
+  const { headline } = copyText.general;
   const { alt, srcUrl } = copyText.landingView.image;
   const { label } = copyText.landingView.cta;
 
   return (
     <div>
-      <Headline isFirstElement label={headline} spanLabel={headlineSpan} />
+      <Headline isFirstElement label={headline} />
       <Image alt={alt} srcUrl={srcUrl} />
       <Link to="/intro-1">
         <Button type="button" label={label} arrowRight />
