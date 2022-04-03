@@ -17,10 +17,14 @@ export const LandingView: FunctionComponent = () => {
   const { label } = copyText.landingView.cta;
 
   return (
-    <div>
-      <Headline isFirstElement label={headline} />
+    <div className="LandingView">
+      <Headline
+        className="LandingView__headline"
+        isFirstElement
+        label={headline}
+      />
       <Image alt={alt} srcUrl={srcUrl} />
-      <Link to="/intro-1">
+      <Link to="/intro-1" className="LandingView__button">
         <Button type="button" label={label} arrowRight />
       </Link>
     </div>
