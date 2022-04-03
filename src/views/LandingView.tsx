@@ -23,7 +23,7 @@ export const LandingView: FunctionComponent = () => {
         isFirstElement
         label={headline}
       />
-      <Image alt={alt} srcUrl={srcUrl} />
+      <Image alt={alt} srcUrl={srcUrl} className="LandingView__image" />
       <Link to="/intro-1" className="LandingView__button">
         <Button type="button" label={label} arrowRight />
       </Link>

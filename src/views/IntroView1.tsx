@@ -19,12 +19,19 @@ export const IntroView1: FunctionComponent = () => {
   const { label } = copyText.introView1.cta;
 
   return (
-    <div>
-      <Headline label={headline} isFirstElement />
-      <Headline label={subheadline} />
-      <Image alt={alt} srcUrl={srcUrl} />
-      <SectionParagraphs arrayOfParagraphs={arrayOfParagraphs} />
-      <Link to="/main">
+    <div className="IntroView1">
+      <Headline
+        className="IntroView1__headline"
+        label={headline}
+        isFirstElement
+      />
+      <Image className="IntroView1__image" alt={alt} srcUrl={srcUrl} />
+      <Headline className="IntroView1__subheadline" label={subheadline} />
+      <SectionParagraphs
+        className="IntroView1__sectionParagraphs"
+        arrayOfParagraphs={arrayOfParagraphs}
+      />
+      <Link to="/main" className="IntroView1__button">
         <Button type="button" label={label} arrowRight />
       </Link>
     </div>

@@ -16,7 +16,7 @@ const Headline: FunctionComponent<HeadlineProps> = ({
   if (isFirstElement) {
     headlineElement = <h1 className={className}>{label}</h1>;
   } else {
-    headlineElement = <h2>{label}</h2>;
+    headlineElement = <h2 className={className}>{label}</h2>;
   }
 
   return <>{headlineElement}</>;
