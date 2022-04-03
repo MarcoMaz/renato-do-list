@@ -2,7 +2,7 @@
 import { FunctionComponent } from 'react';
 
 // import ICONS
-import { FiX, FiArrowRight, FiPlus, FiChevronLeft } from 'react-icons/fi';
+import { FiTrash2, FiArrowRight, FiPlus, FiChevronLeft } from 'react-icons/fi';
 
 type AllowedButtonType = 'button' | 'submit' | 'reset';
 
@@ -12,7 +12,7 @@ interface ButtonProps {
   isDisabled?: boolean;
   arrowLeft?: boolean;
   arrowRight?: boolean;
-  closeSign?: boolean;
+  trashSign?: boolean;
   plusSign?: boolean;
   onClick?: () => void;
 }
@@ -23,7 +23,7 @@ const Button: FunctionComponent<ButtonProps> = ({
   isDisabled,
   arrowLeft,
   arrowRight,
-  closeSign,
+  trashSign,
   plusSign,
   onClick,
 }) => {
@@ -31,7 +31,7 @@ const Button: FunctionComponent<ButtonProps> = ({
     <button type={type} disabled={isDisabled} onClick={onClick}>
       {arrowLeft && <FiChevronLeft data-testid="fi-chevron-left" />}
       {plusSign && <FiPlus />}
-      {closeSign && <FiX />}
+      {trashSign && <FiTrash2 />}
       {label}
       {arrowRight && <FiArrowRight />}
     </button>

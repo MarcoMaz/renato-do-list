@@ -72,7 +72,7 @@ const Task: FunctionComponent<TaskProps> = ({
       <Link to="add-edit">
         <Button type="button" label={label} onClick={handleModifyTask} />
       </Link>
-      <Button closeSign type="button" onClick={handleRemoveDialog} />
+      <Button trashSign type="button" onClick={handleRemoveDialog} />
     </li>
   );
 };
