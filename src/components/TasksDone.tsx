@@ -1,5 +1,8 @@
 import { FunctionComponent } from 'react';
 
+// Icons
+import { FiChevronUp } from 'react-icons/fi';
+
 // State
 import { taskProps } from '../state/taskSlice';
 
@@ -31,10 +34,13 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
 
   return (
     <div className={className}>
-      <Headline label={`${tasksDoneHeadline} ${taskCounter}`} />
-      <ul>
-        {tasks &&
-          tasks
+      <div className="TasksDone__headlineWrapper">
+        <Headline label={`${tasksDoneHeadline} ${taskCounter}`} />
+        <FiChevronUp />
+      </div>
+      {tasksDone > 0 && (
+        <ul className="TasksDone__tasksWrapper">
+          {tasks
             .filter((task) => task.isCompleted)
             .map(({ label, isCompleted }, index) => (
               <Task
@@ -44,7 +50,8 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
                 label={label}
               />
             ))}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 };

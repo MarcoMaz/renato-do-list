@@ -12,7 +12,9 @@ const SectionParagraphs: FunctionComponent<SectionParagraphs> = ({
   return (
     <section className={className} data-testid="section-paragraphs">
       {arrayOfParagraphs &&
-        arrayOfParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        arrayOfParagraphs.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
     </section>
   );
 };

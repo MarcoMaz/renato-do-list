@@ -1,5 +1,8 @@
 import { FunctionComponent } from 'react';
 
+// Icons
+import { FiChevronUp } from 'react-icons/fi';
+
 // State
 import { taskProps } from '../state/taskSlice';
 
@@ -45,10 +48,13 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
 
   return (
     <div className={className}>
-      <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
-      <ul>
-        {tasks &&
-          tasks
+      <div className="TasksTodo__headlineWrapper">
+        <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
+        <FiChevronUp />
+      </div>
+      {tasksTodo > 0 && (
+        <ul className="TasksTodo__tasksWrapper">
+          {tasks
             .filter((task) => !task.isCompleted)
             .sort((a, b) => b.total - a.total)
             .map(({ id, label, isCompleted, speed, urgency, fun }) => {
@@ -71,7 +77,8 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
                 />
               );
             })}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 };

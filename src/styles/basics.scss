@@ -144,3 +144,31 @@ figure {
     }
   }
 }
+
+.TasksTodo__headlineWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  svg {
+    font-size: 2rem;
+  }
+}
+
+.TasksDone__headlineWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  svg {
+    font-size: 2rem;
+  }
+}
+
+.TasksTodo__tasksWrapper {
+  margin-bottom: 1rem;
+}
+
+.TasksDone__tasksWrapper {
+  margin-top: 1rem;
+}

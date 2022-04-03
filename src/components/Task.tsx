@@ -1,8 +1,5 @@
 import { FunctionComponent } from 'react';
 
-// Icons
-import { FiChevronUp } from 'react-icons/fi';
-
 // Router
 import { Link } from 'react-router-dom';
 
@@ -76,7 +73,6 @@ const Task: FunctionComponent<TaskProps> = ({
         <Button type="button" label={label} onClick={handleModifyTask} />
       </Link>
       <Button closeSign type="button" onClick={handleRemoveDialog} />
-      <FiChevronUp />
     </li>
   );
 };
