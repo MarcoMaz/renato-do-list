@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 interface CheckboxProps {
-  label: string;
+  label?: string;
   value: number;
   isChecked: boolean;
   onChange: () => void;

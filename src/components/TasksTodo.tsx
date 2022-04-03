@@ -18,7 +18,6 @@ interface TasksTodoProps {
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
   setEditIndex: (event: number) => void;
-  setShowAddEditTask: (event: boolean) => void;
   setItemText: (event: string) => void;
   setModifyTask: (event: boolean) => void;
   setShowModal: (event: boolean) => void;
@@ -32,7 +31,6 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
   setUrgency,
   setFun,
   setEditIndex,
-  setShowAddEditTask,
   setItemText,
   setModifyTask,
   setShowModal,
@@ -66,7 +64,6 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
                   setUrgency={setUrgency}
                   setFun={setFun}
                   setEditIndex={setEditIndex}
-                  setShowAddEditTask={setShowAddEditTask}
                   setModifyTask={setModifyTask}
                   setShowModal={setShowModal}
                 />
