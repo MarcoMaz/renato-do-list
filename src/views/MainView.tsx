@@ -1,4 +1,7 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent } from 'react';
+
+// Router
+import { Link } from 'react-router-dom';
 
 // State
 import { useAppSelector } from '../state/hooks';
@@ -10,12 +13,35 @@ import Modal from '../components/Modal';
 import Toast from '../components/Toast';
 import TasksTodo from '../components/TasksTodo';
 import TasksDone from '../components/TasksDone';
-import AddEditTask from '../components/AddEditTask';
 
 // CopyText
 import copyText from '../assets/copyText';
 
-export const MainView: FunctionComponent = () => {
+interface MainViewProps {
+  showModal: boolean;
+  showToast: boolean;
+  setItemText: (event: string) => void;
+  setEditIndex: (event: number) => void;
+  setSpeed: (event: number) => void;
+  setUrgency: (event: number) => void;
+  setFun: (event: number) => void;
+  setModifyTask: (event: boolean) => void;
+  setShowModal: (event: boolean) => void;
+  setShowToast: (event: boolean) => void;
+}
+
+export const MainView: FunctionComponent<MainViewProps> = ({
+  showModal,
+  showToast,
+  setEditIndex,
+  setItemText,
+  setSpeed,
+  setUrgency,
+  setFun,
+  setModifyTask,
+  setShowModal,
+  setShowToast,
+}) => {
   const { headline, headlineSpan } = copyText.general;
 
   const tasks = useAppSelector((state) => state.task);
@@ -26,16 +52,6 @@ export const MainView: FunctionComponent = () => {
   const tasksTotal = tasks.length;
   const tasksDone = tasksCompleted.filter(Boolean).length;
   const tasksTodo = tasksTotal - tasksDone;
-
-  const [itemText, setItemText] = useState('');
-  const [speed, setSpeed] = useState(1);
-  const [urgency, setUrgency] = useState(1);
-  const [fun, setFun] = useState(1);
-  const [editIndex, setEditIndex] = useState(0);
-  const [showAddEditTask, setShowAddEditTask] = useState(false);
-  const [modifyTask, setModifyTask] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [showToast, setShowToast] = useState(false);
 
   return (
     <>
@@ -49,34 +65,13 @@ export const MainView: FunctionComponent = () => {
         setUrgency={setUrgency}
         setFun={setFun}
         setEditIndex={setEditIndex}
-        setShowAddEditTask={setShowAddEditTask}
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
       />
       <TasksDone tasks={tasks} tasksDone={tasksDone} tasksTotal={tasksTotal} />
-      {!showAddEditTask && (
-        <Button
-          plusSign
-          type="button"
-          onClick={() => setShowAddEditTask(true)}
-        />
-      )}
-      {showAddEditTask && (
-        <AddEditTask
-          itemText={itemText}
-          speed={speed}
-          urgency={urgency}
-          fun={fun}
-          editIndex={editIndex}
-          modifyTask={modifyTask}
-          setItemText={setItemText}
-          setSpeed={setSpeed}
-          setUrgency={setUrgency}
-          setFun={setFun}
-          setShowAddEditTask={setShowAddEditTask}
-          setModifyTask={setModifyTask}
-        />
-      )}
+      <Link to="add-edit">
+        <Button plusSign type="button" />
+      </Link>
       {showModal && (
         <Modal
           tasks={tasks}

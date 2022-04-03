@@ -1,22 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FunctionComponent } from 'react';
 
+// Router
+import { Link } from 'react-router-dom';
+
 // State
 import { useAppDispatch } from '../state/hooks';
 import { addTask, editTask } from '../state/taskSlice';
 
 // Components
-import Button from './core/Button';
-import Headline from './core/Headline';
-import InputText from './core/InputText';
-import Speed from './Speed';
-import Urgency from './Urgency';
-import Fun from './Fun';
+import Button from '../components/core/Button';
+import Headline from '../components/core/Headline';
+import InputText from '../components/core/InputText';
+import Speed from '../components/Speed';
+import Urgency from '../components/Urgency';
+import Fun from '../components/Fun';
 
 // CopyText
 import copyText from '../assets/copyText';
 
-interface AddEditTaskProps {
+interface AddEditViewProps {
   itemText: string;
   speed: number;
   urgency: number;
@@ -27,11 +30,10 @@ interface AddEditTaskProps {
   setSpeed: (event: number) => void;
   setUrgency: (event: number) => void;
   setFun: (event: number) => void;
-  setShowAddEditTask: (event: boolean) => void;
   setModifyTask: (event: boolean) => void;
 }
 
-const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
+const AddEditView: FunctionComponent<AddEditViewProps> = ({
   itemText,
   speed,
   urgency,
@@ -42,7 +44,6 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
   setSpeed,
   setUrgency,
   setFun,
-  setShowAddEditTask,
   setModifyTask,
 }) => {
   const { buttonGoBack, buttonDone, headline, placeHolder } =
@@ -55,8 +56,7 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
     setItemText(event.target.value);
   };
 
-  const submitNewTask = (event: any) => {
-    event.preventDefault();
+  const submitNewTask = () => {
     dispatch(
       addTask({
         label: itemText,
@@ -69,7 +69,6 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
     setSpeed(1);
     setUrgency(1);
     setFun(1);
-    setShowAddEditTask(false);
     setModifyTask(false);
   };
 
@@ -83,7 +82,6 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
       editTask({ index: editIndex, label: itemText, speed, urgency, fun }),
     );
     setItemText('');
-    setShowAddEditTask(false);
     setModifyTask(false);
   };
 
@@ -93,22 +91,32 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
     setUrgency(1);
     setFun(1);
     setItemText('');
-    setShowAddEditTask(false);
     setModifyTask(false);
   };
 
   return (
-    <form className="AddTask" onSubmit={submitNewTask}>
-      <Button
-        arrowLeft
-        type="button"
-        label={buttonGoBack}
-        onClick={handleGoBack}
-      />
+    <form className="AddTask">
+      <Link to="/main">
+        <Button
+          arrowLeft
+          type="button"
+          label={buttonGoBack}
+          onClick={handleGoBack}
+        />
+      </Link>
       {!modifyTask ? (
-        <Button type="submit" label={buttonDone} isDisabled={!itemText} />
+        <Link to="/main">
+          <Button
+            type="submit"
+            label={buttonDone}
+            isDisabled={!itemText}
+            onClick={submitNewTask}
+          />
+        </Link>
       ) : (
-        <Button type="button" label={buttonDone} onClick={submitModfiyTask} />
+        <Link to="/main">
+          <Button type="button" label={buttonDone} onClick={submitModfiyTask} />
+        </Link>
       )}
       {!modifyTask ? (
         <>
@@ -129,4 +137,4 @@ const AddEditTask: FunctionComponent<AddEditTaskProps> = ({
   );
 };
 
-export default AddEditTask;
+export default AddEditView;

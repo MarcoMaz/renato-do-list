@@ -3,6 +3,9 @@ import { FunctionComponent } from 'react';
 // Icons
 import { FiChevronUp } from 'react-icons/fi';
 
+// Router
+import { Link } from 'react-router-dom';
+
 // State
 import { useAppDispatch } from '../state/hooks';
 import { highlightTask, toggleTask } from '../state/taskSlice';
@@ -22,7 +25,6 @@ interface TaskProps {
   setUrgency?: (event: number) => void;
   setFun?: (event: number) => void;
   setEditIndex?: (event: number) => void;
-  setShowAddEditTask?: (event: boolean) => void;
   setItemText?: (event: string) => void;
   setModifyTask?: (event: boolean) => void;
   setShowModal?: (event: boolean) => void;
@@ -39,7 +41,6 @@ const Task: FunctionComponent<TaskProps> = ({
   setUrgency,
   setFun,
   setEditIndex,
-  setShowAddEditTask,
   setItemText,
   setModifyTask,
   setShowModal,
@@ -50,7 +51,6 @@ const Task: FunctionComponent<TaskProps> = ({
     if (speed && setSpeed) setSpeed(speed);
     if (urgency && setUrgency) setUrgency(urgency);
     if (fun && setFun) setFun(fun);
-    if (setShowAddEditTask) setShowAddEditTask(true);
     if (setItemText) setItemText(label);
     if (setEditIndex) setEditIndex(id);
     if (setModifyTask) setModifyTask(true);
@@ -58,7 +58,6 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const handleCompleteTask = () => {
     dispatch(toggleTask(id));
-    if (setShowAddEditTask) setShowAddEditTask(false);
   };
 
   const handleRemoveDialog = () => {
@@ -68,14 +67,14 @@ const Task: FunctionComponent<TaskProps> = ({
 
   return (
     <li>
-      <button type="button" onClick={handleModifyTask}>
-        <Checkbox
-          value={id}
-          isChecked={isCompleted}
-          label={label}
-          onChange={handleCompleteTask}
-        />
-      </button>
+      <Checkbox
+        value={id}
+        isChecked={isCompleted}
+        onChange={handleCompleteTask}
+      />
+      <Link to="add-edit">
+        <Button type="button" label={label} onClick={handleModifyTask} />
+      </Link>
       <Button closeSign type="button" onClick={handleRemoveDialog} />
       <FiChevronUp />
     </li>
