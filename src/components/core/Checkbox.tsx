@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 interface CheckboxProps {
-  label?: string;
+  label: string;
   value: number;
   isChecked: boolean;
   onChange: () => void;
@@ -16,12 +16,13 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
   return (
     <>
       <input
+        id={`checkbox-0${value}`}
         value={value}
         checked={isChecked}
         onChange={onChange}
         type="checkbox"
       />
-      <span aria-hidden="true">{label}</span>
+      <label htmlFor={`checkbox-0${value}`}>{label}</label>
     </>
   );
 };

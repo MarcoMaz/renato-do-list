@@ -65,12 +65,13 @@ const Task: FunctionComponent<TaskProps> = ({
   return (
     <li>
       <Checkbox
+        label={label}
         value={id}
         isChecked={isCompleted}
         onChange={handleCompleteTask}
       />
       <Link to="add-edit">
-        <Button type="button" label={label} onClick={handleModifyTask} />
+        <Button editSign type="button" onClick={handleModifyTask} />
       </Link>
       <Button trashSign type="button" onClick={handleRemoveDialog} />
     </li>
