@@ -13,6 +13,7 @@ import {
 type AllowedButtonType = 'button' | 'submit' | 'reset';
 
 interface ButtonProps {
+  className?: string;
   label?: string;
   type: AllowedButtonType;
   isDisabled?: boolean;
@@ -25,6 +26,7 @@ interface ButtonProps {
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
+  className,
   label,
   type = 'button',
   isDisabled,
@@ -36,7 +38,12 @@ const Button: FunctionComponent<ButtonProps> = ({
   onClick,
 }) => {
   return (
-    <button type={type} disabled={isDisabled} onClick={onClick}>
+    <button
+      className={className}
+      type={type}
+      disabled={isDisabled}
+      onClick={onClick}
+    >
       {arrowLeft && <FiChevronLeft data-testid="fi-chevron-left" />}
       {plusSign && <FiPlus />}
       {editSign && <FiEdit2 />}

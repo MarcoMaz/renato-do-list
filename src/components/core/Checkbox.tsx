@@ -14,7 +14,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
   onChange,
 }) => {
   return (
-    <>
+    <div className="Task__checkbox">
       <input
         id={`checkbox-0${value}`}
         value={value}
@@ -23,7 +23,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
         type="checkbox"
       />
       <label htmlFor={`checkbox-0${value}`}>{label}</label>
-    </>
+    </div>
   );
 };
 
