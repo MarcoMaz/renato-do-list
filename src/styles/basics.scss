@@ -138,17 +138,8 @@ figure {
   }
 }
 
-.TasksTodo__headlineWrapper {
-  align-items: center;
-  border-bottom: 2px solid $ebony;
-  display: flex;
-  justify-content: space-between;
-
-  svg {
-    font-size: 2rem;
-  }
-}
-
+// Tasks
+.TasksTodo__headlineWrapper,
 .TasksDone__headlineWrapper {
   align-items: center;
   border-bottom: 2px solid $ebony;
@@ -169,21 +160,35 @@ figure {
   }
 }
 
-.Task__buttons {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-
 .Task__checkbox {
   background: $white;
-  width: 100%;
   position: relative;
+  width: 100%;
 
   input {
     height: 0;
     width: 0;
     opacity: 0;
+    
+    + label::before {
+      background: $white;
+      border: 2px solid $ebony;
+      box-shadow: 5px 5px $black;
+      content: "";
+      height: 20px;
+      left: 16px;
+      position: absolute;
+      width: 20px;
+    }
+
+    &:checked + label::after {
+      background: $heliotrope;
+      content: '';
+      height: 12px;
+      left: 22px;
+      position: absolute;
+      width: 12px;
+    }
   }
 
   label {
@@ -193,44 +198,27 @@ figure {
     display: flex;
     font-size: 1rem;
     padding: 23px 16px;
-    width: 100%;
-    top: 0;
-    position: absolute;
     padding-left: 56px;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
+}
 
-  input + label::before {
+.Task__buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  .Task__edit,
+  .Task__trash {
     background: $white;
-    border: 2px solid $ebony;
-    box-shadow: 5px 5px $black;
-    content: "";
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    left: 16px;
+    border-bottom: 2px solid $ebony;
+    border-top: 2px solid $ebony;
+    padding: 20px;
   }
-
-  input:checked + label::after {
-    background: $heliotrope;
-    content: '';
-    height: 12px;
-    width: 12px;
-    position: absolute;
-    left: 22px;
+  
+  .Task__trash {
+    border-right: 2px solid $ebony;
   }
-}
-
-.Task__edit {
-  background: $white;
-  border-bottom: 2px solid $ebony;
-  border-top: 2px solid $ebony;
-  padding: 20px;
-}
-
-.Task__trash {
-  background: $white;
-  border-bottom: 2px solid $ebony;
-  border-top: 2px solid $ebony;
-  border-right: 2px solid $ebony;
-  padding: 20px;
 }
