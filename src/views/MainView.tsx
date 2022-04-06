@@ -1,4 +1,5 @@
-import { FunctionComponent } from 'react';
+/* eslint-disable no-unused-expressions */
+import { FunctionComponent, useEffect } from 'react';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { useAppSelector } from '../state/hooks';
 import Button from '../components/core/Button';
 import Headline from '../components/core/Headline';
 import Dialog from '../components/Dialog';
+import Modal from '../components/Modal';
 import Toast from '../components/Toast';
 import TasksTodo from '../components/TasksTodo';
 import TasksDone from '../components/TasksDone';
@@ -53,8 +55,19 @@ export const MainView: FunctionComponent<MainViewProps> = ({
   const tasksDone = tasksCompleted.filter(Boolean).length;
   const tasksTodo = tasksTotal - tasksDone;
 
+  useEffect(() => {
+    const bodyElement = document.querySelector('body');
+
+    if (bodyElement) {
+      showModal === true
+        ? bodyElement.classList.add('blocked')
+        : bodyElement.classList.remove('blocked');
+    }
+  });
+
   return (
     <div className="MainView">
+      {showModal && <Modal />}
       <Headline
         className="MainView__headline"
         isFirstElement

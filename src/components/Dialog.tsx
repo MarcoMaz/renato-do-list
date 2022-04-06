@@ -48,15 +48,15 @@ const Dialog: FunctionComponent<DialogProps> = ({
   return (
     <div className="Dialog" data-testid="modal">
       {label}
-      <div className="Modal__buttons">
+      <div className="Dialog__buttons">
         <Button
-          className="Modal__delete"
+          className="Dialog__delete"
           label={deleteButton}
           type="button"
           onClick={handleDelete}
         />
         <Button
-          className="Modal__goBack"
+          className="Dialog__goBack"
           label={goBackButton}
           type="button"
           onClick={handleGoBack}
