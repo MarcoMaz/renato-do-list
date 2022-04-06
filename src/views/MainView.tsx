@@ -9,7 +9,7 @@ import { useAppSelector } from '../state/hooks';
 // Components
 import Button from '../components/core/Button';
 import Headline from '../components/core/Headline';
-import Modal from '../components/Modal';
+import Dialog from '../components/Dialog';
 import Toast from '../components/Toast';
 import TasksTodo from '../components/TasksTodo';
 import TasksDone from '../components/TasksDone';
@@ -83,7 +83,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         <Button plusSign type="button" />
       </Link>
       {showModal && (
-        <Modal
+        <Dialog
           tasks={tasks}
           setShowModal={setShowModal}
           setShowToast={setShowToast}

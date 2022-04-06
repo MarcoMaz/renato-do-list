@@ -10,13 +10,13 @@ import Button from './core/Button';
 // CopyText
 import copyText from '../assets/copyText';
 
-interface ModalProps {
+interface DialogProps {
   tasks: taskProps[];
   setShowModal: (event: boolean) => void;
   setShowToast: (event: boolean) => void;
 }
 
-const Modal: FunctionComponent<ModalProps> = ({
+const Dialog: FunctionComponent<DialogProps> = ({
   tasks,
   setShowModal,
   setShowToast,
@@ -46,7 +46,7 @@ const Modal: FunctionComponent<ModalProps> = ({
   };
 
   return (
-    <div className="Modal" data-testid="modal">
+    <div className="Dialog" data-testid="modal">
       {label}
       <div className="Modal__buttons">
         <Button
@@ -66,4 +66,4 @@ const Modal: FunctionComponent<ModalProps> = ({
   );
 };
 
-export default Modal;
+export default Dialog;
