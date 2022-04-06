@@ -4,7 +4,7 @@ import React, { FunctionComponent } from 'react';
 interface InputTextProps {
   value: string;
   placeholder?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 const InputText: FunctionComponent<InputTextProps> = ({
@@ -13,8 +13,8 @@ const InputText: FunctionComponent<InputTextProps> = ({
   onChange,
 }) => {
   return (
-    <input
-      type="text"
+    <textarea
+      rows={10}
       value={value}
       placeholder={placeholder}
       onChange={onChange}

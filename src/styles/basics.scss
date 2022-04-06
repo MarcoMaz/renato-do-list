@@ -319,5 +319,12 @@ figure {
 
   h2 {
     margin-bottom: 2rem;
-  }  
+  }
+
+  textarea {
+    border: 0;
+    font-family: $textFont;
+    margin-bottom: 2rem;
+    resize: none;
+  }
 }
