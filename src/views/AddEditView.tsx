@@ -96,28 +96,34 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
 
   return (
     <form className="AddTask">
-      <Link to="/main">
-        <Button
-          arrowLeft
-          type="button"
-          label={buttonGoBack}
-          onClick={handleGoBack}
-        />
-      </Link>
-      {!modifyTask ? (
-        <Link to="/main">
+      <div className="AddTask__buttons">
+        <Link to="/main" className="AddTask__goBack">
           <Button
-            type="submit"
-            label={buttonDone}
-            isDisabled={!itemText}
-            onClick={submitNewTask}
+            arrowLeft
+            type="button"
+            label={buttonGoBack}
+            onClick={handleGoBack}
           />
         </Link>
-      ) : (
-        <Link to="/main">
-          <Button type="button" label={buttonDone} onClick={submitModfiyTask} />
-        </Link>
-      )}
+        {!modifyTask ? (
+          <Link to="/main" className="AddTask__confirm">
+            <Button
+              type="submit"
+              label={buttonDone}
+              isDisabled={!itemText}
+              onClick={submitNewTask}
+            />
+          </Link>
+        ) : (
+          <Link to="/main" className="AddTask__confirm">
+            <Button
+              type="button"
+              label={buttonDone}
+              onClick={submitModfiyTask}
+            />
+          </Link>
+        )}
+      </div>
       {!modifyTask ? (
         <>
           <Headline label={headline} />

@@ -16,7 +16,6 @@ body::-webkit-scrollbar {
 }	
 
 body {
-  background: $supernova;
   -ms-overflow-style: none;  	/* IE and Edge */
   scrollbar-width: none;  		/* Firefox */
 
@@ -33,13 +32,12 @@ figure {
   width: 100%;
 }
 
-.App {
-  margin: 0 1rem;
-}
-
 .LandingView {
+  background: $supernova;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  padding: 0 1rem;
 
   &__headline {
     font-size: 3rem;
@@ -69,8 +67,11 @@ figure {
 }
 
 .IntroView1 {
+  background: $supernova;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  padding: 0 1rem;
 
   &__headline {
     margin: 2rem auto;
@@ -106,8 +107,11 @@ figure {
 }
 
 .MainView {
+  background: $supernova;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  padding: 0 1rem;
 
   &__headline {
     margin-bottom: 2rem;
@@ -281,4 +285,39 @@ figure {
   padding: 32px;
   position: absolute;
   width: 90vw;
+}
+
+.AddTask {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  padding-top: 3rem;
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    button {
+      align-items: center;
+    }
+  }
+
+  &__goBack svg {
+    margin-right: 0.5rem;
+  }
+
+  &__confirm button {
+
+    color: $dodger-blue;
+
+    &:disabled {
+      color: $silver;
+    }
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }  
 }
