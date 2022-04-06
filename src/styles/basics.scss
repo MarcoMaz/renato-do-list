@@ -128,7 +128,7 @@ figure {
     height: 3.5rem;
     justify-content: center;
     position: absolute;
-    right: 1rem;
+    right: 1.5rem;
     width: 3.5rem;
 
     button {
@@ -269,4 +269,16 @@ figure {
 	transition: all .4s .2s ease-in-out;
   width: 100%;
   z-index: 1000;
+}
+
+.Toast {
+  background: $ebony;
+  bottom: 2rem;
+  color: $white;
+  display: block;
+  left: calc((100vw - 90vw) / 2);
+  margin: 0 auto;
+  padding: 32px;
+  position: absolute;
+  width: 90vw;
 }
