@@ -23,7 +23,11 @@ const Urgency: FunctionComponent<UrgencyProps> = ({
   const { headlineLabel } = copyText.urgency.headline;
   return (
     <div className={className}>
-      <LabelIcon urgencyIcon label={headlineLabel} />
+      <LabelIcon
+        className="AddEditTask__choice-label"
+        urgencyIcon
+        label={headlineLabel}
+      />
       {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
           e.target.value === options[0].label

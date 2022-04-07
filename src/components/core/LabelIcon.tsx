@@ -4,6 +4,7 @@ import { FunctionComponent } from 'react';
 import { FiClock, FiAlertTriangle, FiSmile } from 'react-icons/fi';
 
 interface LabelIconProps {
+  className?: string;
   label: string;
   speedIcon?: boolean;
   urgencyIcon?: boolean;
@@ -11,13 +12,14 @@ interface LabelIconProps {
 }
 
 const LabelIcon: FunctionComponent<LabelIconProps> = ({
+  className,
   label,
   speedIcon,
   urgencyIcon,
   funIcon,
 }) => {
   return (
-    <div data-testid="label-icon">
+    <div className={className} data-testid="label-icon">
       {speedIcon && <FiClock data-testid="fi-clock" />}
       {urgencyIcon && <FiAlertTriangle data-testid="fi-alert-triangle" />}
       {funIcon && <FiSmile data-testid="fi-smile" />}

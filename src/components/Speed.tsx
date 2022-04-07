@@ -22,7 +22,11 @@ const Speed: FunctionComponent<SpeedProps> = ({
   const { headlineLabel } = copyText.speed.headline;
   return (
     <div className={className}>
-      <LabelIcon speedIcon label={headlineLabel} />
+      <LabelIcon
+        className="AddEditTask__choice-label"
+        speedIcon
+        label={headlineLabel}
+      />
       {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
           if (e.target.value === options[0].label) {
