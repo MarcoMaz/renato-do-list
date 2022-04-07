@@ -328,3 +328,20 @@ figure {
     resize: none;
   }
 }
+
+.AddEditTask__choice {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  
+  &-label {
+    align-items: center;
+    display: flex;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+}
