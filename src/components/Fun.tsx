@@ -28,6 +28,7 @@ const Fun: FunctionComponent<FunProps> = ({ className, fun, setFun }) => {
         };
         return (
           <RadioButton
+            className="AddEditTask__choice-radio"
             key={index}
             label={label}
             isChecked={id === fun}

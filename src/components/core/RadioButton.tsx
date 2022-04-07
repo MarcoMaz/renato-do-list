@@ -2,6 +2,7 @@
 import React, { FunctionComponent } from 'react';
 
 interface RadioButtonProps {
+  className: string;
   label: string;
   name: string;
   value: string;
@@ -10,23 +11,26 @@ interface RadioButtonProps {
 }
 
 const RadioButton: FunctionComponent<RadioButtonProps> = ({
+  className,
   label,
   name,
   isChecked,
   onChange,
 }) => {
   return (
-    <label htmlFor={label}>
-      <input
-        checked={isChecked}
-        type="radio"
-        id={label}
-        name={name}
-        value={label}
-        onChange={onChange}
-      />
-      {label}
-    </label>
+    <div className={className}>
+      <label htmlFor={label}>
+        <input
+          checked={isChecked}
+          type="radio"
+          id={label}
+          name={name}
+          value={label}
+          onChange={onChange}
+        />
+        {label}
+      </label>
+    </div>
   );
 };
 
