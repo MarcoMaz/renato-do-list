@@ -8,15 +8,20 @@ import RadioButton from './core/RadioButton';
 import copyText from '../assets/copyText';
 
 interface SpeedProps {
+  className: string;
   speed: number;
   setSpeed: (event: number) => void;
 }
 
-const Speed: FunctionComponent<SpeedProps> = ({ speed, setSpeed }) => {
+const Speed: FunctionComponent<SpeedProps> = ({
+  className,
+  speed,
+  setSpeed,
+}) => {
   const { name, options } = copyText.speed;
   const { headlineLabel } = copyText.speed.headline;
   return (
-    <div>
+    <div className={className}>
       <LabelIcon speedIcon label={headlineLabel} />
       {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {

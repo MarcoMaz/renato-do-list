@@ -95,9 +95,9 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
   };
 
   return (
-    <form className="AddTask">
-      <div className="AddTask__buttons">
-        <Link to="/main" className="AddTask__goBack">
+    <form className="AddEditTask">
+      <div className="AddEditTask__buttons">
+        <Link to="/main" className="AddEditTask__goBack">
           <Button
             arrowLeft
             type="button"
@@ -106,7 +106,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
           />
         </Link>
         {!modifyTask ? (
-          <Link to="/main" className="AddTask__confirm">
+          <Link to="/main" className="AddEditTask__confirm">
             <Button
               type="submit"
               label={buttonDone}
@@ -115,7 +115,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
             />
           </Link>
         ) : (
-          <Link to="/main" className="AddTask__confirm">
+          <Link to="/main" className="AddEditTask__confirm">
             <Button
               type="button"
               label={buttonDone}
@@ -136,9 +136,21 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
       ) : (
         <InputText value={itemText} onChange={handleModifyTask} />
       )}
-      <Speed speed={speed} setSpeed={setSpeed} />
-      <Urgency urgency={urgency} setUrgency={setUrgency} />
-      <Fun fun={fun} setFun={setFun} />
+      <Speed
+        className="AddEditTask__choice AddEditTask__choice--speed"
+        speed={speed}
+        setSpeed={setSpeed}
+      />
+      <Urgency
+        className="AddEditTask__choice AddEditTask__choice--urgency"
+        urgency={urgency}
+        setUrgency={setUrgency}
+      />
+      <Fun
+        className="AddEditTask__choice AddEditTask__choice--fun"
+        fun={fun}
+        setFun={setFun}
+      />
     </form>
   );
 };

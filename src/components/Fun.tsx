@@ -9,15 +9,16 @@ import RadioButton from './core/RadioButton';
 import copyText from '../assets/copyText';
 
 interface FunProps {
+  className: string;
   fun: number;
   setFun: (event: number) => void;
 }
 
-const Fun: FunctionComponent<FunProps> = ({ fun, setFun }) => {
+const Fun: FunctionComponent<FunProps> = ({ className, fun, setFun }) => {
   const { name, options } = copyText.fun;
   const { headlineLabel } = copyText.fun.headline;
   return (
-    <div>
+    <div className={className}>
       <LabelIcon funIcon label={headlineLabel} />
       {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {

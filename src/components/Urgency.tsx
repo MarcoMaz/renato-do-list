@@ -9,15 +9,20 @@ import RadioButton from './core/RadioButton';
 import copyText from '../assets/copyText';
 
 interface UrgencyProps {
+  className: string;
   urgency: number;
   setUrgency: (event: number) => void;
 }
 
-const Urgency: FunctionComponent<UrgencyProps> = ({ urgency, setUrgency }) => {
+const Urgency: FunctionComponent<UrgencyProps> = ({
+  className,
+  urgency,
+  setUrgency,
+}) => {
   const { name, options } = copyText.urgency;
   const { headlineLabel } = copyText.urgency.headline;
   return (
-    <div>
+    <div className={className}>
       <LabelIcon urgencyIcon label={headlineLabel} />
       {options.map(({ label, id }, index) => {
         const handleChange = (e: { target: { value: string } }) => {
