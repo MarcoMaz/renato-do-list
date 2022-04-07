@@ -28,24 +28,26 @@ const Urgency: FunctionComponent<UrgencyProps> = ({
         urgencyIcon
         label={headlineLabel}
       />
-      {options.map(({ label, id }, index) => {
-        const handleChange = (e: { target: { value: string } }) => {
-          e.target.value === options[0].label
-            ? setUrgency(options[0].id)
-            : setUrgency(options[1].id);
-        };
-        return (
-          <RadioButton
-            className="AddEditTask__choice-radio"
-            key={index}
-            label={label}
-            isChecked={id === urgency}
-            onChange={handleChange}
-            name={name}
-            value={label}
-          />
-        );
-      })}
+      <div className="AddEditTask__choice-radio-wrapper">
+        {options.map(({ label, id }, index) => {
+          const handleChange = (e: { target: { value: string } }) => {
+            e.target.value === options[0].label
+              ? setUrgency(options[0].id)
+              : setUrgency(options[1].id);
+          };
+          return (
+            <RadioButton
+              className="AddEditTask__choice-radio"
+              key={index}
+              label={label}
+              isChecked={id === urgency}
+              onChange={handleChange}
+              name={name}
+              value={label}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

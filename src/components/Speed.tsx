@@ -27,28 +27,30 @@ const Speed: FunctionComponent<SpeedProps> = ({
         speedIcon
         label={headlineLabel}
       />
-      {options.map(({ label, id }, index) => {
-        const handleChange = (e: { target: { value: string } }) => {
-          if (e.target.value === options[0].label) {
-            setSpeed(options[0].id);
-          } else if (e.target.value === options[1].label) {
-            setSpeed(options[1].id);
-          } else {
-            setSpeed(options[2].id);
-          }
-        };
-        return (
-          <RadioButton
-            className="AddEditTask__choice-radio"
-            key={index}
-            label={label}
-            isChecked={id === speed}
-            onChange={handleChange}
-            name={name}
-            value={label}
-          />
-        );
-      })}
+      <div className="AddEditTask__choice-radio-wrapper">
+        {options.map(({ label, id }, index) => {
+          const handleChange = (e: { target: { value: string } }) => {
+            if (e.target.value === options[0].label) {
+              setSpeed(options[0].id);
+            } else if (e.target.value === options[1].label) {
+              setSpeed(options[1].id);
+            } else {
+              setSpeed(options[2].id);
+            }
+          };
+          return (
+            <RadioButton
+              className="AddEditTask__choice-radio"
+              key={index}
+              label={label}
+              isChecked={id === speed}
+              onChange={handleChange}
+              name={name}
+              value={label}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

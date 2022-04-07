@@ -24,24 +24,26 @@ const Fun: FunctionComponent<FunProps> = ({ className, fun, setFun }) => {
         funIcon
         label={headlineLabel}
       />
-      {options.map(({ label, id }, index) => {
-        const handleChange = (e: { target: { value: string } }) => {
-          e.target.value === options[0].label
-            ? setFun(options[0].id)
-            : setFun(options[1].id);
-        };
-        return (
-          <RadioButton
-            className="AddEditTask__choice-radio"
-            key={index}
-            label={label}
-            isChecked={id === fun}
-            onChange={handleChange}
-            name={name}
-            value={label}
-          />
-        );
-      })}
+      <div className="AddEditTask__choice-radio-wrapper">
+        {options.map(({ label, id }, index) => {
+          const handleChange = (e: { target: { value: string } }) => {
+            e.target.value === options[0].label
+              ? setFun(options[0].id)
+              : setFun(options[1].id);
+          };
+          return (
+            <RadioButton
+              className="AddEditTask__choice-radio"
+              key={index}
+              label={label}
+              isChecked={id === fun}
+              onChange={handleChange}
+              name={name}
+              value={label}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
