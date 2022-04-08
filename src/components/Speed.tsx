@@ -40,7 +40,9 @@ const Speed: FunctionComponent<SpeedProps> = ({
           };
           return (
             <RadioButton
-              className="AddEditTask__choice-radio"
+              className={`AddEditTask__choice-radio ${
+                id === speed ? '-selected' : ''
+              }`}
               key={index}
               label={label}
               isChecked={id === speed}

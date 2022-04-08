@@ -366,3 +366,15 @@ figure {
     width: 0;
   }
 }
+
+.AddEditTask__choice--speed .AddEditTask__choice-radio.-selected {
+  background: $salmon;
+}
+
+.AddEditTask__choice--urgency .AddEditTask__choice-radio.-selected {
+  background: $cornflower-blue;
+}
+
+.AddEditTask__choice--fun .AddEditTask__choice-radio.-selected {
+  background: $heliotrope;
+}

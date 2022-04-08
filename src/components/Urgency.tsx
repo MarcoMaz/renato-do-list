@@ -37,7 +37,9 @@ const Urgency: FunctionComponent<UrgencyProps> = ({
           };
           return (
             <RadioButton
-              className="AddEditTask__choice-radio"
+              className={`AddEditTask__choice-radio ${
+                id === urgency ? '-selected' : ''
+              }`}
               key={index}
               label={label}
               isChecked={id === urgency}
