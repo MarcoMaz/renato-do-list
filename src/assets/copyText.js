@@ -72,11 +72,11 @@ const copyText = {
     options: [
       {
         id: 1,
-        label: 'divertente',
+        label: 'tanto',
       },
       {
         id: 3,
-        label: 'noioso',
+        label: 'poco',
       },
     ],
   },

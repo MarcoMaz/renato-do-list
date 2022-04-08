@@ -14,7 +14,7 @@ const InputText: FunctionComponent<InputTextProps> = ({
 }) => {
   return (
     <textarea
-      rows={10}
+      rows={7}
       value={value}
       placeholder={placeholder}
       onChange={onChange}
