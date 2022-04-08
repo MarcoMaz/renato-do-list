@@ -185,6 +185,7 @@ figure {
       content: "";
       height: 20px;
       left: 16px;
+      top: 20px;
       position: absolute;
       width: 20px;
     }
@@ -196,19 +197,23 @@ figure {
       left: 22px;
       position: absolute;
       width: 12px;
+      top: 26px;
     }
   }
 
   label {
-    align-items: center;
+
     border: 2px solid $ebony;
     border-right: 0;
-    display: flex;
+    display: inline-block;
     font-size: 1rem;
+    overflow: hidden;
     padding: 23px 16px;
     padding-left: 56px;
     position: absolute;
+    text-overflow: ellipsis;
     top: 0;
+    white-space: nowrap;
     width: 100%;
   }
 }
