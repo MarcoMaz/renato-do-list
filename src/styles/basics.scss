@@ -110,12 +110,10 @@ figure {
   background: $supernova;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 
   &__headline {
-    margin-bottom: 2rem;
-    margin-top: 4rem;
+    margin: 2rem auto;
     max-width: 12rem;
   }
 
