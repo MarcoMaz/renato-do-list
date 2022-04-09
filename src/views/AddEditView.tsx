@@ -10,7 +10,6 @@ import { addTask, editTask } from '../state/taskSlice';
 
 // Components
 import Button from '../components/core/Button';
-import Headline from '../components/core/Headline';
 import InputText from '../components/core/InputText';
 import Speed from '../components/Speed';
 import Urgency from '../components/Urgency';
@@ -46,8 +45,13 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
   setFun,
   setModifyTask,
 }) => {
-  const { buttonGoBack, buttonDone, headline, placeHolder } =
-    copyText.addEditTask;
+  const {
+    buttonGoBack,
+    buttonDone,
+    placeHolder,
+    addTaskHeadline,
+    modifyTaskHeadline,
+  } = copyText.addEditTask;
 
   const dispatch = useAppDispatch();
 
@@ -125,16 +129,20 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
         )}
       </div>
       {!modifyTask ? (
-        <>
-          <Headline label={headline} />
-          <InputText
-            value={itemText}
-            placeholder={placeHolder}
-            onChange={handleAddNewTask}
-          />
-        </>
+        <InputText
+          id="addTask"
+          label={addTaskHeadline}
+          value={itemText}
+          placeholder={placeHolder}
+          onChange={handleAddNewTask}
+        />
       ) : (
-        <InputText value={itemText} onChange={handleModifyTask} />
+        <InputText
+          id="modifyTask"
+          label={modifyTaskHeadline}
+          value={itemText}
+          onChange={handleModifyTask}
+        />
       )}
       <Speed
         className="AddEditTask__choice AddEditTask__choice--speed"

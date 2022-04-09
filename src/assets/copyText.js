@@ -87,7 +87,8 @@ const copyText = {
   addEditTask: {
     buttonGoBack: 'Lista',
     buttonDone: 'fatto',
-    headline: "Aggiungi un'attivita'",
+    addTaskHeadline: 'Aggiungi una task',
+    modifyTaskHeadline: 'Modifica la task',
     placeHolder: 'Cosa devi fare? Scrivilo qui.',
   },
 };
