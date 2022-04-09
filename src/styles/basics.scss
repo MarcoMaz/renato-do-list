@@ -32,6 +32,11 @@ figure {
   width: 100%;
 }
 
+.App {
+  background: $supernova;
+  height: 100vh;
+}
+
 .LandingView {
   background: $supernova;
   display: flex;
@@ -294,6 +299,8 @@ figure {
   background: $white;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
   padding: 0 1rem;
   padding-top: 3rem;
 
