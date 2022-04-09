@@ -41,8 +41,10 @@ figure {
 }
 
 .LandingView {
+
+  @include defaultFlex;
+
   background: $supernova;
-  display: flex;
   flex-direction: column;
   height: 100vh;
   padding: 0 1rem;
@@ -75,8 +77,10 @@ figure {
 }
 
 .IntroView1 {
+
+  @include defaultFlex;
+  
   background: $supernova;
-  display: flex;
   flex-direction: column;
   height: 100vh;
   padding: 0 1rem;
@@ -130,24 +134,25 @@ figure {
   }
 
   &__addButton {
+
+    @include defaultFlex;
+
     background: $heliotrope;
     border: $border;
     border-radius: 50%;
     bottom: 2rem;
-    display: flex;
     height: 3.5rem;
-    justify-content: center;
     position: absolute;
     right: 1.5rem;
     width: 3.5rem;
 
     button {
-      align-items: center;
+
+      @include defaultFlex;
+
       border-radius: 50%;
       color: $white;
-      display: flex;
       font-size: 2rem;
-      justify-content: center;
     }
   }
 }
@@ -155,9 +160,10 @@ figure {
 // Tasks
 .TasksTodo__headlineWrapper,
 .TasksDone__headlineWrapper {
-  align-items: center;
+
+  @include defaultFlex;
+
   border-bottom: $border;
-  display: flex;
   justify-content: space-between;
 
   svg {
@@ -224,8 +230,9 @@ figure {
 }
 
 .Task__buttons {
-  align-items: center;
-  display: flex;
+
+  @include defaultFlex;
+
   flex-direction: row;
 
   .Task__edit,
@@ -243,6 +250,9 @@ figure {
 
 // Dialog
 .Dialog {
+
+  @include defaultFlex;
+
   background: $white;
   border: $border;
   border-radius: 8px;
@@ -251,14 +261,13 @@ figure {
   position: absolute;
   top: calc((100vh - 150px) / 2);
   left: calc((100vw - 300px) / 2);
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   z-index: 1001;
 
   &__buttons {
-    display: flex;
+
+    @include defaultFlex;
+
     flex-direction: row;
     margin-top: 1rem;
 
@@ -298,8 +307,11 @@ figure {
 }
 
 .AddEditTask {
+
+  @include defaultFlex;
+
+  align-items: inherit;
   background: $white;
-  display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-evenly;
@@ -307,7 +319,9 @@ figure {
   padding-top: 3rem;
 
   &__buttons {
-    display: flex;
+
+    @include defaultFlex;
+
     justify-content: space-between;
     margin-bottom: 1rem;
 
@@ -331,13 +345,17 @@ figure {
 }
 
 .AddEditTask__choice {
-  display: flex;
+
+  @include defaultFlex;
+
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
   
   &-label {
-    align-items: center;
-    display: flex;
+
+    @include defaultFlex;
+
+    justify-content: flex-start;
     margin-bottom: 1rem;
     width: 100%;
 
@@ -355,10 +373,10 @@ figure {
 }
 
 .AddEditTask__choice-radio {
-  align-items: center;
-  display: flex;
+
+  @include defaultFlex;
+
   border: $border;
-  justify-content: center;
 
   input {
     height: 0;
@@ -367,9 +385,9 @@ figure {
   }
 
   label {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+
+    @include defaultFlex;
+
     padding: 0.5rem 1rem;
     text-align: center;
   }
@@ -388,7 +406,10 @@ figure {
 }
 
 .AddEditTask__textarea {
-  display: flex;
+
+  @include defaultFlex;
+
+  align-items: flex-start;
   flex-direction: column;
 
   label {
