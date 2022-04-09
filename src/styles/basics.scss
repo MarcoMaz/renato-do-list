@@ -401,12 +401,8 @@ figure {
     margin-bottom: 2rem;
     resize: none;
 
-    &:focus {
-      outline: none;
-
-      &::placeholder {
-        color: transparent;
-      }
+    &:focus::placeholder {
+      color: transparent;
     }
   }
 }
