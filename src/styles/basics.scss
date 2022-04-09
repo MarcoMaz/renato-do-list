@@ -1,5 +1,6 @@
 //
 $border: 2px solid $ebony;
+$boxShadow: 5px 5px $black;
 
 /* General Reset */
 * {
@@ -29,7 +30,7 @@ body {
 
 figure {
   border: 2.5px solid $black;
-  box-shadow: 5px 5px $black;
+  box-shadow: $boxShadow;
   min-height: 12rem;
   margin: 0 auto;
   width: 100%;
@@ -45,70 +46,20 @@ svg {
   margin-left: 0.5rem;
 }
 
-////
-////
 .App {
   background: $supernova;
   height: 100vh;
 }
 
-.LandingView {
-
-  @include defaultFlex;
-
-  background: $supernova;
-  flex-direction: column;
-  height: 100vh;
-  padding: 0 1rem;
-
-  &__headline {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    text-align: left;
-  }
-
-  &__image {
-    margin-bottom: 11rem;
-  }
-
-  &__button {
-    background: $salmon;
-    border: $border;
-    margin: 0 auto;
-    padding: 12px 60px;
-
-    button {
-      align-items: flex-end;
-    }
-  }
-}
-
+.LandingView,
 .IntroView1 {
 
   @include defaultFlex;
-  
+
   background: $supernova;
   flex-direction: column;
   height: 100vh;
   padding: 0 1rem;
-
-  &__headline {
-    margin: 2rem auto;
-    max-width: 12rem;
-  }
-
-  &__image {
-    margin-bottom: 3rem;
-  }
-
-  &__subheadline {
-    margin-bottom: 0.5rem;
-  }
-
-  &__sectionParagraphs {
-    margin-bottom: 4rem;
-  }
 
   &__button {
     background: $salmon;
@@ -122,46 +73,6 @@ svg {
   }
 }
 
-.MainView {
-  background: $supernova;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-
-  &__headline {
-    margin: 2rem auto;
-    max-width: 12rem;
-  }
-
-  &__tasksTodo {
-    margin-bottom: 2rem;
-  }
-
-  &__addButton {
-
-    @include defaultFlex;
-
-    background: $heliotrope;
-    border: $border;
-    border-radius: 50%;
-    bottom: 2rem;
-    height: 3.5rem;
-    position: absolute;
-    right: 1.5rem;
-    width: 3.5rem;
-
-    button {
-
-      @include defaultFlex;
-
-      border-radius: 50%;
-      color: $white;
-      font-size: 2rem;
-    }
-  }
-}
-
-// Tasks
 .TasksTodo__headlineWrapper,
 .TasksDone__headlineWrapper {
 
@@ -176,138 +87,8 @@ svg {
   }
 }
 
-.Task {
-  justify-content: space-between;
-  margin: 1rem 0;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.Task__checkbox {
-  background: $white;
-  position: relative;
-  width: 100%;
-
-  input {
-    
-    + label::before {
-      background: $white;
-      border: $border;
-      box-shadow: 5px 5px $black;
-      content: "";
-      height: 20px;
-      left: 16px;
-      top: 20px;
-      position: absolute;
-      width: 20px;
-    }
-
-    &:checked + label::after {
-      background: $heliotrope;
-      content: '';
-      height: 12px;
-      left: 22px;
-      position: absolute;
-      width: 12px;
-      top: 26px;
-    }
-  }
-
-  label {
-    border: $border;
-    border-right: 0;
-    display: inline-block;
-    font-size: 1rem;
-    overflow: hidden;
-    padding: 23px 16px;
-    padding-left: 56px;
-    position: absolute;
-    text-overflow: ellipsis;
-    top: 0;
-    white-space: nowrap;
-    width: 100%;
-  }
-}
-
-.Task__buttons {
-
-  @include defaultFlex;
-
-  flex-direction: row;
-
-  .Task__edit,
-  .Task__trash {
-    background: $white;
-    border-bottom: $border;
-    border-top: $border;
-    padding: 20px;
-  }
-  
-  .Task__trash {
-    border-right: $border;
-  }
-}
-
-// Dialog
-.Dialog {
-
-  @include defaultFlex;
-
-  background: $white;
-  border: $border;
-  border-radius: 8px;
-  height: 150px;
-  width: 300px;
-  position: absolute;
-  top: calc((100vh - 150px) / 2);
-  left: calc((100vw - 300px) / 2);
-  flex-direction: column;
-  z-index: 1001;
-
-  &__buttons {
-
-    @include defaultFlex;
-
-    flex-direction: row;
-    margin-top: 1rem;
-
-    button {
-      border: $border;
-      padding: 12px 16px;
-
-      &:nth-of-type(1) {
-        margin-right: 1rem;
-      }
-    }
-  }
-}
-
-.Modal {
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(0.5rem);
-  height: 100%;
-	left: 0;
-  position: fixed;
-	top: 0;
-	transition: all .4s .2s ease-in-out;
-  width: 100%;
-  z-index: 1000;
-}
-
-.Toast {
-  background: $ebony;
-  bottom: 2rem;
-  color: $white;
-  display: block;
-  left: calc((100vw - 90vw) / 2);
-  margin: 0 auto;
-  padding: 32px;
-  position: absolute;
-  width: 90vw;
-}
-
+/// FROM HERE
 .AddEditTask {
 
   @include defaultFlex;

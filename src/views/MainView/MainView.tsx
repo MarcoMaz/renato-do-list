@@ -5,19 +5,19 @@ import { FunctionComponent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // State
-import { useAppSelector } from '../state/hooks';
+import { useAppSelector } from '../../state/hooks';
 
 // Components
-import Button from '../components/core/Button';
-import Headline from '../components/core/Headline';
-import Dialog from '../components/Dialog';
-import Modal from '../components/Modal';
-import Toast from '../components/Toast';
-import TasksTodo from '../components/TasksTodo';
-import TasksDone from '../components/TasksDone';
+import Button from '../../components/core/Button';
+import Headline from '../../components/core/Headline';
+import Dialog from '../../components/Dialog';
+import Modal from '../../components/Modal';
+import Toast from '../../components/Toast';
+import TasksTodo from '../../components/TasksTodo';
+import TasksDone from '../../components/TasksDone';
 
 // CopyText
-import copyText from '../assets/copyText';
+import copyText from '../../assets/copyText';
 
 interface MainViewProps {
   showModal: boolean;

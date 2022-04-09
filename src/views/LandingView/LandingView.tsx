@@ -4,12 +4,12 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import Button from '../components/core/Button';
-import Headline from '../components/core/Headline';
-import Image from '../components/core/Image';
+import Button from '../../components/core/Button';
+import Headline from '../../components/core/Headline';
+import Image from '../../components/core/Image';
 
 // CopyText
-import copyText from '../assets/copyText';
+import copyText from '../../assets/copyText';
 
 export const LandingView: FunctionComponent = () => {
   const { headline } = copyText.general;

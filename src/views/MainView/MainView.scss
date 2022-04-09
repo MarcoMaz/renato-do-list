@@ -1,0 +1,187 @@
+$squareSize: 1.25rem;
+$internalSquareSize: 0.75rem;
+$spaceFromTheLeft: 1rem;
+$labelPaddingX: $spaceFromTheLeft + 2.5rem;
+$labelPaddingY: 23px;
+$internalSquareLeft: $spaceFromTheLeft + ($internalSquareSize / 2);
+$internalSquareTop: $squareSize + ($internalSquareSize / 2);
+$dialogHeight: 9rem;
+$dialogWidth: $dialogHeight * 2;
+$toastWidth: 90vw;
+
+.MainView {
+
+  @include defaultFlex;
+
+  align-items: inherit;
+  background: $supernova;
+  flex-direction: column;
+  padding: 2rem 1rem;
+
+  &__headline {
+    margin: 2rem auto;
+    max-width: 12rem;
+  }
+
+  &__tasksTodo {
+    margin-bottom: 2rem;
+  }
+
+  &__addButton {
+
+    @include defaultFlex;
+
+    background: $heliotrope;
+    border: $border;
+    border-radius: 50%;
+    bottom: 2rem;
+    height: 3.5rem;
+    justify-content: initial;
+    position: absolute;
+    right: 1.5rem;
+    width: 3.5rem;
+
+    button {
+
+      @include defaultFlex;
+
+      border-radius: 50%;
+      color: $white;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+// Task
+.Task {
+  justify-content: space-between;
+  margin: 1rem 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__checkbox,
+  &__edit,
+  &__trash {
+    background: $white;
+  }
+
+  &__edit,
+  &__trash {
+    border-bottom: $border;
+    border-top: $border;
+    padding: 1.25rem;
+  }
+
+  &__checkbox {
+    position: relative;
+    width: 100%;
+  
+    input + label::before {
+      background: $white;
+      border: $border;
+      box-shadow: $boxShadow;
+      content: "";
+      height: $squareSize;
+      left: $spaceFromTheLeft;
+      position: absolute;
+      top: $squareSize;
+      width: $squareSize;
+    }
+  
+    input:checked + label::after {
+      background: $heliotrope;
+      content: '';
+      height: $internalSquareSize;
+      left: $internalSquareLeft;
+      position: absolute;
+      top: $internalSquareTop;
+      width: $internalSquareSize;
+    }
+  
+    label {
+      border: $border;
+      border-right: 0;
+      display: inline-block;
+      font-size: 1rem;
+      overflow: hidden;
+      padding: $labelPaddingY $spaceFromTheLeft;
+      padding-left: $labelPaddingX;
+      position: absolute;
+      text-overflow: ellipsis;
+      top: 0;
+      white-space: nowrap;
+      width: 100%;
+    }
+  }
+  
+  &__buttons {
+  
+    @include defaultFlex;
+  
+    flex-direction: row;  
+  }
+  
+  &__trash {
+    border-right: $border;
+  }
+}
+
+.Dialog {
+
+  @include defaultFlex;
+
+  background: $white;
+  border: $border;
+  border-radius: 0.5rem;
+  height: $dialogHeight;
+  width: $dialogWidth;
+  position: absolute;
+  top: calc((100vh - $dialogHeight) / 2);
+  left: calc((100vw - $dialogWidth) / 2);
+  flex-direction: column;
+  z-index: 1001;
+
+  &__buttons {
+
+    @include defaultFlex;
+
+    flex-direction: row;
+    margin-top: 1rem;
+
+    button {
+      border: $border;
+      padding: 0.75rem 1rem;
+
+      &:nth-of-type(1) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.Modal {
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(0.5rem);
+  height: 100%;
+	left: 0;
+  position: fixed;
+	top: 0;
+	transition: all .4s .2s ease-in-out;
+  width: 100%;
+  z-index: 1000;
+}
+
+.Toast {
+  background: $ebony;
+  bottom: 2rem;
+  color: $white;
+  display: block;
+  left: calc((100vw - $toastWidth) / 2);
+  margin: 0 auto;
+  padding: 2rem;
+  position: absolute;
+  width: $toastWidth;
+}
