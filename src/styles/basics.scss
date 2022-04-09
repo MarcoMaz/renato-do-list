@@ -41,7 +41,11 @@ input {
   width: 0;
 }
 
+svg {
+  margin-left: 0.5rem;
+}
 
+////
 ////
 .App {
   background: $supernova;
@@ -76,10 +80,6 @@ input {
 
     button {
       align-items: flex-end;
-    }
-
-    svg {
-      margin-left: 0.5rem;
     }
   }
 }
@@ -118,10 +118,6 @@ input {
 
     button {
       align-items: flex-end;
-    }
-
-    svg {
-      margin-left: 0.5rem;
     }
   }
 }
@@ -176,6 +172,7 @@ input {
 
   svg {
     font-size: 2rem;
+    margin: 0;
   }
 }
 
@@ -336,6 +333,7 @@ input {
   }
 
   &__goBack svg {
+    margin: 0;
     margin-right: 0.5rem;
   }
 
@@ -365,6 +363,7 @@ input {
     width: 100%;
 
     svg {
+      margin: 0;
       margin-right: 0.5rem;
     }
   }
