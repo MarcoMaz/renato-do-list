@@ -21,7 +21,7 @@ const TextArea: FunctionComponent<TextAreaProps> = ({
       <label htmlFor={id}>{label}</label>
       <textarea
         id={id}
-        rows={7}
+        rows={6}
         value={value}
         placeholder={placeholder}
         onChange={onChange}

@@ -326,17 +326,6 @@ figure {
       color: $silver;
     }
   }
-
-  h2 {
-    margin-bottom: 2rem;
-  }
-
-  textarea {
-    border: 0;
-    font-family: $textFont;
-    margin-bottom: 2rem;
-    resize: none;
-  }
 }
 
 .AddEditTask__choice {
@@ -394,4 +383,30 @@ figure {
 
 .AddEditTask__choice--fun .AddEditTask__choice-radio.-selected {
   background: $heliotrope;
+}
+
+.AddEditTask__textarea {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  textarea {
+    border: 0;
+    font-family: $textFont;
+    margin-bottom: 2rem;
+    resize: none;
+
+    &:focus {
+      outline: none;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
 }
