@@ -35,6 +35,14 @@ figure {
   width: 100%;
 }
 
+input {
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+
+////
 .App {
   background: $supernova;
   height: 100vh;
@@ -186,9 +194,6 @@ figure {
   width: 100%;
 
   input {
-    height: 0;
-    width: 0;
-    opacity: 0;
     
     + label::before {
       background: $white;
@@ -363,6 +368,18 @@ figure {
       margin-right: 0.5rem;
     }
   }
+
+  &--speed .AddEditTask__choice-radio.-selected {
+    background: $salmon;
+  }
+  
+  &--urgency .AddEditTask__choice-radio.-selected {
+    background: $cornflower-blue;
+  }
+  
+  &--fun .AddEditTask__choice-radio.-selected {
+    background: $heliotrope;
+  }
 }
 
 .AddEditTask__choice-radio-wrapper {
@@ -378,12 +395,6 @@ figure {
 
   border: $border;
 
-  input {
-    height: 0;
-    opacity: 0;
-    width: 0;
-  }
-
   label {
 
     @include defaultFlex;
@@ -391,18 +402,6 @@ figure {
     padding: 0.5rem 1rem;
     text-align: center;
   }
-}
-
-.AddEditTask__choice--speed .AddEditTask__choice-radio.-selected {
-  background: $salmon;
-}
-
-.AddEditTask__choice--urgency .AddEditTask__choice-radio.-selected {
-  background: $cornflower-blue;
-}
-
-.AddEditTask__choice--fun .AddEditTask__choice-radio.-selected {
-  background: $heliotrope;
 }
 
 .AddEditTask__textarea {
