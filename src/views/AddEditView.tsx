@@ -10,7 +10,7 @@ import { addTask, editTask } from '../state/taskSlice';
 
 // Components
 import Button from '../components/core/Button';
-import InputText from '../components/core/InputText';
+import TextArea from '../components/core/TextArea';
 import Speed from '../components/Speed';
 import Urgency from '../components/Urgency';
 import Fun from '../components/Fun';
@@ -129,7 +129,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
         )}
       </div>
       {!modifyTask ? (
-        <InputText
+        <TextArea
           id="addTask"
           label={addTaskHeadline}
           value={itemText}
@@ -137,7 +137,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
           onChange={handleAddNewTask}
         />
       ) : (
-        <InputText
+        <TextArea
           id="modifyTask"
           label={modifyTaskHeadline}
           value={itemText}

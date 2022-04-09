@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, { FunctionComponent } from 'react';
 
-interface InputTextProps {
+interface TextAreaProps {
   id: string;
   label: string;
   value: string;
@@ -9,7 +9,7 @@ interface InputTextProps {
   onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
-const InputText: FunctionComponent<InputTextProps> = ({
+const TextArea: FunctionComponent<TextAreaProps> = ({
   id,
   label,
   value,
@@ -30,4 +30,4 @@ const InputText: FunctionComponent<InputTextProps> = ({
   );
 };
 
-export default InputText;
+export default TextArea;
