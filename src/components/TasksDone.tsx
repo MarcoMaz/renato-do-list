@@ -18,6 +18,13 @@ interface TasksDoneProps {
   tasksDone: number;
   tasksTotal: number;
   tasks: taskProps[];
+  setSpeed: (event: number) => void;
+  setUrgency: (event: number) => void;
+  setFun: (event: number) => void;
+  setEditIndex: (event: number) => void;
+  setItemText: (event: string) => void;
+  setModifyTask: (event: boolean) => void;
+  setShowModal: (event: boolean) => void;
 }
 
 const TasksDone: FunctionComponent<TasksDoneProps> = ({
@@ -25,6 +32,13 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
   tasksDone,
   tasksTotal,
   tasks,
+  setSpeed,
+  setUrgency,
+  setFun,
+  setEditIndex,
+  setItemText,
+  setModifyTask,
+  setShowModal,
 }) => {
   const { tasksDoneHeadline } = copyText.tasks;
 
@@ -42,12 +56,22 @@ const TasksDone: FunctionComponent<TasksDoneProps> = ({
         <ul className="TasksDone__tasksWrapper">
           {tasks
             .filter((task) => task.isCompleted)
-            .map(({ label, isCompleted }, index) => (
+            .map(({ id, label, isCompleted, speed, urgency, fun }) => (
               <Task
-                key={index}
+                key={id}
                 isCompleted={isCompleted}
-                id={index}
+                id={id}
                 label={label}
+                speed={speed}
+                urgency={urgency}
+                fun={fun}
+                setItemText={setItemText}
+                setSpeed={setSpeed}
+                setUrgency={setUrgency}
+                setFun={setFun}
+                setEditIndex={setEditIndex}
+                setModifyTask={setModifyTask}
+                setShowModal={setShowModal}
               />
             ))}
         </ul>

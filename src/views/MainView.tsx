@@ -91,6 +91,13 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         tasks={tasks}
         tasksDone={tasksDone}
         tasksTotal={tasksTotal}
+        setItemText={setItemText}
+        setSpeed={setSpeed}
+        setUrgency={setUrgency}
+        setFun={setFun}
+        setEditIndex={setEditIndex}
+        setModifyTask={setModifyTask}
+        setShowModal={setShowModal}
       />
       <Link to="add-edit" className="MainView__addButton">
         <Button plusSign type="button" />

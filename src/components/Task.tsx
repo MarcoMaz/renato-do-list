@@ -14,17 +14,17 @@ import Checkbox from './core/Checkbox';
 interface TaskProps {
   id: number;
   label: string;
-  speed?: number;
-  urgency?: number;
-  fun?: number;
+  speed: number;
+  urgency: number;
+  fun: number;
   isCompleted: boolean;
-  setSpeed?: (event: number) => void;
-  setUrgency?: (event: number) => void;
-  setFun?: (event: number) => void;
-  setEditIndex?: (event: number) => void;
-  setItemText?: (event: string) => void;
-  setModifyTask?: (event: boolean) => void;
-  setShowModal?: (event: boolean) => void;
+  setSpeed: (event: number) => void;
+  setUrgency: (event: number) => void;
+  setFun: (event: number) => void;
+  setEditIndex: (event: number) => void;
+  setItemText: (event: string) => void;
+  setModifyTask: (event: boolean) => void;
+  setShowModal: (event: boolean) => void;
 }
 
 const Task: FunctionComponent<TaskProps> = ({
@@ -45,12 +45,12 @@ const Task: FunctionComponent<TaskProps> = ({
   const dispatch = useAppDispatch();
 
   const handleModifyTask = () => {
-    if (speed && setSpeed) setSpeed(speed);
-    if (urgency && setUrgency) setUrgency(urgency);
-    if (fun && setFun) setFun(fun);
-    if (setItemText) setItemText(label);
-    if (setEditIndex) setEditIndex(id);
-    if (setModifyTask) setModifyTask(true);
+    setSpeed(speed);
+    setUrgency(urgency);
+    setFun(fun);
+    setItemText(label);
+    setEditIndex(id);
+    setModifyTask(true);
   };
 
   const handleCompleteTask = () => {
