@@ -5,8 +5,6 @@ $labelPaddingX: $spaceFromTheLeft + 2.5rem;
 $labelPaddingY: 23px;
 $internalSquareLeft: $spaceFromTheLeft + ($internalSquareSize / 2);
 $internalSquareTop: $squareSize + ($internalSquareSize / 2);
-$dialogHeight: 9rem;
-$dialogWidth: $dialogHeight * 2;
 $toastWidth: 90vw;
 
 .MainView {
@@ -52,8 +50,6 @@ $toastWidth: 90vw;
   }
 }
 
-
-// Task
 .Task {
   justify-content: space-between;
   margin: 1rem 0;
@@ -133,14 +129,11 @@ $toastWidth: 90vw;
 
   @include defaultFlex;
 
+  @include findPostion(9rem, 18rem);
+
   background: $white;
   border: $border;
   border-radius: 0.5rem;
-  height: $dialogHeight;
-  width: $dialogWidth;
-  position: absolute;
-  top: calc((100vh - $dialogHeight) / 2);
-  left: calc((100vw - $dialogWidth) / 2);
   flex-direction: column;
   z-index: 1001;
 

@@ -1,0 +1,116 @@
+.AddEditTask {
+
+  @include defaultFlex;
+
+  align-items: inherit;
+  background: $white;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 0 1rem;
+  padding-top: 3rem;
+
+  &__buttons {
+
+    @include defaultFlex;
+
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    button {
+      align-items: center;
+    }
+  }
+
+  &__goBack svg {
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+
+  &__confirm button {
+
+    color: $dodger-blue;
+
+    &:disabled {
+      color: $silver;
+    }
+  }
+
+  &__textarea {
+
+    @include defaultFlex;
+  
+    align-items: flex-start;
+    flex-direction: column;
+    font-family: $textFont;
+  
+    label,
+    textarea {
+      margin-bottom: 2rem;
+    }
+
+    label {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    textarea {
+      border: 0;
+      resize: none;
+  
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+  }
+}
+
+.AddEditTask__choice {
+
+  margin-bottom: 1.5rem;
+  
+  &-label {
+
+    @include defaultFlex;
+
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+
+    svg {
+      margin: 0;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &-radio-wrapper {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &-radio {
+
+    @include defaultFlex;
+  
+    border: $border;
+  
+    label {
+      display: block;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &--speed .AddEditTask__choice-radio.-selected {
+    background: $salmon;
+  }
+  
+  &--urgency .AddEditTask__choice-radio.-selected {
+    background: $cornflower-blue;
+  }
+  
+  &--fun .AddEditTask__choice-radio.-selected {
+    background: $heliotrope;
+  }
+}

@@ -5,18 +5,18 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 // State
-import { useAppDispatch } from '../state/hooks';
-import { addTask, editTask } from '../state/taskSlice';
+import { useAppDispatch } from '../../state/hooks';
+import { addTask, editTask } from '../../state/taskSlice';
 
 // Components
-import Button from '../components/core/Button';
-import TextArea from '../components/core/TextArea';
-import Speed from '../components/Speed';
-import Urgency from '../components/Urgency';
-import Fun from '../components/Fun';
+import Button from '../../components/core/Button';
+import TextArea from '../../components/core/TextArea';
+import Speed from '../../components/Speed';
+import Urgency from '../../components/Urgency';
+import Fun from '../../components/Fun';
 
 // CopyText
-import copyText from '../assets/copyText';
+import copyText from '../../assets/copyText';
 
 interface AddEditViewProps {
   itemText: string;

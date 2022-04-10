@@ -17,7 +17,7 @@ import store from './state/store';
 import LandingView from './views/LandingView/LandingView';
 import IntroView1 from './views/IntroView1/IntroView1';
 import MainView from './views/MainView/MainView';
-import AddEditView from './views/AddEditView';
+import AddEditView from './views/AddEditView/AddEditView';
 
 const persistor = persistStore(store);
 
