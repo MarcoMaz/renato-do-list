@@ -8,6 +8,7 @@ import Button from '../../components/core/Button';
 import Headline from '../../components/core/Headline';
 import Image from '../../components/core/Image';
 import SectionParagraphs from '../../components/core/SectionParagraphs';
+import renatoImg2 from '../../assets/images/renato_2.jpg';
 
 // CopyText
 import copyText from '../../assets/copyText';
@@ -15,8 +16,7 @@ import copyText from '../../assets/copyText';
 export const IntroView1: FunctionComponent = () => {
   const { headline } = copyText.general;
   const { subheadline, arrayOfParagraphs } = copyText.introView1;
-  const { alt, srcUrl } = copyText.introView1.image;
-  const { label } = copyText.introView1.cta;
+  const { imageAlt, ctaLabel } = copyText.introView1;
 
   return (
     <div className="IntroView1">
@@ -25,14 +25,14 @@ export const IntroView1: FunctionComponent = () => {
         label={headline}
         isFirstElement
       />
-      <Image className="IntroView1__image" alt={alt} srcUrl={srcUrl} />
+      <Image className="IntroView1__image" alt={imageAlt} srcUrl={renatoImg2} />
       <Headline className="IntroView1__subheadline" label={subheadline} />
       <SectionParagraphs
         className="IntroView1__sectionParagraphs"
         arrayOfParagraphs={arrayOfParagraphs}
       />
       <Link to="/main" className="IntroView1__button">
-        <Button type="button" label={label} arrowRight />
+        <Button type="button" label={ctaLabel} arrowRight />
       </Link>
     </div>
   );

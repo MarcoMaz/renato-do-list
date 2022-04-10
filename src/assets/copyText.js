@@ -3,24 +3,14 @@ const copyText = {
     headline: 'Renato-do list',
   },
   landingView: {
-    image: {
-      alt: 'landing-view',
-      srcUrl: '#',
-    },
-    cta: {
-      label: 'Inizia',
-    },
+    imageAlt: 'landing-view',
+    ctaLabel: 'Inizia',
   },
   introView1: {
-    image: {
-      alt: 'intro-view-1',
-      srcUrl: '#',
-    },
+    imageAlt: 'intro-view-1',
     subheadline: 'Come funziona?',
     arrayOfParagraphs: ['paragraph #1', 'paragraph #2', 'paragraph #3'],
-    cta: {
-      label: 'Ho capito',
-    },
+    ctaLabel: 'Ho capito',
   },
   modal: {
     label: 'Ma siamo sicuri?',

@@ -25,11 +25,13 @@ body {
 }
 
 figure {
-  border: 2.5px solid $black;
+  outline: 2.5px solid $black;
   box-shadow: $boxShadow;
-  min-height: 12rem;
-  margin: 0 auto;
-  width: 100%;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
 }
 
 input {

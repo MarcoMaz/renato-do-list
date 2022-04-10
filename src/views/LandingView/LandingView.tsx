@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/core/Button';
 import Headline from '../../components/core/Headline';
 import Image from '../../components/core/Image';
+import renatoImg1 from '../../assets/images/renato_1.jpg';
 
 // CopyText
 import copyText from '../../assets/copyText';
 
 export const LandingView: FunctionComponent = () => {
   const { headline } = copyText.general;
-  const { alt, srcUrl } = copyText.landingView.image;
-  const { label } = copyText.landingView.cta;
+  const { imageAlt, ctaLabel } = copyText.landingView;
 
   return (
     <div className="LandingView">
@@ -23,9 +23,13 @@ export const LandingView: FunctionComponent = () => {
         isFirstElement
         label={headline}
       />
-      <Image alt={alt} srcUrl={srcUrl} className="LandingView__image" />
+      <Image
+        alt={imageAlt}
+        srcUrl={renatoImg1}
+        className="LandingView__image"
+      />
       <Link to="/intro-1" className="LandingView__button">
-        <Button type="button" label={label} arrowRight />
+        <Button type="button" label={ctaLabel} arrowRight />
       </Link>
     </div>
   );
