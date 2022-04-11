@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/project-react-template/static/css/main.4f98e09b.chunk.css",
-    "main.js": "/project-react-template/static/js/main.a81fdd26.chunk.js",
-    "main.js.map": "/project-react-template/static/js/main.a81fdd26.chunk.js.map",
-    "runtime-main.js": "/project-react-template/static/js/runtime-main.73aec463.js",
-    "runtime-main.js.map": "/project-react-template/static/js/runtime-main.73aec463.js.map",
-    "static/js/2.3144849c.chunk.js": "/project-react-template/static/js/2.3144849c.chunk.js",
-    "static/js/2.3144849c.chunk.js.map": "/project-react-template/static/js/2.3144849c.chunk.js.map",
-    "static/js/3.08ae2f8b.chunk.js": "/project-react-template/static/js/3.08ae2f8b.chunk.js",
-    "static/js/3.08ae2f8b.chunk.js.map": "/project-react-template/static/js/3.08ae2f8b.chunk.js.map",
-    "index.html": "/project-react-template/index.html",
-    "service-worker.js": "/project-react-template/service-worker.js",
-    "service-worker.js.map": "/project-react-template/service-worker.js.map",
-    "static/css/main.4f98e09b.chunk.css.map": "/project-react-template/static/css/main.4f98e09b.chunk.css.map",
-    "static/js/2.3144849c.chunk.js.LICENSE.txt": "/project-react-template/static/js/2.3144849c.chunk.js.LICENSE.txt"
+    "main.css": "/renato-do-list/static/css/main.c4ce581e.chunk.css",
+    "main.js": "/renato-do-list/static/js/main.0d88911d.chunk.js",
+    "main.js.map": "/renato-do-list/static/js/main.0d88911d.chunk.js.map",
+    "runtime-main.js": "/renato-do-list/static/js/runtime-main.e04918a6.js",
+    "runtime-main.js.map": "/renato-do-list/static/js/runtime-main.e04918a6.js.map",
+    "static/js/2.445c49bb.chunk.js": "/renato-do-list/static/js/2.445c49bb.chunk.js",
+    "static/js/2.445c49bb.chunk.js.map": "/renato-do-list/static/js/2.445c49bb.chunk.js.map",
+    "static/js/3.2779003e.chunk.js": "/renato-do-list/static/js/3.2779003e.chunk.js",
+    "static/js/3.2779003e.chunk.js.map": "/renato-do-list/static/js/3.2779003e.chunk.js.map",
+    "index.html": "/renato-do-list/index.html",
+    "service-worker.js": "/renato-do-list/service-worker.js",
+    "service-worker.js.map": "/renato-do-list/service-worker.js.map",
+    "static/css/main.c4ce581e.chunk.css.map": "/renato-do-list/static/css/main.c4ce581e.chunk.css.map",
+    "static/js/2.445c49bb.chunk.js.LICENSE.txt": "/renato-do-list/static/js/2.445c49bb.chunk.js.LICENSE.txt",
+    "static/media/renato_1.c380084b.jpg": "/renato-do-list/static/media/renato_1.c380084b.jpg",
+    "static/media/renato_2.91ad4da8.jpg": "/renato-do-list/static/media/renato_2.91ad4da8.jpg",
+    "static/media/taaac.a8a97478.mp3": "/renato-do-list/static/media/taaac.a8a97478.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.73aec463.js",
-    "static/js/2.3144849c.chunk.js",
-    "static/css/main.4f98e09b.chunk.css",
-    "static/js/main.a81fdd26.chunk.js"
+    "static/js/runtime-main.e04918a6.js",
+    "static/js/2.445c49bb.chunk.js",
+    "static/css/main.c4ce581e.chunk.css",
+    "static/js/main.0d88911d.chunk.js"
   ]
 }
