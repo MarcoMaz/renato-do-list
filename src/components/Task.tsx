@@ -10,6 +10,7 @@ import { highlightTask, toggleTask } from '../state/taskSlice';
 // Components
 import Button from './core/Button';
 import Checkbox from './core/Checkbox';
+import taaacSound from '../assets/sounds/taaac.mp3';
 
 interface TaskProps {
   id: number;
@@ -55,6 +56,7 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const handleCompleteTask = () => {
     dispatch(toggleTask(id));
+    if (!isCompleted) new Audio(taaacSound).play();
   };
 
   const handleRemoveDialog = () => {
