@@ -6,6 +6,7 @@ $labelPaddingY: 23px;
 $internalSquareLeft: $spaceFromTheLeft + ($internalSquareSize / 2);
 $internalSquareTop: $squareSize + ($internalSquareSize / 2);
 $toastWidth: 90vw;
+$toastWidthLeft: 5vw;
 
 .MainView {
   background: $supernova;
@@ -164,7 +165,7 @@ $toastWidth: 90vw;
   bottom: 2rem;
   color: $white;
   display: block;
-  left: calc((100vw - $toastWidth) / 2);
+  left: $toastWidthLeft;
   margin: 0 auto;
   padding: 2rem;
   position: absolute;
