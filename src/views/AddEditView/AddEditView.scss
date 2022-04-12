@@ -118,4 +118,11 @@
   &--fun .AddEditTask__choice-radio.-selected {
     background: $heliotrope;
   }
+
+  &--urgency,
+  &--fun {
+    .AddEditTask__choice-radio-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  } 
 }
