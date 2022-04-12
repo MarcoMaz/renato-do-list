@@ -36,12 +36,13 @@ $toastWidthLeft: 5vw;
     width: 3.5rem;
 
     button {
-
-      @include defaultFlex;
-
-      border-radius: 50%;
       color: $white;
       font-size: 2rem;
+      margin: 0 auto;
+
+      svg {
+        margin: 0;
+      }
     }
   }
 }
