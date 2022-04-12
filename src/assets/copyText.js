@@ -20,13 +20,13 @@ const copyText = {
   toastLabel: 'Hai rimosso una task',
   speed: {
     headline: {
-      headlineLabel: 'Quanto dura?',
+      headlineLabel: "Quanto e' veloce?",
     },
     name: 'speed option',
     options: [
       {
         id: 1,
-        label: 'poco',
+        label: 'veloce',
       },
       {
         id: 2,
@@ -34,7 +34,7 @@ const copyText = {
       },
       {
         id: 3,
-        label: 'tanto',
+        label: 'lento',
       },
     ],
   },
