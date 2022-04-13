@@ -70,17 +70,3 @@ svg {
     }
   }
 }
-
-.TasksTodo__headlineWrapper,
-.TasksDone__headlineWrapper {
-
-  @include defaultFlex;
-
-  border-bottom: $border;
-  justify-content: space-between;
-
-  svg {
-    font-size: 2rem;
-    margin: 0;
-  }
-}

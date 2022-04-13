@@ -17,8 +17,56 @@ $toastWidthLeft: 5vw;
     max-width: 12rem;
   }
 
+  .TasksTodo__headlineWrapper,
+  .TasksDone__headlineWrapper {
+
+    @include defaultFlex;
+
+    border-bottom: $border;
+    justify-content: space-between;
+    width: 100%;
+
+    svg {
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+
   &__tasksTodo {
     margin-bottom: 2rem;
+
+    .TasksTodo__tasksWrapper {
+      display: none;
+    }
+
+    &.-open {
+
+      .TasksTodo__headlineWrapper svg {
+        transform: scale(-1);
+      }
+
+      .TasksTodo__tasksWrapper {
+        display: block;
+      }
+    }
+  }
+
+  &__tasksDone {
+
+    .TasksDone__tasksWrapper {
+      display: none;
+    }
+
+    &.-open {
+
+      .TasksDone__headlineWrapper svg {
+        transform: scale(-1);
+      }
+
+      .TasksDone__tasksWrapper {
+        display: block;
+      }
+    }
   }
 
   &__addButton {

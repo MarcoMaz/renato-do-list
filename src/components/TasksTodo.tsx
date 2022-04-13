@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 // Icons
 import { FiChevronUp } from 'react-icons/fi';
@@ -46,12 +46,26 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
 
   const taskCounter = tasksTotal === 0 ? '(vuoto)' : `(${counter})`;
 
+  const [isAccordionOpen, setIsAccordionOpen] = useState(true);
+
+  const handleAccordion = () => {
+    if (isAccordionOpen) {
+      setIsAccordionOpen(false);
+    } else {
+      setIsAccordionOpen(true);
+    }
+  };
+
   return (
-    <div className={className}>
-      <div className="TasksTodo__headlineWrapper">
+    <div className={`${className}${isAccordionOpen ? ' -open' : ''}`}>
+      <button
+        onClick={handleAccordion}
+        type="button"
+        className="TasksTodo__headlineWrapper"
+      >
         <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
         <FiChevronUp />
-      </div>
+      </button>
       {tasksTodo > 0 && (
         <ul className="TasksTodo__tasksWrapper">
           {tasks
