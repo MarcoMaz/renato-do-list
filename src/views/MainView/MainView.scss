@@ -112,9 +112,20 @@ $toastWidthLeft: 5vw;
 
 .Task {
   margin: 1rem 0;
+  position: relative;
   
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &__notification-hidden {
+    align-items: center;
+    background-color: blue;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
   }
 
   &__itself {

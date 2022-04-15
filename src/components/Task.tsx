@@ -101,6 +101,7 @@ const Task: FunctionComponent<TaskProps> = ({
 
   return (
     <li className="Task">
+      <div className="Task__notification-hidden">Notification Hidden</div>
       <div
         className="Task__itself"
         ref={ref}
