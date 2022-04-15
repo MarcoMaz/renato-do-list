@@ -112,9 +112,14 @@ $toastWidthLeft: 5vw;
 
 .Task {
   margin: 1rem 0;
-
+  
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &__itself {
+    display: flex;
+    width: 100%;
   }
 
   &__checkbox,

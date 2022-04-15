@@ -1,4 +1,7 @@
-import { FunctionComponent } from 'react';
+/* eslint-disable no-console */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -45,6 +48,38 @@ const Task: FunctionComponent<TaskProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
+  const [clicked, setClicked] = useState(false);
+  const [clickDragPosition, setClickDragPosition] = useState(0);
+  const ref: any = useRef();
+
+  let taskWidth;
+  let clickDragHalfWay;
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.style.transform = `translateX(${clickDragPosition}px`;
+    }
+
+    taskWidth = ref.current.getBoundingClientRect().width;
+    clickDragHalfWay = (taskWidth * 50) / 100;
+
+    if (clickDragPosition > clickDragHalfWay) {
+      dispatch(toggleTask(id));
+    }
+  }, [clickDragPosition]);
+
+  const onMouseMove = (event: any) => {
+    if (clicked) setClickDragPosition(clickDragPosition + event.movementX);
+  };
+
+  const onMouseDown = () => {
+    setClicked(true);
+  };
+
+  const onMouseUp = () => {
+    setClicked(false);
+  };
+
   const handleModifyTask = () => {
     setSpeed(speed);
     setUrgency(urgency);
@@ -66,22 +101,30 @@ const Task: FunctionComponent<TaskProps> = ({
 
   return (
     <li className="Task">
-      <Checkbox
-        label={label}
-        value={id}
-        isChecked={isCompleted}
-        onChange={handleCompleteTask}
-      />
-      <div className="Task__buttons">
-        <Link to="add-edit" className="Task__edit">
-          <Button editSign type="button" onClick={handleModifyTask} />
-        </Link>
-        <Button
-          className="Task__trash"
-          trashSign
-          type="button"
-          onClick={handleRemoveDialog}
+      <div
+        className="Task__itself"
+        ref={ref}
+        onMouseMove={onMouseMove}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+      >
+        <Checkbox
+          label={label}
+          value={id}
+          isChecked={isCompleted}
+          onChange={handleCompleteTask}
         />
+        <div className="Task__buttons">
+          <Link to="add-edit" className="Task__edit">
+            <Button editSign type="button" onClick={handleModifyTask} />
+          </Link>
+          <Button
+            className="Task__trash"
+            trashSign
+            type="button"
+            onClick={handleRemoveDialog}
+          />
+        </div>
       </div>
     </li>
   );
