@@ -49,10 +49,12 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
   const [isAccordionOpen, setIsAccordionOpen] = useState(true);
 
   const handleAccordion = () => {
-    if (isAccordionOpen) {
-      setIsAccordionOpen(false);
-    } else {
-      setIsAccordionOpen(true);
+    if (tasksTodo !== 0) {
+      if (isAccordionOpen) {
+        setIsAccordionOpen(false);
+      } else {
+        setIsAccordionOpen(true);
+      }
     }
   };
 
@@ -62,6 +64,7 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
         onClick={handleAccordion}
         type="button"
         className="TasksTodo__headlineWrapper"
+        style={{ cursor: tasksTodo > 0 ? 'pointer' : 'default' }}
       >
         <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
         <FiChevronUp />

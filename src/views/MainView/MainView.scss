@@ -154,6 +154,10 @@ $toastWidthLeft: 5vw;
       top: 0;
       white-space: nowrap;
       width: 100%;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   
