@@ -93,6 +93,21 @@ $toastWidthLeft: 5vw;
       }
     }
   }
+
+  @include tablet-viewport {
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &__headline {
+      grid-column: span 2;
+    }
+
+    &__tasksTodo,
+    &__tasksDone {
+      grid-column: span 1;
+    }
+  }
 }
 
 .Task {

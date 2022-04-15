@@ -10,4 +10,15 @@
   &__image {
     margin-bottom: 11rem;
   }
+
+  @include tablet-viewport {
+
+    &__image {
+      margin-bottom: 7rem;
+
+      img {
+        max-height: 16rem;
+      }
+    }
+  }
 }
