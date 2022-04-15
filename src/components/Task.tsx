@@ -50,20 +50,35 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const [clicked, setClicked] = useState(false);
   const [clickDragPosition, setClickDragPosition] = useState(0);
-  const ref: any = useRef();
+  const refTaskItself: any = useRef();
+  const refNotificationHidden: any = useRef();
 
   let taskWidth;
   let clickDragHalfWay;
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.style.transform = `translateX(${clickDragPosition}px`;
-    }
-
-    taskWidth = ref.current.getBoundingClientRect().width;
+    taskWidth = refTaskItself.current.getBoundingClientRect().width;
     clickDragHalfWay = (taskWidth * 50) / 100;
 
-    if (clickDragPosition > clickDragHalfWay) {
+    const EndpointRight = clickDragPosition > clickDragHalfWay;
+    const EndpointLeft = clickDragPosition < -clickDragHalfWay;
+    const clickDragRight = clickDragPosition > 0;
+    const clickDragLeft = clickDragPosition < 0;
+
+    if (refTaskItself.current) {
+      refTaskItself.current.style.transform = `translateX(${clickDragPosition}px`;
+    }
+
+    if (refNotificationHidden.current) {
+      if (clickDragRight) {
+        refNotificationHidden.current.style.background = 'red';
+      }
+      if (clickDragLeft) {
+        refNotificationHidden.current.style.background = 'green';
+      }
+    }
+
+    if (EndpointRight || EndpointLeft) {
       dispatch(toggleTask(id));
     }
   }, [clickDragPosition]);
@@ -101,10 +116,12 @@ const Task: FunctionComponent<TaskProps> = ({
 
   return (
     <li className="Task">
-      <div className="Task__notification-hidden">Notification Hidden</div>
+      <div className="Task__notification-hidden" ref={refNotificationHidden}>
+        Notification Hidden
+      </div>
       <div
         className="Task__itself"
-        ref={ref}
+        ref={refTaskItself}
         onMouseMove={onMouseMove}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
