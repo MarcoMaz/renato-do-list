@@ -26,7 +26,7 @@ const copyText = {
     options: [
       {
         id: 1,
-        label: 'veloce',
+        label: 'lento',
       },
       {
         id: 2,
@@ -34,7 +34,7 @@ const copyText = {
       },
       {
         id: 3,
-        label: 'lento',
+        label: 'veloce',
       },
     ],
   },
