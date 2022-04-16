@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 
 // Router
@@ -50,48 +49,52 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const [clicked, setClicked] = useState(false);
   const [clickDragPosition, setClickDragPosition] = useState(0);
-  const refTaskItself: any = useRef();
-  const refNotificationHidden: any = useRef();
+  const [positionInitialClick, setPositionInitialClick] = useState(0);
+  const [positionFinalClick, setPositionFinalClick] = useState(0);
+  const refTaskItself = useRef<HTMLDivElement>(null);
 
-  let taskWidth;
-  let clickDragHalfWay;
+  const THRESHOLD_LEFT = -500;
+  const THRESHOLD_RIGHT = 200;
+
+  let distanceBetweenClicks;
+
+  const notficationStyling =
+    clickDragPosition > 0 ? { background: 'red' } : { background: 'green' };
 
   useEffect(() => {
-    taskWidth = refTaskItself.current.getBoundingClientRect().width;
-    clickDragHalfWay = (taskWidth * 50) / 100;
-
-    const EndpointRight = clickDragPosition > clickDragHalfWay;
-    const EndpointLeft = clickDragPosition < -clickDragHalfWay;
-    const clickDragRight = clickDragPosition > 0;
-    const clickDragLeft = clickDragPosition < 0;
+    distanceBetweenClicks = positionFinalClick - positionInitialClick;
 
     if (refTaskItself.current) {
       refTaskItself.current.style.transform = `translateX(${clickDragPosition}px`;
     }
 
-    if (refNotificationHidden.current) {
-      if (clickDragRight) {
-        refNotificationHidden.current.style.background = 'red';
-      }
-      if (clickDragLeft) {
-        refNotificationHidden.current.style.background = 'green';
-      }
-    }
-
-    if (EndpointRight || EndpointLeft) {
+    if (
+      distanceBetweenClicks > THRESHOLD_RIGHT ||
+      distanceBetweenClicks < -THRESHOLD_LEFT
+    ) {
       dispatch(toggleTask(id));
     }
-  }, [clickDragPosition]);
+  }, [
+    clickDragPosition,
+    positionInitialClick,
+    positionFinalClick,
+    distanceBetweenClicks,
+  ]);
 
   const onMouseMove = (event: any) => {
-    if (clicked) setClickDragPosition(clickDragPosition + event.movementX);
+    if (clicked) setClickDragPosition(clickDragPosition + event.movementX / 2);
   };
 
-  const onMouseDown = () => {
+  const onMouseDown = (e: any) => {
+    const clickedElement = e.target.getBoundingClientRect();
+    const firstClickPosition = e.clientX - clickedElement.left;
+    setPositionInitialClick(firstClickPosition);
     setClicked(true);
   };
 
-  const onMouseUp = () => {
+  const onMouseUp = (e: any) => {
+    const lastClickPosition = e.clientX;
+    setPositionFinalClick(lastClickPosition - positionInitialClick);
     setClicked(false);
   };
 
@@ -116,7 +119,7 @@ const Task: FunctionComponent<TaskProps> = ({
 
   return (
     <li className="Task">
-      <div className="Task__notification-hidden" ref={refNotificationHidden}>
+      <div className="Task__notification-hidden" style={notficationStyling}>
         Notification Hidden
       </div>
       <div
