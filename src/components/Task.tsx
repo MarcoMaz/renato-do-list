@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
+
+// import ICONS
+import { FiCheckCircle } from 'react-icons/fi';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -53,13 +57,12 @@ const Task: FunctionComponent<TaskProps> = ({
   const [positionFinalClick, setPositionFinalClick] = useState(0);
   const refTaskItself = useRef<HTMLDivElement>(null);
 
+  const taskItselfStyling = clickDragPosition !== 0 ? '-isMoving' : '';
+
   const THRESHOLD_LEFT = -500;
   const THRESHOLD_RIGHT = 200;
 
   let distanceBetweenClicks;
-
-  const notficationStyling =
-    clickDragPosition > 0 ? { background: 'red' } : { background: 'green' };
 
   useEffect(() => {
     distanceBetweenClicks = positionFinalClick - positionInitialClick;
@@ -70,7 +73,7 @@ const Task: FunctionComponent<TaskProps> = ({
 
     if (
       distanceBetweenClicks > THRESHOLD_RIGHT ||
-      distanceBetweenClicks < -THRESHOLD_LEFT
+      distanceBetweenClicks < THRESHOLD_LEFT
     ) {
       dispatch(toggleTask(id));
     }
@@ -82,20 +85,26 @@ const Task: FunctionComponent<TaskProps> = ({
   ]);
 
   const onMouseMove = (event: any) => {
-    if (clicked) setClickDragPosition(clickDragPosition + event.movementX / 2);
+    if (!isCompleted && clicked) {
+      setClickDragPosition(clickDragPosition + event.movementX / 2);
+    }
   };
 
   const onMouseDown = (e: any) => {
-    const clickedElement = e.target.getBoundingClientRect();
-    const firstClickPosition = e.clientX - clickedElement.left;
-    setPositionInitialClick(firstClickPosition);
-    setClicked(true);
+    if (!isCompleted) {
+      const clickedElement = e.target.getBoundingClientRect();
+      const firstClickPosition = e.clientX - clickedElement.left;
+      setPositionInitialClick(firstClickPosition);
+      setClicked(true);
+    }
   };
 
   const onMouseUp = (e: any) => {
-    const lastClickPosition = e.clientX;
-    setPositionFinalClick(lastClickPosition - positionInitialClick);
-    setClicked(false);
+    if (!isCompleted) {
+      const lastClickPosition = e.clientX;
+      setPositionFinalClick(lastClickPosition - positionInitialClick);
+      setClicked(false);
+    }
   };
 
   const handleModifyTask = () => {
@@ -119,11 +128,18 @@ const Task: FunctionComponent<TaskProps> = ({
 
   return (
     <li className="Task">
-      <div className="Task__notification-hidden" style={notficationStyling}>
-        Notification Hidden
+      <div
+        className={`Task__notification-hidden ${
+          clickDragPosition !== 0 ? '-isMoving' : ''
+        }${clickDragPosition < 0 ? ' -left' : ''}
+       `}
+      >
+        <div className="Task__notification-hidden__icon">
+          <FiCheckCircle />
+        </div>
       </div>
       <div
-        className="Task__itself"
+        className={`Task__itself ${taskItselfStyling}`}
         ref={refTaskItself}
         onMouseMove={onMouseMove}
         onMouseDown={onMouseDown}
