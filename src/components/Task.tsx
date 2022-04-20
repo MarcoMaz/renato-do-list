@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 
 // import ICONS
 import { FiCheckCircle } from 'react-icons/fi';
@@ -51,61 +52,15 @@ const Task: FunctionComponent<TaskProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const [clicked, setClicked] = useState(false);
   const [clickDragPosition, setClickDragPosition] = useState(0);
-  const [positionInitialClick, setPositionInitialClick] = useState(0);
-  const [positionFinalClick, setPositionFinalClick] = useState(0);
   const refTaskItself = useRef<HTMLDivElement>(null);
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const taskItselfStyling = clickDragPosition !== 0 ? '-isMoving' : '';
 
-  const THRESHOLD_LEFT = -500;
-  const THRESHOLD_RIGHT = 200;
-
   let distanceBetweenClicks;
-
-  useEffect(() => {
-    distanceBetweenClicks = positionFinalClick - positionInitialClick;
-
-    if (refTaskItself.current) {
-      refTaskItself.current.style.transform = `translateX(${clickDragPosition}px`;
-    }
-
-    if (
-      distanceBetweenClicks > THRESHOLD_RIGHT ||
-      distanceBetweenClicks < THRESHOLD_LEFT
-    ) {
-      dispatch(toggleTask(id));
-    }
-  }, [
-    clickDragPosition,
-    positionInitialClick,
-    positionFinalClick,
-    distanceBetweenClicks,
-  ]);
-
-  const onMouseMove = (event: any) => {
-    if (!isCompleted && clicked) {
-      setClickDragPosition(clickDragPosition + event.movementX / 2);
-    }
-  };
-
-  const onMouseDown = (e: any) => {
-    if (!isCompleted) {
-      const clickedElement = e.target.getBoundingClientRect();
-      const firstClickPosition = e.clientX - clickedElement.left;
-      setPositionInitialClick(firstClickPosition);
-      setClicked(true);
-    }
-  };
-
-  const onMouseUp = (e: any) => {
-    if (!isCompleted) {
-      const lastClickPosition = e.clientX;
-      setPositionFinalClick(lastClickPosition - positionInitialClick);
-      setClicked(false);
-    }
-  };
 
   const handleModifyTask = () => {
     setSpeed(speed);
@@ -126,6 +81,36 @@ const Task: FunctionComponent<TaskProps> = ({
     if (setShowModal) setShowModal(true);
   };
 
+  const onTouchStart = (e: any) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  let next;
+  let prev;
+
+  const onTouchMove = (e: any) => {
+    next = e.targetTouches[0].clientX;
+    prev = next - 1;
+
+    if (touchEnd !== 0) {
+      if (touchStart <= touchEnd) {
+        setClickDragPosition(clickDragPosition + (next - prev) * 6);
+      } else {
+        setClickDragPosition(clickDragPosition + (next - prev) * -6);
+      }
+    }
+
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    distanceBetweenClicks = touchStart! - touchEnd!;
+
+    if (distanceBetweenClicks > 100 || distanceBetweenClicks < -44) {
+      dispatch(toggleTask(id));
+    }
+  };
+
   return (
     <li className="Task">
       <div
@@ -141,9 +126,10 @@ const Task: FunctionComponent<TaskProps> = ({
       <div
         className={`Task__itself ${taskItselfStyling}`}
         ref={refTaskItself}
-        onMouseMove={onMouseMove}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        style={{ transform: `translateX(${clickDragPosition}px` }}
       >
         <Checkbox
           label={label}
