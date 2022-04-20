@@ -54,9 +54,12 @@ const Task: FunctionComponent<TaskProps> = ({
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  const taskItselfStyling = clickDragPosition !== 0 ? '-isMoving' : '';
+  const taskStyling = clickDragPosition !== 0 ? '-isMoving' : '';
+  const THRESHOLD_IN_PIXELS = 100;
 
   let distanceBetweenClicks;
+  let nextTouchEvent;
+  let previousTouchEvent;
 
   const handleModifyTask = () => {
     setSpeed(speed);
@@ -81,18 +84,20 @@ const Task: FunctionComponent<TaskProps> = ({
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  let next;
-  let prev;
-
   const onTouchMove = (e: any) => {
-    next = e.targetTouches[0].clientX;
-    prev = next - 1;
+    nextTouchEvent = e.targetTouches[0].clientX;
+    previousTouchEvent = nextTouchEvent - 1;
+
+    const swipeRight =
+      clickDragPosition + (nextTouchEvent - previousTouchEvent) * 6;
+    const swipeLeft =
+      clickDragPosition + (nextTouchEvent - previousTouchEvent) * -6;
 
     if (touchEnd !== 0) {
       if (touchStart <= touchEnd) {
-        setClickDragPosition(clickDragPosition + (next - prev) * 6);
+        setClickDragPosition(swipeRight);
       } else {
-        setClickDragPosition(clickDragPosition + (next - prev) * -6);
+        setClickDragPosition(swipeLeft);
       }
     }
 
@@ -102,7 +107,10 @@ const Task: FunctionComponent<TaskProps> = ({
   const onTouchEnd = () => {
     distanceBetweenClicks = touchStart - touchEnd;
 
-    if (distanceBetweenClicks < 100 || distanceBetweenClicks > -100) {
+    if (
+      distanceBetweenClicks < THRESHOLD_IN_PIXELS ||
+      distanceBetweenClicks > -THRESHOLD_IN_PIXELS
+    ) {
       handleCompleteTask();
     }
   };
@@ -110,9 +118,9 @@ const Task: FunctionComponent<TaskProps> = ({
   return (
     <li className="Task">
       <div
-        className={`Task__notification-hidden ${
-          clickDragPosition !== 0 ? '-isMoving' : ''
-        }${clickDragPosition < 0 ? ' -left' : ''}
+        className={`Task__notification-hidden ${taskStyling}${
+          clickDragPosition < 0 ? ' -left' : ''
+        }
        `}
       >
         <div className="Task__notification-hidden__icon">
@@ -120,7 +128,7 @@ const Task: FunctionComponent<TaskProps> = ({
         </div>
       </div>
       <div
-        className={`Task__itself ${taskItselfStyling}`}
+        className={`Task__itself ${taskStyling}`}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
