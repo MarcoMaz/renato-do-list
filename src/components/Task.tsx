@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { FunctionComponent, useRef, useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 // import ICONS
 import { FiCheckCircle } from 'react-icons/fi';
@@ -53,8 +51,6 @@ const Task: FunctionComponent<TaskProps> = ({
   const dispatch = useAppDispatch();
 
   const [clickDragPosition, setClickDragPosition] = useState(0);
-  const refTaskItself = useRef<HTMLDivElement>(null);
-
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
@@ -104,10 +100,10 @@ const Task: FunctionComponent<TaskProps> = ({
   };
 
   const onTouchEnd = () => {
-    distanceBetweenClicks = touchStart! - touchEnd!;
+    distanceBetweenClicks = touchStart - touchEnd;
 
-    if (distanceBetweenClicks > 100 || distanceBetweenClicks < -44) {
-      dispatch(toggleTask(id));
+    if (distanceBetweenClicks < 100 || distanceBetweenClicks > -100) {
+      handleCompleteTask();
     }
   };
 
@@ -125,7 +121,6 @@ const Task: FunctionComponent<TaskProps> = ({
       </div>
       <div
         className={`Task__itself ${taskItselfStyling}`}
-        ref={refTaskItself}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
