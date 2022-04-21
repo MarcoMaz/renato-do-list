@@ -67,7 +67,7 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
         style={{ cursor: tasksTodo > 0 ? 'pointer' : 'default' }}
       >
         <Headline label={`${tasksTodoHeadline} ${taskCounter}`} />
-        <FiChevronUp />
+        {tasksTodo > 0 && <FiChevronUp />}
       </button>
       {tasksTodo > 0 && (
         <ul className="TasksTodo__tasksWrapper">
