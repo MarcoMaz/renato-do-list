@@ -81,37 +81,40 @@ const Task: FunctionComponent<TaskProps> = ({
   };
 
   const onTouchStart = (e: any) => {
-    setTouchStart(e.targetTouches[0].clientX);
+    if (!isCompleted) setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e: any) => {
-    nextTouchEvent = e.targetTouches[0].clientX;
-    previousTouchEvent = nextTouchEvent - 1;
+    if (!isCompleted) {
+      nextTouchEvent = e.targetTouches[0].clientX;
+      previousTouchEvent = nextTouchEvent - 1;
 
-    const swipeRight =
-      clickDragPosition + (nextTouchEvent - previousTouchEvent) * 6;
-    const swipeLeft =
-      clickDragPosition + (nextTouchEvent - previousTouchEvent) * -6;
+      const swipeRight =
+        clickDragPosition + (nextTouchEvent - previousTouchEvent) * 6;
+      const swipeLeft =
+        clickDragPosition + (nextTouchEvent - previousTouchEvent) * -6;
 
-    if (touchEnd !== 0) {
-      if (touchStart <= touchEnd) {
-        setClickDragPosition(swipeRight);
-      } else {
-        setClickDragPosition(swipeLeft);
+      if (touchEnd !== 0) {
+        if (touchStart <= touchEnd) {
+          setClickDragPosition(swipeRight);
+        } else {
+          setClickDragPosition(swipeLeft);
+        }
       }
+      setTouchEnd(e.targetTouches[0].clientX);
     }
-
-    setTouchEnd(e.targetTouches[0].clientX);
   };
 
   const onTouchEnd = () => {
-    distanceBetweenClicks = touchStart - touchEnd;
+    if (!isCompleted) {
+      distanceBetweenClicks = touchStart - touchEnd;
 
-    if (
-      distanceBetweenClicks < THRESHOLD_IN_PIXELS ||
-      distanceBetweenClicks > -THRESHOLD_IN_PIXELS
-    ) {
-      handleCompleteTask();
+      if (
+        distanceBetweenClicks < THRESHOLD_IN_PIXELS ||
+        distanceBetweenClicks > -THRESHOLD_IN_PIXELS
+      ) {
+        handleCompleteTask();
+      }
     }
   };
 
@@ -141,9 +144,11 @@ const Task: FunctionComponent<TaskProps> = ({
           onChange={handleCompleteTask}
         />
         <div className="Task__buttons">
-          <Link to="add-edit" className="Task__edit">
-            <Button editSign type="button" onClick={handleModifyTask} />
-          </Link>
+          {!isCompleted && (
+            <Link to="add-edit" className="Task__edit">
+              <Button editSign type="button" onClick={handleModifyTask} />
+            </Link>
+          )}
           <Button
             className="Task__trash"
             trashSign
