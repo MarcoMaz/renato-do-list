@@ -132,15 +132,15 @@ const Task: FunctionComponent<TaskProps> = ({
       </div>
       <div
         className={`Task__itself ${taskStyling}`}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
         style={{ transform: `translateX(${clickDragPosition}px` }}
       >
         <Checkbox
           label={label}
           value={id}
           isChecked={isCompleted}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
           onChange={handleCompleteTask}
         />
         <div className="Task__buttons">
