@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/button-has-type */
 import { FunctionComponent } from 'react';
 
@@ -22,7 +23,7 @@ interface ButtonProps {
   trashSign?: boolean;
   plusSign?: boolean;
   editSign?: boolean;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
