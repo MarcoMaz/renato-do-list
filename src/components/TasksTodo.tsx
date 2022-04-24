@@ -25,6 +25,7 @@ interface TasksTodoProps {
   setItemText: (event: string) => void;
   setModifyTask: (event: boolean) => void;
   setShowModal: (event: boolean) => void;
+  setShowToast: (event: boolean) => void;
 }
 
 const TasksTodo: FunctionComponent<TasksTodoProps> = ({
@@ -39,6 +40,7 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
   setItemText,
   setModifyTask,
   setShowModal,
+  setShowToast,
 }) => {
   const { tasksTodoHeadline } = copyText.tasks;
 
@@ -91,6 +93,7 @@ const TasksTodo: FunctionComponent<TasksTodoProps> = ({
                   setEditIndex={setEditIndex}
                   setModifyTask={setModifyTask}
                   setShowModal={setShowModal}
+                  setShowToast={setShowToast}
                 />
               );
             })}

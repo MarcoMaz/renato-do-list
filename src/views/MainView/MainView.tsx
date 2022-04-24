@@ -85,6 +85,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         setEditIndex={setEditIndex}
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
+        setShowToast={setShowToast}
       />
       <TasksDone
         className="MainView__tasksDone"

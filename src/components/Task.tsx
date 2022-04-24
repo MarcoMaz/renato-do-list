@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 // State
 import { useAppDispatch } from '../state/hooks';
-import { highlightTask, toggleTask } from '../state/taskSlice';
+import { highlightTask, toggleTask, removeTask } from '../state/taskSlice';
 
 // Components
 import Button from './core/Button';
@@ -31,6 +31,7 @@ interface TaskProps {
   setItemText: (event: string) => void;
   setModifyTask: (event: boolean) => void;
   setShowModal: (event: boolean) => void;
+  setShowToast?: (event: boolean) => void;
 }
 
 const Task: FunctionComponent<TaskProps> = ({
@@ -47,6 +48,7 @@ const Task: FunctionComponent<TaskProps> = ({
   setItemText,
   setModifyTask,
   setShowModal,
+  setShowToast,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -56,6 +58,7 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const taskStyling = clickDragPosition !== 0 ? '-isMoving' : '';
   const THRESHOLD_IN_PIXELS = 100;
+  const TOAST_SECONDS_TO_HIDE = 5000;
 
   let distanceBetweenClicks;
   let nextTouchEvent;
@@ -108,12 +111,19 @@ const Task: FunctionComponent<TaskProps> = ({
   const onTouchEnd = () => {
     if (!isCompleted) {
       distanceBetweenClicks = touchStart - touchEnd;
+      const swipeRightToEliminate = distanceBetweenClicks < THRESHOLD_IN_PIXELS;
+      const swipeLeftToConfirm = distanceBetweenClicks > -THRESHOLD_IN_PIXELS;
 
-      if (
-        distanceBetweenClicks < THRESHOLD_IN_PIXELS ||
-        distanceBetweenClicks > -THRESHOLD_IN_PIXELS
-      ) {
+      if (swipeLeftToConfirm) {
         handleCompleteTask();
+      }
+      if (swipeRightToEliminate && setShowToast) {
+        dispatch(removeTask(id));
+        setShowModal(false);
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, TOAST_SECONDS_TO_HIDE);
       }
     }
   };
