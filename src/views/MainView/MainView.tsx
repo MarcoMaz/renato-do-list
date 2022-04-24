@@ -13,6 +13,7 @@ import Headline from '../../components/core/Headline';
 import Dialog from '../../components/Dialog';
 import Modal from '../../components/Modal';
 import Toast from '../../components/Toast';
+import Taaac from '../../components/Taaac';
 import TasksTodo from '../../components/TasksTodo';
 import TasksDone from '../../components/TasksDone';
 
@@ -22,6 +23,7 @@ import copyText from '../../assets/copyText';
 interface MainViewProps {
   showModal: boolean;
   showToast: boolean;
+  showTaaac: boolean;
   setItemText: (event: string) => void;
   setEditIndex: (event: number) => void;
   setSpeed: (event: number) => void;
@@ -30,11 +32,13 @@ interface MainViewProps {
   setModifyTask: (event: boolean) => void;
   setShowModal: (event: boolean) => void;
   setShowToast: (event: boolean) => void;
+  setShowTaaac: (event: boolean) => void;
 }
 
 export const MainView: FunctionComponent<MainViewProps> = ({
   showModal,
   showToast,
+  showTaaac,
   setEditIndex,
   setItemText,
   setSpeed,
@@ -43,6 +47,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
   setModifyTask,
   setShowModal,
   setShowToast,
+  setShowTaaac,
 }) => {
   const { headline } = copyText.general;
 
@@ -86,6 +91,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         setModifyTask={setModifyTask}
         setShowModal={setShowModal}
         setShowToast={setShowToast}
+        setShowTaaac={setShowTaaac}
       />
       <TasksDone
         className="MainView__tasksDone"
@@ -111,6 +117,7 @@ export const MainView: FunctionComponent<MainViewProps> = ({
         />
       )}
       {showToast && <Toast />}
+      {showTaaac && <Taaac />}
     </div>
   );
 };

@@ -30,6 +30,7 @@ const App = () => {
   const [modifyTask, setModifyTask] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [showTaaac, setShowTaaac] = useState(false);
 
   return (
     <Provider store={store}>
@@ -52,6 +53,8 @@ const App = () => {
                   showModal={showModal}
                   showToast={showToast}
                   setShowToast={setShowToast}
+                  showTaaac={showTaaac}
+                  setShowTaaac={setShowTaaac}
                 />
               )}
             />

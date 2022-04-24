@@ -18,6 +18,7 @@ const copyText = {
     goBackButton: 'Annulla',
   },
   toastLabel: 'Hai rimosso una task',
+  taaacLabel: 'taaac',
   speed: {
     headline: {
       headlineLabel: "Quanto e' veloce?",

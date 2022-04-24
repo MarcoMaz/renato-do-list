@@ -267,3 +267,41 @@ $toastWidthLeft: 5vw;
  position: absolute;
  width: $toastWidth;
 }
+
+.Taaac {
+  align-items: center;
+  background: $supernova;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+
+  &__label {
+    bottom: 5rem;
+    color: $white;
+    font-family: $brandFont;
+    font-size: 1.5rem;
+    position: relative;
+    text-transform: uppercase;
+    
+    span {  
+      animation: move-letter 0.5s forwards;
+      background: $ebony;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes move-letter {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}

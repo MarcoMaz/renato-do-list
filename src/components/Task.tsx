@@ -32,6 +32,7 @@ interface TaskProps {
   setModifyTask: (event: boolean) => void;
   setShowModal: (event: boolean) => void;
   setShowToast?: (event: boolean) => void;
+  setShowTaaac?: (event: boolean) => void;
 }
 
 const Task: FunctionComponent<TaskProps> = ({
@@ -49,6 +50,7 @@ const Task: FunctionComponent<TaskProps> = ({
   setModifyTask,
   setShowModal,
   setShowToast,
+  setShowTaaac,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -59,6 +61,7 @@ const Task: FunctionComponent<TaskProps> = ({
   const taskStyling = clickDragPosition !== 0 ? '-isMoving' : '';
   const THRESHOLD_IN_PIXELS = 100;
   const TOAST_SECONDS_TO_HIDE = 5000;
+  const TAAAC_SECONDS_TO_HIDE = 800;
 
   let distanceBetweenClicks;
   let nextTouchEvent;
@@ -75,7 +78,13 @@ const Task: FunctionComponent<TaskProps> = ({
 
   const handleCompleteTask = () => {
     dispatch(toggleTask(id));
-    if (!isCompleted) new Audio(taaacSound).play();
+    if (!isCompleted && setShowTaaac) {
+      new Audio(taaacSound).play();
+      setShowTaaac(true);
+      setTimeout(() => {
+        setShowTaaac(false);
+      }, TAAAC_SECONDS_TO_HIDE);
+    }
   };
 
   const handleRemoveDialog = () => {
