@@ -128,11 +128,12 @@ $toastWidthLeft: 5vw;
    width: 100%;
  
    &.-isMoving {
-     background-color: $cornflower-blue;
+     background-color: $salmon;
      transition: background-color 0.2s;     
-   }
- 
-   &.-left {
+    }
+    
+    &.-left {
+     background-color: $cornflower-blue;
      justify-content: flex-end;
    }
  

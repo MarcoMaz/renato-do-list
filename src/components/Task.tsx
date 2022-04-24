@@ -3,7 +3,7 @@
 import { FunctionComponent, useState } from 'react';
 
 // import ICONS
-import { FiCheckCircle } from 'react-icons/fi';
+import { FiCheckCircle, FiTrash2 } from 'react-icons/fi';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -127,7 +127,7 @@ const Task: FunctionComponent<TaskProps> = ({
        `}
       >
         <div className="Task__notification-hidden__icon">
-          <FiCheckCircle />
+          {clickDragPosition < 0 ? <FiCheckCircle /> : <FiTrash2 />}
         </div>
       </div>
       <div
