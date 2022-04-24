@@ -1,9 +1,9 @@
-# Renato-do-list Pwa
+# Renato-do-list PWA
 [Get the PWA](https://marcomaz.github.io/renato-do-list)
 
 ## Description
 
-A to-do-list PWA tributing the italian actor Renato Pozzetto.
+A to-do-list PWA tributing the Italian actor Renato Pozzetto.
 
 ## Technologies used
 
