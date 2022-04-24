@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/renato-do-list/static/css/main.38652e14.chunk.css",
-    "main.js": "/renato-do-list/static/js/main.db86eb82.chunk.js",
-    "main.js.map": "/renato-do-list/static/js/main.db86eb82.chunk.js.map",
+    "main.css": "/renato-do-list/static/css/main.16113c17.chunk.css",
+    "main.js": "/renato-do-list/static/js/main.3009c124.chunk.js",
+    "main.js.map": "/renato-do-list/static/js/main.3009c124.chunk.js.map",
     "runtime-main.js": "/renato-do-list/static/js/runtime-main.e04918a6.js",
     "runtime-main.js.map": "/renato-do-list/static/js/runtime-main.e04918a6.js.map",
-    "static/js/2.621228ad.chunk.js": "/renato-do-list/static/js/2.621228ad.chunk.js",
-    "static/js/2.621228ad.chunk.js.map": "/renato-do-list/static/js/2.621228ad.chunk.js.map",
+    "static/js/2.b3e1bef8.chunk.js": "/renato-do-list/static/js/2.b3e1bef8.chunk.js",
+    "static/js/2.b3e1bef8.chunk.js.map": "/renato-do-list/static/js/2.b3e1bef8.chunk.js.map",
     "static/js/3.2779003e.chunk.js": "/renato-do-list/static/js/3.2779003e.chunk.js",
     "static/js/3.2779003e.chunk.js.map": "/renato-do-list/static/js/3.2779003e.chunk.js.map",
     "index.html": "/renato-do-list/index.html",
     "service-worker.js": "/renato-do-list/service-worker.js",
     "service-worker.js.map": "/renato-do-list/service-worker.js.map",
-    "static/css/main.38652e14.chunk.css.map": "/renato-do-list/static/css/main.38652e14.chunk.css.map",
-    "static/js/2.621228ad.chunk.js.LICENSE.txt": "/renato-do-list/static/js/2.621228ad.chunk.js.LICENSE.txt",
+    "static/css/main.16113c17.chunk.css.map": "/renato-do-list/static/css/main.16113c17.chunk.css.map",
+    "static/js/2.b3e1bef8.chunk.js.LICENSE.txt": "/renato-do-list/static/js/2.b3e1bef8.chunk.js.LICENSE.txt",
+    "static/media/renato-tac.875b02b8.jpg": "/renato-do-list/static/media/renato-tac.875b02b8.jpg",
     "static/media/renato_1.c380084b.jpg": "/renato-do-list/static/media/renato_1.c380084b.jpg",
     "static/media/renato_2.91ad4da8.jpg": "/renato-do-list/static/media/renato_2.91ad4da8.jpg",
     "static/media/taaac.a8a97478.mp3": "/renato-do-list/static/media/taaac.a8a97478.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.e04918a6.js",
-    "static/js/2.621228ad.chunk.js",
-    "static/css/main.38652e14.chunk.css",
-    "static/js/main.db86eb82.chunk.js"
+    "static/js/2.b3e1bef8.chunk.js",
+    "static/css/main.16113c17.chunk.css",
+    "static/js/main.3009c124.chunk.js"
   ]
 }
