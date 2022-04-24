@@ -20,7 +20,7 @@ describe('The Speed component renders', () => {
 
   it('an headline', () => {
     render(SpeedElement);
-    const speed = screen.getByText('Quanto dura?');
+    const speed = screen.getByText("Quanto e' veloce?");
     expect(speed).toBeInTheDocument();
   });
 
@@ -32,7 +32,7 @@ describe('The Speed component renders', () => {
 
   it('the first radioButton', () => {
     render(SpeedElement);
-    const speed = screen.getByText('poco');
+    const speed = screen.getByText('lento');
     expect(speed).toBeInTheDocument();
   });
 
@@ -44,7 +44,7 @@ describe('The Speed component renders', () => {
 
   it('the third radioButton', () => {
     render(SpeedElement);
-    const speed = screen.getByText('tanto');
+    const speed = screen.getByText('veloce');
     expect(speed).toBeInTheDocument();
   });
 });

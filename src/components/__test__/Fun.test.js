@@ -32,13 +32,13 @@ describe('The Fun component renders', () => {
 
   it('the first radioButton', () => {
     render(FunElement);
-    const fun = screen.getByText('divertente');
+    const fun = screen.getByText('tanto');
     expect(fun).toBeInTheDocument();
   });
 
   it('the second radioButton', () => {
     render(FunElement);
-    const fun = screen.getByText('noioso');
+    const fun = screen.getByText('poco');
     expect(fun).toBeInTheDocument();
   });
 });

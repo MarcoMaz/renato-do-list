@@ -18,9 +18,9 @@ describe('TasksDoneElement renders ', () => {
     expect(headline).toBeInTheDocument();
   });
 
-  it('an unordered list', () => {
+  it('a button', () => {
     render(TasksDoneElement);
-    const ul = screen.getByRole('list');
-    expect(ul).toBeInTheDocument();
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
   });
 });
