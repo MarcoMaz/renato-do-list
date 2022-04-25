@@ -3,7 +3,7 @@
 
 ## Description
 
-A to-do-list PWA tributing the Italian actor Renato Pozzetto.
+A to-do-list PWA with swipe touch event, tributing the Italian actor Renato Pozzetto.
 
 ## Technologies used
 
