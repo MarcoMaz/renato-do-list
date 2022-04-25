@@ -28,7 +28,7 @@ A to-do-list PWA tributing the Italian actor Renato Pozzetto.
 `npm start`
 
 ## Testing
-After install the project as explained above run `npm run test`.
+After installing the project, run `npm run test`.
 
 ## Screenshot
 ![alt text](https://raw.githubusercontent.com/MarcoMaz/images/main/image__renato-do-list.png)
