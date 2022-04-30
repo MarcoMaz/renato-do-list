@@ -20,7 +20,7 @@ export interface taskProps {
 const initialState: taskProps[] = [
   {
     id: 0,
-    label: 'batman',
+    label: 'tonno',
     isCompleted: false,
     speed: 3,
     urgency: 1,
@@ -31,7 +31,7 @@ const initialState: taskProps[] = [
   },
   {
     id: 1,
-    label: 'robin',
+    label: 'posto per commensali che non ci sono',
     isCompleted: false,
     speed: 1,
     urgency: 3,
