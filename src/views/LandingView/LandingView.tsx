@@ -27,6 +27,7 @@ export const LandingView: FunctionComponent = () => {
           backgroundImage: `url(${backgroundImageHeadline})`,
           backgroundRepeat: 'no-repeat',
           paddingLeft: '2rem',
+          paddingBottom: '2px',
         }}
       />
       <Image

@@ -11,7 +11,7 @@ const copyText = {
     subheadline: 'Come funziona?',
     arrayOfParagraphs: [
       'Alza il volume',
-      'Tocca / Swipe a destra una task e',
+      'Tocca / Swipe verso sinistra una task',
       '...taaac!',
     ],
     ctaLabel: 'Ho capito',
