@@ -31,7 +31,7 @@ export const IntroView1: FunctionComponent = () => {
         className="IntroView1__sectionParagraphs"
         arrayOfParagraphs={arrayOfParagraphs}
       />
-      <Link to="/main" className="IntroView1__button">
+      <Link to="/main-view" className="IntroView1__button">
         <Button type="button" label={ctaLabel} arrowRight />
       </Link>
     </div>

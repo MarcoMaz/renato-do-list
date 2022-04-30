@@ -101,7 +101,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
   return (
     <form className="AddEditTask">
       <div className="AddEditTask__buttons">
-        <Link to="/main" className="AddEditTask__goBack">
+        <Link to="/main-view" className="AddEditTask__goBack">
           <Button
             arrowLeft
             type="button"
@@ -110,7 +110,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
           />
         </Link>
         {!modifyTask ? (
-          <Link to="/main" className="AddEditTask__confirm">
+          <Link to="/main-view" className="AddEditTask__confirm">
             <Button
               type="submit"
               label={buttonDone}
@@ -119,7 +119,7 @@ const AddEditView: FunctionComponent<AddEditViewProps> = ({
             />
           </Link>
         ) : (
-          <Link to="/main" className="AddEditTask__confirm">
+          <Link to="/main-view" className="AddEditTask__confirm">
             <Button
               type="button"
               label={buttonDone}

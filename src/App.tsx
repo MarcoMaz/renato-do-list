@@ -40,7 +40,7 @@ const App = () => {
             <Route exact path="/renato-do-list" component={LandingView} />
             <Route path="/intro-1" component={IntroView1} />
             <Route
-              path="/main"
+              path="/main-view"
               render={() => (
                 <MainView
                   setItemText={setItemText}
