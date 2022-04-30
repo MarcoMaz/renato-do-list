@@ -15,5 +15,9 @@
   
   &__sectionParagraphs {
     margin-bottom: 4rem;
+
+    li {
+      display: list-item;
+    }
   }
 }

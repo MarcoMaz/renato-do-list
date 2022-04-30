@@ -9,7 +9,11 @@ const copyText = {
   introView1: {
     imageAlt: 'intro-view-1',
     subheadline: 'Come funziona?',
-    arrayOfParagraphs: ['paragraph #1', 'paragraph #2', 'paragraph #3'],
+    arrayOfParagraphs: [
+      'Alza il volume',
+      'Tocca / Swipe a destra una task e',
+      '...taaac!',
+    ],
     ctaLabel: 'Ho capito',
   },
   modal: {
