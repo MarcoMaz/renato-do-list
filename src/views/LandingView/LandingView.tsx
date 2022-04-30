@@ -9,8 +9,9 @@ import Headline from '../../components/core/Headline';
 import Image from '../../components/core/Image';
 import renatoImg1 from '../../assets/images/renato_1.jpg';
 
-// CopyText
+// Assets
 import copyText from '../../assets/copyText';
+import backgroundImageHeadline from '../../assets/images/renato_little-squares.png';
 
 export const LandingView: FunctionComponent = () => {
   const { headline } = copyText.general;
@@ -22,6 +23,11 @@ export const LandingView: FunctionComponent = () => {
         className="LandingView__headline"
         isFirstElement
         label={headline}
+        style={{
+          backgroundImage: `url(${backgroundImageHeadline})`,
+          backgroundRepeat: 'no-repeat',
+          paddingLeft: '2rem',
+        }}
       />
       <Image
         alt={imageAlt}
