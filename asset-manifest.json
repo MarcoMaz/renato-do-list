@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/renato-do-list/static/css/main.8a6e6a13.chunk.css",
-    "main.js": "/renato-do-list/static/js/main.65274539.chunk.js",
-    "main.js.map": "/renato-do-list/static/js/main.65274539.chunk.js.map",
+    "main.js": "/renato-do-list/static/js/main.3a21e65a.chunk.js",
+    "main.js.map": "/renato-do-list/static/js/main.3a21e65a.chunk.js.map",
     "runtime-main.js": "/renato-do-list/static/js/runtime-main.e04918a6.js",
     "runtime-main.js.map": "/renato-do-list/static/js/runtime-main.e04918a6.js.map",
     "static/js/2.b3e1bef8.chunk.js": "/renato-do-list/static/js/2.b3e1bef8.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.e04918a6.js",
     "static/js/2.b3e1bef8.chunk.js",
     "static/css/main.8a6e6a13.chunk.css",
-    "static/js/main.65274539.chunk.js"
+    "static/js/main.3a21e65a.chunk.js"
   ]
 }
